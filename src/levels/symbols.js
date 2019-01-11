@@ -5,5 +5,5 @@ export default Object.freeze({
   'lava': '*',
   'coin': 'o',
   'void': '-',
-
+  'spikes': '^',
 });
