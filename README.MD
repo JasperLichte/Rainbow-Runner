@@ -2,6 +2,6 @@
 
 A simple Jump 'n Run game written in ECMAScript2018.
 
-##Contributors
+## Contributors
 Jasper Lichte
 Harun Can
