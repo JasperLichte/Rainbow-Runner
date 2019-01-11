@@ -11,7 +11,7 @@ export default [
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x,],
-    [x, x, x, x, x, x, x, x, x, x, c, c, x, x, x, x, x, x, x, x, x, x, x, x,],
+    [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, x, x, s, s, x, x, x, x, x, x, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, x, w, w, w, w, x, x, x, x, x, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x,],
