@@ -1,0 +1,9 @@
+/* Colors */
+html {
+    --wall: rgb(90, 82, 82);
+    --coin: gold;
+    --spikes: black;
+    --lava: firebrick;
+    --player: blue;
+    --void: transparent;
+}
