@@ -1,4 +1,4 @@
-export default {
+export default Object.freeze({
 
   'wall': 'x',
   'player': '@',
@@ -6,4 +6,4 @@ export default {
   'coin': 'o',
   'void': '-',
 
-};
+});
