@@ -1,5 +1,4 @@
-import DomEngine from './render/dom/DomEngine.js';
+import render from './render/webgl/render.js';
+import levels from './levels/levels.js';
 
-import level1 from './levels/levels/level1.js';
-
-const domEngine = new DomEngine(document.getElementById('main'));
+render(levels[0]);

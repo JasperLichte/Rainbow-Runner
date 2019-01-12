@@ -4,28 +4,26 @@ import Wall from './objects/Wall.js';
 
 export default class ThreeHelper {
 
-  constructor(domParent) {
-    if (!domParent) {
-      domParent = document.body;
-    }
-    this._domParent = domParent;
-    
+  constructor() {    
     this._scene = new THREE.Scene();
+    this._scene.background = new THREE.Color(0xeeeeee);
 
     this._camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this._scene.add(this._camera);
 
-    this._renderer = new THREE.WebGLRenderer();
+    this._renderer = new THREE.WebGLRenderer({antialias: true});
+    this._renderer.setSize(window.innerWidth, window.innerHeight);
+    window.addEventListener('resize', _ => {
+      this._renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    document.body.appendChild(this._renderer.domElement);
 
     //--------------
     this.getScene = this.getScene.bind(this);
     this.getRenderer = this.getRenderer.bind(this);
-    this.appendRendererToDom = this.appendRendererToDom.bind(this);
     this.buildLevel = this.buildLevel.bind(this);
     this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
     //--------------
-
-    this.appendRendererToDom();
   }
 
   getScene() {
@@ -38,11 +36,6 @@ export default class ThreeHelper {
 
   getCamera() {
     return this._camera;
-  }
-
-  appendRendererToDom() {
-    this._renderer.setSize(window.innerWidth, window.innerHeight);
-    this._domParent.appendChild(this._renderer.domElement);
   }
 
   buildLevel(level = []) {
@@ -58,22 +51,30 @@ export default class ThreeHelper {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = ThreeHelper.getBlockByType(blockType);
         if (block) {
-          this.insertBlockIntoScene(block);
+          this.insertBlockIntoScene(block, {x, y});
         }
       }
     }
   }
 
-  insertBlockIntoScene(block) {
+  insertBlockIntoScene(block, pos) {
     if (!block) {return;}
-
-    this._scene.add(block.getCube());
+    const x = pos.x - 11.5;
+    const y = pos.y * -1 + 8;
+    
+    this._scene.add(block);
+    block.position.set(x, y, 0);
   }
 
   static getBlockByType(blockType = '') {
+    let obj = null;
     switch(blockType) {
       case 'wall':
-        return new Wall();
+        obj =  new Wall();
+    }
+
+    if (obj && obj.getCube) {
+      return obj.getCube();
     }
     return null;
   }
