@@ -1,4 +1,6 @@
 const THREE = window.THREE;
+
+import colors from './../colors.js';
 import LevelHelper from './../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 
@@ -6,13 +8,10 @@ export default class ThreeHelper {
 
   constructor() {    
     this._scene = new THREE.Scene();
-    this._scene.background = new THREE.Color(0xeeeeee);
+    this._scene.background = new THREE.Color(new THREE.Color(colors.background));
 
     this._camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this._scene.add(this._camera);  
-
-    this._directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    this._scene.add(this._directionalLight);
+    this._scene.add(this._camera);
 
     this._renderer = new THREE.WebGLRenderer({antialias: true});
     this._renderer.setSize(window.innerWidth, window.innerHeight);
@@ -54,7 +53,7 @@ export default class ThreeHelper {
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = ThreeHelper.getBlockByType(blockType);
-        block && blocks.push({block: block, pos: {x, y}});
+        block && blocks.push({block, pos: {x, y}});
       }
     }
 

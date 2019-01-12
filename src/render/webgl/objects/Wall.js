@@ -1,9 +1,12 @@
+const THREE = window.THREE;
+
 import Cube from './Cube.js';
+import colors from './../../colors.js';
 
 export default class Wall extends Cube {
 
-  constructor(x, y) {
-    super(0x222222);
+  constructor() {
+    super(new THREE.Color(colors.objects.wall));
   }
 
 }
