@@ -1,7 +1,6 @@
 const THREE = window.THREE;
-import ThreeHelper from './ThreeHelper.js';
 
-export default level => {
+export default (threeHelper, level) => {
   let incrementors = {
     camera: {
       x: 0,
@@ -10,17 +9,15 @@ export default level => {
     }
   };
 
-  const threeHelper = new ThreeHelper();
-
   const scene = threeHelper.getScene();
   const camera = threeHelper.getCamera();
   const renderer = threeHelper.getRenderer();
 
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  scene.add( directionalLight );
+  while(scene.children.length > 0){ 
+    scene.remove(scene.children[0]); 
+  }
 
   threeHelper.buildLevel(level);
-
   const animate = _ => {
     //------- ANIMATION LOOP ----------
     
@@ -32,6 +29,7 @@ export default level => {
     requestAnimationFrame(animate);
   };
   animate();
+  listenForEvents();
 
   function animateCameraPosition() {
     camera.position.x = Math.cos(incrementors.camera.x) * -10;
@@ -41,6 +39,10 @@ export default level => {
 
     incrementors.camera.x += 0.001;
     incrementors.camera.y += 0.00125;
+  }
+
+  function listenForEvents() {
+
   }
 
 }
