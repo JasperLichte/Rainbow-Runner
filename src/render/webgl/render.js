@@ -1,5 +1,3 @@
-const THREE = window.THREE;
-
 export default (threeHelper, level) => {
 
   const incrementors = threeHelper.getIncrementors();
