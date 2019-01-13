@@ -6,5 +6,6 @@ export default {
       border: '#eeeeee',
     },
     coin: '#cccc00',
-  },
+    },
+  spikes: '#00ffed',
 }
