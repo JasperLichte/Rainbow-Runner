@@ -1,6 +1,9 @@
 export default {
   background: '#992244',
   objects: {
-    wall: '#222222',
+    wall: {
+      body: '#222222',
+      border: '#eeeeee',
+    }
   },
 }
