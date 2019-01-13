@@ -10,20 +10,36 @@
   <link rel="stylesheet" href="./assets/styles/doc.css">
   <link rel="stylesheet" href="./assets/styles/defaults.css">
   <link rel="stylesheet" href="./assets/styles/level.css">
+  <link rel="stylesheet" href="./assets/styles/slideAnimation.css">
 
   <title>Rainbow-Runner</title>
 </head>
 
-<body>
+<body class="preload">
   <main id="main"></main>
   <button id="next-level-btn" style="position: fixed; top: 0.5rem; right: 0.5rem; padding: 0.5rem 1rem;">Next Level</button>
-  <h1>Rainbow Runner -  under Devolpment</h1>
-  <h2>Credits: Jasper Lichte (Programmer & 3D Designer) Harun Can (Game Designer)</h2>
-  <h3>Version: 0.1.0</h3>
+  <div id="slideAnimation">
+    <div class="wrapper">
+      <div class="menu">
+        <h1>Rainbow Runner</h1>
+        <span class="version">Version: 0.1.0</span>
+        <div class="buttons">
+            <button class="play-btn">Play!</button>
+            <a href="https://github.com/JasperLichte/Rainbow-Cube">Contribute</a>
+        </div>
+        <p>By Jasper Lichte and Harun Can</p>
+      </div>
+    </div>
+  </div>
+
   <script src="./assets/scripts/three.min.js"></script>
   <!-- TODO: CHANGE JS INCLUDES -->
   <script type="module" src="./src/app.js"></script>
   <!--<script type="module" src="./assets/bundle.js"></script>-->
+
+  <script>
+    window.addEventListener('load', function() {document.body.setAttribute('class', '');});
+  </script>
 </body>
 
 </html>
