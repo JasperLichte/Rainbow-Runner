@@ -1,6 +1,6 @@
 const THREE = window.THREE;
 
-export default class Coin {
+export default class Cube {
 
   constructor(color = 0xffffff) {    
     this._geometry = new THREE.BoxGeometry(0.85, 0.85, 0.85);

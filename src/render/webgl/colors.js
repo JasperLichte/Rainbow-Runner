@@ -4,6 +4,7 @@ export default {
     wall: {
       body: '#222222',
       border: '#eeeeee',
-    }
+    },
+    coin: '#cccc00',
   },
 }
