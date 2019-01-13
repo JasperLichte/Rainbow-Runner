@@ -7,7 +7,7 @@ const s = symbols['spikes'];
 const l = symbols['lava'];
 
 export default [
-    [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, w, x, x, x, x, x, x,],
+    [x, x, x, x, x, x, x, x, x, x, x, x, x, x, w, w, w, w, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, x, w, x, x, x, x, c, x, x, w, x, x, x, x, x, x,],
     [x, x, x, x, x, x, x, x, c, s, x, x, x, x, w, x, x, w, x, x, x, x, x, x,],
     [x, x, x, x, c, s, x, x, w, w, l, l, w, l, l, w, x, w, x, x, x, x, x, x,],
