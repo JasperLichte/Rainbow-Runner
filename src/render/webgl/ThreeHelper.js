@@ -97,8 +97,8 @@ export default class ThreeHelper {
         obj =  new Wall();
     }
 
-    if (obj && obj.getCube) {
-      return obj.getCube();
+    if (obj && obj.getObject) {
+      return obj.getObject();
     }
     return null;
   }

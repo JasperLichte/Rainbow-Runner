@@ -1,25 +1,19 @@
 const THREE = window.THREE;
 
-export default class Cube {
+export default class Coin {
 
   constructor(color = 0xffffff) {    
     this._geometry = new THREE.BoxGeometry(0.85, 0.85, 0.85);
     this._material = new THREE.MeshBasicMaterial({color: color});
-    this._cube = new THREE.Mesh(this._geometry, this._material);
-
-    const geo = new THREE.EdgesGeometry(this._cube.geometry);
-    const mat = new THREE.LineBasicMaterial({color: 0x999999, linewidth: 1});
-    const wireframe = new THREE.LineSegments(geo, mat);
-    wireframe.renderOrder = 1;
-    this._cube.add(wireframe);
+    this._object = new THREE.Mesh(this._geometry, this._material);
 
     //------------
-    this.getCube = this.getCube.bind(this);
+    this.getObject = this.getObject.bind(this);
     //------------
   }
 
-  getCube() {
-    return this._cube;
+  getObject() {
+    return this._object;
   }
 
 }
