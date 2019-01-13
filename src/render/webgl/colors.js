@@ -7,5 +7,5 @@ export default {
     },
     coin: '#cccc00',
     },
-  spikes: '#00ffed',
+  cube: '#00ffed',
 }
