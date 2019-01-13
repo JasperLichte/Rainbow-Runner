@@ -58,7 +58,6 @@ export default class ThreeHelper {
     if (!Array.isArray(level)) {
       return;
     }
-    let blocks = [];
     for (let y = 0; y < level.length; y++) {
       const row = level[y];
       if (!Array.isArray(row)) {
@@ -67,33 +66,9 @@ export default class ThreeHelper {
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = ThreeHelper.getBlockByType(blockType);
-        block && blocks.push({block, pos: {x, y}});
+        this.insertBlockIntoScene(block, {x, y});
       }
-    }
-
-    function shuffle(array) {
-      let counter = array.length;
-      while (counter > 0) {
-          let index = Math.floor(Math.random() * counter);
-          counter--;
-          let temp = array[counter];
-          array[counter] = array[index];
-          array[index] = temp;
-      }  
-      return array;
-    }
-
-    blocks = shuffle(blocks);
-    let i = 0;
-    const interval = setInterval(_ => {
-      if (i >= blocks.length) {
-        clearInterval(interval);
-        return;
-      }
-      const { block, pos } = blocks[i++];
-      this.insertBlockIntoScene(block, pos);
-    }, 35);
-    
+    }    
     return this;
   }
 
