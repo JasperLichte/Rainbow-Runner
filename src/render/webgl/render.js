@@ -28,7 +28,7 @@ export default (threeHelper, level) => {
     // ======= ANIMATION LOOP ==========
 
 
-    animateBackgroundColors();
+    //animateBackgroundColors();
     animateCameraPosition();
     // =================================
     renderer.render(scene, camera);

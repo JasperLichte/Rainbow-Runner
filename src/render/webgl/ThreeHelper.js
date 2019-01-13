@@ -1,6 +1,6 @@
 const THREE = window.THREE;
 
-import colors from './../colors.js';
+import colors from './colors.js';
 import LevelHelper from './../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 
