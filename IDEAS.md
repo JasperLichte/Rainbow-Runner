@@ -1,3 +1,3 @@
 # IDEAS
 
-* Particle Effects for Player (when the Player move)
+* Particle effects for player (when player moves)
