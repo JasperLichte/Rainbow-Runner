@@ -8,7 +8,9 @@ export default class Coin {
     this._material = new THREE.MeshBasicMaterial({color: colors.objects.coin});
     this._object = new THREE.Mesh(this._geometry, this._material);
 
-    this._object.rotation.y = 90;
+    this._object.rotation.y = Math.random() * 180;
+    this._rotationSpeed = Math.random() * 0.075 + 0.025;
+    this._rotationDir = (Math.random() > 0.5);
 
     //------------
     this.getObject = this.getObject.bind(this);
@@ -23,7 +25,11 @@ export default class Coin {
   }
 
   _rotate() {
-    this._object.rotation.y += 0.01;    
+    if (this._rotationDir) {
+      this._object.rotation.y += this._rotationSpeed;    
+    } else {
+      this._object.rotation.y -= this._rotationSpeed;  
+    }
 
     requestAnimationFrame(this._rotate);
   }
