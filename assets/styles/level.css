@@ -1,0 +1,23 @@
+.player {
+    background-color: var(--object-player-color);
+}
+
+.coin {
+    background-color: var(--object-coin-color);
+}
+
+.spikes {
+    background-color: var(--object-spike-color);
+}
+
+.wall {
+    background-color: var(--object-wall-body-color);
+    border: 2px solid var(--object-wall-border-color);
+}
+
+.void {
+    background-color: transparent;
+}
+
+
+
