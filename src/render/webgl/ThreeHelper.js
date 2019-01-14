@@ -18,7 +18,6 @@ export default class ThreeHelper {
 
     this._renderer = new THREE.WebGLRenderer({antialias: true});
     this._renderer.setSize(window.innerWidth, window.innerHeight);
-    window.addEventListener('resize', _ => this._renderer.setSize(window.innerWidth, window.innerHeight));
     document.body.appendChild(this._renderer.domElement);
 
     this._incrementors = {
@@ -37,7 +36,10 @@ export default class ThreeHelper {
     this.listenForCameraMovements = this.listenForCameraMovements.bind(this);
     this.animateCameraPosition = this.animateCameraPosition.bind(this);
     this.clearScene = this.clearScene.bind(this);
+    this._handleResize = this._handleResize.bind(this);
     //--------------
+
+    this._handleResize();
   }
 
   getScene() {
@@ -179,6 +181,14 @@ export default class ThreeHelper {
       this._scene.remove(this._scene.children[0]);
     }
     return this;
+  }
+
+  _handleResize() {
+    window.addEventListener('resize', _ => {
+      this._camera.aspect = window.innerWidth / window.innerHeight;
+      this._camera.updateProjectionMatrix();
+      this._renderer.setSize(window.innerWidth, window.innerHeight);
+    });
   }
 
 }
