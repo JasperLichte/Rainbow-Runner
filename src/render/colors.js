@@ -1,12 +1,12 @@
 const colors = Object.freeze({
   background: '#992244',
   objects: {
+    cube: '#00ffed',
+    coin: '#cccc00',
     wall: {
       body: '#222222',
       border: '#eeeeee',
     },
-    cube: '#00ffed',
-    coin: '#cccc00',
   }
 });
 
