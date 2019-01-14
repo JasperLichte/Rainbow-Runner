@@ -1,11 +1,11 @@
 const THREE = window.THREE;
 import colors from './../../colors.js';
 
-export default class Player {
+export default class Spike {
 
-  constructor() {    
+  constructor() {
     this._geometry = new THREE.BoxGeometry(0.85, 0.85, 0.85);
-    this._material = new THREE.MeshBasicMaterial({color: colors['objects-player']});
+    this._material = new THREE.MeshBasicMaterial({ color: colors['objects-spike'] });
     this._object = new THREE.Mesh(this._geometry, this._material);
 
     //------------

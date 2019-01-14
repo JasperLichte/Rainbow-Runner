@@ -6,6 +6,8 @@ const colors = Object.freeze({
   'objects-coin': '#cccc00',
   'objects-wall-body': '#222222',
   'objects-wall-border': '#eeeeee',
+  'objects-player': '#0087ff',
+  'objects-spike': '#ff0000',
 });
 
 // TODO: Refactor

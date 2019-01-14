@@ -5,6 +5,7 @@ import LevelHelper from './../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 import Coin from './objects/Coin.js';
 import Player from './objects/Player.js';
+import Spike from './objects/Spike.js';
 
 export default class ThreeHelper {
 
@@ -94,6 +95,9 @@ export default class ThreeHelper {
       case 'player':
         obj = new Player();
         break;
+      case 'spikes':
+        obj = new Spike();
+        break;  
     }
 
     if (obj && obj.getObject) {
