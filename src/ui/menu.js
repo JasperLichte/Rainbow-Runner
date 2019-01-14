@@ -24,11 +24,11 @@ export default function menu() {
       const el = document.getElementById('slideAnimation');
       el.innerHTML = '';
       el.style.transform = 'scale(0)';
-    });
-  });
       
-  document.getElementById('next-level-btn').addEventListener('click', _ => {
-    render(helper, nextLevelGenerator.next().value)
+      document.getElementById('next-level-btn').addEventListener('click', _ => {
+        render(helper, nextLevelGenerator.next().value)
+      });
+    });
   });
 
 }
