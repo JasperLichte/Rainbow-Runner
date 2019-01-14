@@ -1,5 +1,6 @@
 import symbols from './../symbols.js';
 
+const p = symbols['player'];
 const w = symbols['wall'];
 const c = symbols['coin'];
 const x = symbols['void'];
@@ -16,7 +17,7 @@ export default [
   [x,x,x,x,x,x,x,x,x,x,x,x,x,w,w,x,x,x,x,x,x,x,x,x,],
   [x,x,x,x,x,x,x,x,x,x,x,w,x,x,x,x,x,x,x,x,x,x,x,x,],
   [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,],
-  [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,],
+  [p,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,],
   [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,],
   [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,],
 ];
