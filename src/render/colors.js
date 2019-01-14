@@ -1,7 +1,7 @@
 import { setCSSVar } from './../func/cssFuncs.js';
 
 const colors = Object.freeze({
-  'background': '#992244',
+  'background': '#22bbbb',
   'objects-cube': '#00ffed',
   'objects-coin': '#cccc00',
   'objects-wall-body': '#222222',
