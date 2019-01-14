@@ -10,11 +10,9 @@ const nextLevelGenerator = repeatedArray(levels);
 const level1 = nextLevelGenerator.next().value;
 document.querySelectorAll('#slideAnimation .play-btn').forEach(btn => {
   btn.addEventListener('click', function() {
-    const mode = btn.getAttribute('data-mode');
-
     let helper = null;
     let render = null;
-    if (mode === '3d') {
+    if (btn.getAttribute('data-mode') === '3d') {
       helper = new ThreeHelper();
       render = render3d;
     } else {
