@@ -5,9 +5,9 @@ import DomHelper from './render/dom/DomHelper.js';
 import render2d from './render/dom/render.js';
 import { repeatedArray } from './func/generators.js';
 
+// TODO: Refactor
 const nextLevelGenerator = repeatedArray(levels);
 const level1 = nextLevelGenerator.next().value;
-
 document.querySelectorAll('#slideAnimation .play-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     const mode = btn.getAttribute('data-mode');
