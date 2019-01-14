@@ -4,6 +4,7 @@ import colors from './../colors.js';
 import LevelHelper from './../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 import Coin from './objects/Coin.js';
+import Player from './objects/Player.js';
 
 export default class ThreeHelper {
 
@@ -89,6 +90,9 @@ export default class ThreeHelper {
         break;
       case 'coin':
         obj = new Coin();
+        break;
+      case 'player':
+        obj = new Player();
         break;
     }
 
