@@ -1,5 +1,5 @@
 const THREE = window.THREE;
-import colors from './../colors.js';
+import colors from './../../colors.js';
 
 export default class Coin {
 
