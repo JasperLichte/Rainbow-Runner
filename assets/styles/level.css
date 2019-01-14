@@ -21,7 +21,7 @@ main#main canvas {
 
 .player {
     background-color: var(--objects-player-color);
-    background-image: url(./../textures/objects/player/carate_cube.png);
+    background-image: url(./../textures/objects/player/frankenstein_cube.png);
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
