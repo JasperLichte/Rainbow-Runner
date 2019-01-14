@@ -1,4 +1,4 @@
-export default class DomEngine {
+export default class DomHelper {
 
   constructor(domParent) {
     if (!domParent) {
