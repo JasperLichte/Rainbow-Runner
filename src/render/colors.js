@@ -8,6 +8,7 @@ const colors = Object.freeze({
   'objects-wall-border': '#eeeeee',
   'objects-player': '#0087ff',
   'objects-spike': '#ff0000',
+  'menu-background': '#6f738e',
 });
 
 // TODO: Refactor
