@@ -1,11 +1,11 @@
-import levels from './../levels/levels.js';
-import ThreeHelper from './../render/webgl/ThreeHelper.js';
-import render3d from './../render/webgl/render.js';
-import DomHelper from './../render/dom/DomHelper.js';
-import render2d from './../render/dom/render.js';
-import { repeatedArray } from './../func/generators.js';
+import levels from '../levels/levels.js';
+import ThreeHelper from '../render/webgl/ThreeHelper.js';
+import render3d from '../render/webgl/render.js';
+import DomHelper from '../render/dom/DomHelper.js';
+import render2d from '../render/dom/render.js';
+import { repeatedArray } from '../func/generators.js';
 
-export default function menu() {
+export default function menu_func() {
 
   document.querySelectorAll('#slideAnimation .play-btn').forEach(btn => {
     btn.addEventListener('click', function() {
