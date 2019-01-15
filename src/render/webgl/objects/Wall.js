@@ -6,9 +6,8 @@ import colors from './../../colors.js';
 export default class Wall extends Cube {
 
   constructor() {
-    super();
+    super(colors['objects-wall-body']);
     this._geometry = new THREE.BoxGeometry(0.85, 0.85, 0.85);
-    this._material = new THREE.MeshBasicMaterial({color: new THREE.Color(colors['objects-wall-body'])});
     this._object = new THREE.Mesh(this._geometry, this._material);
 
     const wireframe = new THREE.LineSegments(
