@@ -1,1 +1,1 @@
-import menu from './ui/menu.js';
+import menu from './ui/menu_func.js';
