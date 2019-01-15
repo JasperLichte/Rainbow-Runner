@@ -2,13 +2,11 @@
   position: fixed;
   z-index: 99999;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   background: var(--menu-background-color);
-  border-radius: 50%;
-  left: 0;
-  margin-left: calc(50vw - 50vh);
-  transform: scale(4);
-  transition: transform 0.75s cubic-bezier(0.84, 0.82, 0, 0.9);
+  left: -10vw;
+  top: 0;
+  transition: left 0.75s cubic-bezier(0.84, 0.82, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +14,6 @@
 }
 
 #slideAnimation .wrapper {
-  transform: scale(0.25);
   width: 100vw;
   max-width: 480px;
   padding: .75rem;
