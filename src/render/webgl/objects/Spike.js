@@ -10,11 +10,16 @@ export default class Spike {
 
     //------------
     this.getObject = this.getObject.bind(this);
+    this.tweakPosition = this.tweakPosition.bind(this);
     //------------
   }
 
   getObject() {
     return this._object;
+  }
+
+  tweakPosition() {
+    this._object.position.y -= 0.25;
   }
 
 }

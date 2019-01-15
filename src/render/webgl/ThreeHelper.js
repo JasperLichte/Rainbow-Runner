@@ -77,33 +77,35 @@ export default class ThreeHelper {
   }
 
   insertBlockIntoScene(block, pos) {
-    if (!block) {return;}
+    let obj = null;
+    if (block && block.getObject) {
+      obj = block.getObject();
+    }
+    if (!obj) {return;}
     const x = pos.x - 11.5;
     const y = pos.y * -1 + 8;
     
-    this._scene.add(block);
-    block.position.set(x, y, 0);
+    this._scene.add(obj);
+    obj.position.set(x, y, 0);
+    
+    block.tweakPosition && block.tweakPosition();
   }
 
   static getBlockByType(blockType = '') {
     let obj = null;
     switch(blockType) {
       case 'wall':
-        obj =  new Wall();
+        return new Wall();
         break;
       case 'coin':
-        obj = new Coin();
+        return new Coin();
         break;
       case 'player':
-        obj = new Player();
+        return new Player();
         break;
       case 'spikes':
-        obj = new Spike();
+        return new Spike();
         break;  
-    }
-
-    if (obj && obj.getObject) {
-      return obj.getObject();
     }
     return null;
   }
