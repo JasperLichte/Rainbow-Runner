@@ -1,3 +1,7 @@
-import colors from './render/colors.js';
+import './render/colors.js';
+import Menu from './ui/Menu.js';
 
-export default undefined;
+(new Menu())
+  .setContent(Menu.getContentByType('menu'))
+  .show()
+  .listenForEvents();
