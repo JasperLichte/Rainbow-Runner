@@ -1,7 +1,8 @@
 import './render/colors.js';
 import Menu from './ui/Menu.js';
+import globals from './globals.js';
 
-(new Menu())
+globals.menu = (new Menu())
   .setContent(Menu.getContentByType('menu'))
   .show()
   .listenForEvents();
