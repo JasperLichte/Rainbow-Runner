@@ -14,8 +14,9 @@ export default class Menu {
     this._content = '';
     this._wrapper.innerHTML = this._content;
     this._domElement.appendChild(this._wrapper);
-
     document.body.appendChild(this._domElement);
+
+    this._hasDoneInitialRender = false;
 
     // ----------------
     this.show = this.show.bind(this);
@@ -73,6 +74,10 @@ export default class Menu {
     const playButtons = this._wrapper.querySelectorAll('.play-btn');
     playButtons.forEach(btn => {
       btn.addEventListener('click', _=> {
+        this.hide();
+        if (this._hasDoneInitialRender) {
+          return;
+        }
         const nextLevelGenerator = repeatedArray(levels);
         let helper = null;
         let render = null;
@@ -83,9 +88,8 @@ export default class Menu {
           helper = new DomHelper(document.getElementById('main'));
           render = render2d;
         }
-        render(helper, nextLevelGenerator.next().value);    
-        
-        this.hide();
+        render(helper, nextLevelGenerator.next().value);
+        this._hasDoneInitialRender = true;  
         
         document.getElementById('next-level-btn').addEventListener('click', _ => {
           render(helper, nextLevelGenerator.next().value)
