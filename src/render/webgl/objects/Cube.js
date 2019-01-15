@@ -9,6 +9,7 @@ export default class Cube {
 
     //------------
     this.getObject = this.getObject.bind(this);
+    this.tweakPosition = this.tweakPosition.bind(this);
     //------------
   }
 
@@ -16,5 +17,8 @@ export default class Cube {
     return this._object;
   }
 
+  tweakPosition() {
+
+  }
 
 }
