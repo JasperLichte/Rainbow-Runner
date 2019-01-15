@@ -1,4 +1,4 @@
-#slideAnimation {
+.menu {
   position: fixed;
   z-index: 99999;
   height: 100vh;
@@ -13,33 +13,33 @@
   flex-direction: column;
 }
 
-#slideAnimation .wrapper {
+.menu .wrapper {
   width: 100vw;
   max-width: 480px;
   padding: .75rem;
 }
 
-#slideAnimation .menu {
+.menu .menu-wrapper {
   padding: 2rem;
   color: #eee;
   background: #222;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
 }
 
-#slideAnimation .menu h1 {
+.menu .menu-wrapper h1 {
   font-family: var(--font-2);
   font-size: 2.25rem;
 }
 
-#slideAnimation .menu > * {
+.menu .menu-wrapper > * {
   display: block;
 }
 
-#slideAnimation .buttons {
+.menu .menu-wrapper .buttons {
   padding: 3rem 2rem;
 }
 
-#slideAnimation .buttons > * {
+.menu .menu-wrapper .buttons > * {
   display: block;
   padding: 0.75rem 1rem;
   background: rgba(200, 200, 200, 0.25);
@@ -53,6 +53,28 @@
   cursor: pointer;
 }
 
-#slideAnimation .buttons > *:hover {
+.menu .buttons > *:hover {
   text-decoration: underline;
+}
+
+.menu-hamburger {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 40px;
+  background: transparent;
+  z-index: 99998;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-hamburger > span {
+  height: 4px;
+  display: block;
+  background: #fff;
+  margin-bottom: 6px;
+}
+
+.menu-hamburger > span:last-of-type {
+  margin-bottom: 0;
 }

@@ -7,14 +7,13 @@ import { repeatedArray } from '../func/generators.js';
 export default class Menu {
 
   constructor() {
-
     this._domElement = document.createElement('div');
-    this._domElement.setAttribute('id', 'slideAnimation');
+    this._domElement.setAttribute('class', 'menu');
     this._wrapper = document.createElement('div');
     this._wrapper.setAttribute('class', 'wrapper');
-    this._domElement.appendChild(this._wrapper);
-
     this._content = '';
+    this._wrapper.innerHTML = this._content;
+    this._domElement.appendChild(this._wrapper);
 
     document.body.appendChild(this._domElement);
 
@@ -24,7 +23,10 @@ export default class Menu {
     this.setContent = this.setContent.bind(this);
     this.getContent = this.getContent.bind(this);
     this.listenForEvents = this.listenForEvents.bind(this);
+    this._addHamburgerButton = this._addHamburgerButton.bind(this);
     // ----------------
+
+    this._addHamburgerButton();
   }
 
   show() {
@@ -32,8 +34,12 @@ export default class Menu {
     return this;
   }
 
-  hide() {  
-    this._domElement.style.left = '-100vw';
+  hide() {
+    if (Math.random() > 0.5) {
+      this._domElement.style.left = '-100vw';
+    } else {
+      this._domElement.style.left = '200vw';
+    }
     return this;
   }
 
@@ -50,7 +56,7 @@ export default class Menu {
   static getContentByType(type = 'menu') {
     switch(type) {
       case 'menu':
-        return `<div class="menu">
+        return `<div class="menu-wrapper">
           <h1>Rainbow Runner</h1>
           <span class="version">Version: 0.1.0</span>
           <div class="buttons">
@@ -86,6 +92,19 @@ export default class Menu {
         });
       });
     });
+    return this;
+  }
+
+  _addHamburgerButton() {
+    this._hamburger = document.createElement('button');
+    this._hamburger.setAttribute('class', 'menu-hamburger');
+    this._hamburger.innerHTML = '<span></span><span></span><span></span>';
+    document.body.appendChild(this._hamburger);
+
+    this._hamburger.addEventListener('click', _ => {
+      this.show();
+    });
+
     return this;
   }
 
