@@ -21,10 +21,6 @@ main#main canvas {
 
 .player {
     background-color: var(--objects-player-color);
-    background-image: url(./../textures/objects/player/frankenstein_cube.png);
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
 }
 
 .coin {
@@ -40,6 +36,7 @@ main#main canvas {
 .wall {
     background-color: var(--objects-wall-body-color);
     border: 2px solid var(--objects-wall-border-color);
+    transform: scale(0.925);
 }
 
 .void {
