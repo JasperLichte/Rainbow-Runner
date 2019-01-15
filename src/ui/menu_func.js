@@ -32,4 +32,4 @@ export default function menu_func() {
   });
 
 }
-menu();
+menu_func();
