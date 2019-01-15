@@ -17,4 +17,8 @@ export default class Player {
     return this._object;
   }
 
+  tweakPosition() {
+    this._object.position.y -= 0.15;
+  }  
+
 }

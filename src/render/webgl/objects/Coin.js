@@ -33,4 +33,8 @@ export default class Coin {
     requestAnimationFrame(this._rotate);
   }
 
+  tweakPosition() {
+    this._object.position.y -= 0.2;
+  }
+
 }

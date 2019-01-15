@@ -7,7 +7,7 @@ const colors = Object.freeze({
   'objects-wall-body': '#222222',
   'objects-wall-border': '#eeeeee',
   'objects-player': '#0087ff',
-  'objects-spike': '#ff0000',
+  'objects-spike': '#ad1818',
   'menu-background': '#6f738e',
 });
 
