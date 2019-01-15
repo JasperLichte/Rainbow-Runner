@@ -22,7 +22,7 @@ export default class ThreeHelper {
 
     this._incrementors = {
       camera: {
-        x: 0,
+        x: 11.5,
         y: 5,
         z: 15,
       },
@@ -82,7 +82,7 @@ export default class ThreeHelper {
       obj = block.getObject();
     }
     if (!obj) {return;}
-    const x = pos.x - 11.5;
+    const x = pos.x;
     const y = pos.y * -1;
     
     this._scene.add(obj);
@@ -178,7 +178,7 @@ export default class ThreeHelper {
     this._camera.position.x = this._incrementors.camera.x;
     this._camera.position.y = this._incrementors.camera.y;
     this._camera.position.z = this._incrementors.camera.z;
-    this._camera.lookAt(new THREE.Vector3(0, 0, 0));
+    this._camera.lookAt(new THREE.Vector3(11.5, 0, 0));
   }
 
   clearScene() {
