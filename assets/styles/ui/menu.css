@@ -53,8 +53,12 @@
   cursor: pointer;
 }
 
-.menu .buttons > *:hover {
+.menu .buttons > *:not(.disabled):hover {
   text-decoration: underline;
+}
+
+.menu .menu-wrapper .buttons > .disabled {
+  opacity: 0.5;
 }
 
 .menu-hamburger {

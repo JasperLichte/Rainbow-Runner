@@ -89,8 +89,16 @@ export default class Menu {
           render = render2d;
         }
         render(helper, nextLevelGenerator.next().value);
-        this._hasDoneInitialRender = true;  
+        this._hasDoneInitialRender = true;
+
+        // Disable button
+        playButtons.forEach(el => {
+          if (el !== btn) {
+            el.classList.add('disabled');
+          }
+        });
         
+        // NEXT LEVEL BUTTON
         document.getElementById('next-level-btn').addEventListener('click', _ => {
           render(helper, nextLevelGenerator.next().value)
         });
