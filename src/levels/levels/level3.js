@@ -4,6 +4,8 @@ const w = symbols['wall'];
 const c = symbols['coin'];
 const x = symbols['void'];
 const s = symbols['spikes'];
+const p = symbols['player'];
+const y = symbols['diamond'];
 
 export default [
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x,],
