@@ -5,6 +5,7 @@ const c = symbols['coin'];
 const x = symbols['void'];
 const s = symbols['spikes'];
 const l = symbols['lava'];
+const p = symbols['player'];
 
 export default [
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, w, w, w, w, x, x, x, x, x, x,],
@@ -16,7 +17,7 @@ export default [
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, w, x, w, x, x, s, c, x, x,],
     [x, x, x, x, x, x, x, w, x, x, x, x, x, x, x, w, x, w, x, x, w, w, x, x,],
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, w, x, w, x, x, x, x, x, w,],
-    [x, x, x, x, w, w, w, w, x, x, x, x, x, x, x, w, x, w, x, x, x, x, x, x,],
+    [p, x, x, x, w, w, w, w, x, x, x, x, x, x, x, w, x, w, x, x, x, x, x, x,],
     [w, w, w, w, x, x, x, x, x, x, x, x, x, x, w, x, c, x, x, x, s, x, x, w,],
     [x, x, x, x, x, x, x, x, x, x, x, x, x, x, w, w, w, w, w, w, w, w, w, w,],
 ];
