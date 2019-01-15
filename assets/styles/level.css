@@ -49,5 +49,9 @@ main#main canvas {
     background-color: transparent;
 }
 
+.diamond{
+    background-color: var(--obejects-diamond-color);
+}
+
 
 

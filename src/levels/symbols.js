@@ -7,5 +7,6 @@ export default Object.freeze({
   'coin': 'o',
   'void': '-',
   'spikes': '^',
+  'diamond': '<>'
 
 });

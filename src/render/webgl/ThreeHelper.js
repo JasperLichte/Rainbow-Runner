@@ -6,7 +6,7 @@ import Wall from './objects/Wall.js';
 import Coin from './objects/Coin.js';
 import Player from './objects/Player.js';
 import Spike from './objects/Spike.js';
-
+import Diamond from './objects/Diamond.js';
 export default class ThreeHelper {
 
   constructor() {    
@@ -106,6 +106,9 @@ export default class ThreeHelper {
       case 'spikes':
         return new Spike();
         break;  
+      case 'diamond':
+        return new Diamond();
+        break;
     }
     return null;
   }
