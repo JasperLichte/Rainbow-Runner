@@ -8,8 +8,6 @@ export default class Spike {
     this._material = new THREE.MeshBasicMaterial({color: colors['objects-spike']});
     this._object = new THREE.Mesh(this._geometry, this._material);
 
-    console.log(this._object.position)
-
     //------------
     this.getObject = this.getObject.bind(this);
     //------------
