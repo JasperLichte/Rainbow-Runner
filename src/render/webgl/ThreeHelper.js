@@ -24,7 +24,7 @@ export default class ThreeHelper {
       camera: {
         x: 0,
         y: 5,
-        z: 10,
+        z: 15,
       },
     };
 
@@ -83,7 +83,7 @@ export default class ThreeHelper {
     }
     if (!obj) {return;}
     const x = pos.x - 11.5;
-    const y = pos.y * -1 + 8;
+    const y = pos.y * -1;
     
     this._scene.add(obj);
     obj.position.set(x, y, 0);
@@ -122,11 +122,11 @@ export default class ThreeHelper {
       isMouseDown = false;
       const scrollingUp = (e.deltaY < 0);
       if (scrollingUp) {
-        if (this._incrementors.camera.z >= 5) {
+        if (this._incrementors.camera.z >= 2) {
           this._incrementors.camera.z -= 0.6;
         }
       } else {
-        if (this._incrementors.camera.z <= 35) {
+        if (this._incrementors.camera.z <= 45) {
           this._incrementors.camera.z += 0.6;
         }
       }
@@ -160,11 +160,11 @@ export default class ThreeHelper {
       const movedToRight = (lastMousePos.x < currentMousePos.x);
       const movedToLeft = (lastMousePos.x > currentMousePos.x);
       if (movedToRight) {
-        if (this._incrementors.camera.x < 17.5) {
+        if (this._incrementors.camera.x < 35) {
           this._incrementors.camera.x += 0.25;
         }
       } else if (movedToLeft) {
-        if (this._incrementors.camera.x > -17.5) {
+        if (this._incrementors.camera.x > -35) {
           this._incrementors.camera.x -= 0.25;
         }
       }
