@@ -4,11 +4,17 @@ import Cube from './Cube.js';
 
 export default class RotatingObject extends Cube {
 
-  constructor(color = 0xffffff) {
+  constructor(randomSpeed = true, randomDir = true, color = 0xffffff) {
     super(color);
 
-    this._rotationSpeed = Math.random() * 0.050 + 0.025;
-    this._rotationDir = (Math.random() > 0.5);
+    this._rotationSpeed = 0.01;
+    if (randomSpeed) {
+      this._rotationSpeed = Math.random() * 0.050 + 0.025;
+    }
+    this._rotationDir = true;
+    if (randomDir) {
+      this._rotationDir = (Math.random() > 0.5);
+    }
 
     //------------
     this._rotate = this._rotate.bind(this);
