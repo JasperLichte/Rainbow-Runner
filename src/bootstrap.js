@@ -6,3 +6,5 @@ globals.menu = (new Menu())
   .setContent(Menu.getContentByType('menu'))
   .show()
   .listenForEvents();
+
+globals.helpers = {};
