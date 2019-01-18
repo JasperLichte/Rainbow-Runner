@@ -18,12 +18,16 @@ export default class DomHelper {
 
     this._incrementors = {};
 
+    this._player = null;
+
     // --------------
     this.getIncrementors = this.getIncrementors.bind(this);
     this.clearScene = this.clearScene.bind(this);
+    this.render = this.render.bind(this);
+    this.animateCameraPosition = this.animateCameraPosition.bind(this);
     this.buildLevel = this.buildLevel.bind(this);
     this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
-
+    this.getPlayer = this.getPlayer.bind(this);
   }
 
   getIncrementors() {
@@ -41,6 +45,10 @@ export default class DomHelper {
     return this;
   }
 
+  render() {
+    return this;
+  }
+
   buildLevel(level) {
     if (!(Array.isArray(level))) {
       return;
@@ -54,6 +62,10 @@ export default class DomHelper {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = DomHelper.getBlockByType(blockType);
         this.insertBlockIntoScene(block, {x, y});
+
+        if (blockType === 'player' && block) {
+          this._player = block;
+        }
       }
     }
     return this;
@@ -86,6 +98,14 @@ export default class DomHelper {
         return new Diamond();
     }
     return null;
+  }
+
+  getPlayer() {
+    return this._player;
+  }
+  
+  animateCameraPosition() {
+    return this;
   }
 
 }

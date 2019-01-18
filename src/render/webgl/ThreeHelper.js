@@ -33,6 +33,8 @@ export default class ThreeHelper {
     //--------------
     this.getScene = this.getScene.bind(this);
     this.getRenderer = this.getRenderer.bind(this);
+    this.getIncrementors = this.getIncrementors.bind(this);
+    this.render = this.render.bind(this);
     this.buildLevel = this.buildLevel.bind(this);
     this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
     this.listenForCameraMovements = this.listenForCameraMovements.bind(this);
@@ -59,6 +61,11 @@ export default class ThreeHelper {
 
   getIncrementors() {
     return this._incrementors;
+  }
+
+  render() {
+    this._renderer.render(this._scene, this._camera);
+    return this;
   }
 
   buildLevel(level = []) {
@@ -185,6 +192,7 @@ export default class ThreeHelper {
     this._camera.position.y = this._incrementors.camera.y;
     this._camera.position.z = this._incrementors.camera.z;
     this._camera.lookAt(new THREE.Vector3(11.5, 0, 0));
+    return this;
   }
 
   clearScene() {

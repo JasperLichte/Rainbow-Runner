@@ -1,6 +1,6 @@
 import Cube from './Cube.js';
 
-export default class Wall extends Cube {
+export default class Player extends Cube {
   constructor() {
     super('player');
   }

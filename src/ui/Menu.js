@@ -1,8 +1,7 @@
 import levels from '../levels/levels.js';
 import ThreeHelper from '../render/webgl/ThreeHelper.js';
-import render3d from '../render/webgl/render.js';
 import DomHelper from '../render/dom/DomHelper.js';
-import render2d from '../render/dom/render.js';
+import render from '../render/render.js';
 import { repeatedArray } from '../func/generators.js';
 
 export default class Menu {
@@ -94,15 +93,9 @@ export default class Menu {
           return;
         }
         const nextLevelGenerator = repeatedArray(levels);
-        let helper = null;
-        let render = null;
-        if (btn.getAttribute('data-mode') === '3d') {
-          helper = new ThreeHelper();
-          render = render3d;
-        } else {
-          helper = new DomHelper(document.getElementById('main'));
-          render = render2d;
-        }
+        const helper = (btn.getAttribute('data-mode') === '3d' 
+          ? new ThreeHelper() 
+          : new DomHelper(document.getElementById('main')));
         render(helper, nextLevelGenerator.next().value);
         this._hasDoneInitialRender = true;
 
