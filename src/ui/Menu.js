@@ -95,6 +95,7 @@ export default class Menu {
         playButtons.forEach(el => {
           if (el !== btn) {
             el.classList.add('disabled');
+            el.setAttribute('disabled', true);
           }
         });
         
