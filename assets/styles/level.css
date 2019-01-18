@@ -7,49 +7,45 @@ main#main canvas {
     width: 100vw;
     height: 100vh;
     background-color: var(--background-color);
-}
-
-.dom-engine-wrapper .row {
-    height: 50px;
+    position: relative;
 }
 
 .dom-engine-wrapper .block {
-    display: inline-block;
-    width: 50px;
-    height: 100%;
+    position: absolute;
+    display: block;
 }
 
-.player {
+.dom-engine-wrapper .player {
     background-color: var(--objects-player-color);
     transform: scale(0.925);
 }
 
-.coin {
+.dom-engine-wrapper .coin {
     border: 5px solid var(--objects-coin-color);
     transform: scale(.6);
     border-radius: 50%;
 }
 
-.spikes {
+.dom-engine-wrapper .spikes {
     width: 0; 
     height: 0; 
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;    
-    border-bottom: 15px solid var(--objects-spike-color);
+    border-bottom: 15px solid var(--objects-spikes-color);
     transform: scale(0.8) translateY(10px);
 }
 
-.wall {
+.dom-engine-wrapper .wall {
     background-color: var(--objects-wall-body-color);
     border: 2px solid var(--objects-wall-border-color);
     transform: scale(0.925);
 }
 
-.void {
+.dom-engine-wrapper .void {
     background-color: transparent;
 }
 
-.diamond{
+.dom-engine-wrapper .diamond{
     background-color: var(--objects-diamond-color);
 }
 

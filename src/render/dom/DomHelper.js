@@ -1,5 +1,11 @@
 import LevelHelper from './../../levels/LevelHelper.js';
 
+import Wall from './objects/Wall.js';
+import Player from './objects/Player.js';
+import Coin from './objects/Coin.js';
+import Spikes from './objects/Spikes.js';
+import Diamond from './objects/Diamond.js';
+
 export default class DomHelper {
 
   constructor(domParent) {
@@ -10,10 +16,13 @@ export default class DomHelper {
     this._domElement = this._buildDomElement();
     this._domParent.appendChild(this._domElement);
 
+    this._incrementors = {};
+
     // --------------
     this.getIncrementors = this.getIncrementors.bind(this);
     this.clearScene = this.clearScene.bind(this);
     this.buildLevel = this.buildLevel.bind(this);
+    this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
 
   }
 
@@ -33,30 +42,50 @@ export default class DomHelper {
   }
 
   buildLevel(level) {
-    if (!(Array.isArray(level))) {return;}
+    if (!(Array.isArray(level))) {
+      return;
+    }
     for (let y = 0; y < level.length; y++) {
       const row = level[y];
-      const blockTypes = [];
-      if (!(Array.isArray(row))) {return;}
-      for (let x = 0; x < row.length; x++) {
-        blockTypes.push(LevelHelper.getBlockTypeBySymbol(row[x]));
+      if (!(Array.isArray(row))) {
+        return;
       }
-      this._appendRow(blockTypes);
+      for (let x = 0; x < row.length; x++) {
+        const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
+        const block = DomHelper.getBlockByType(blockType);
+        this.insertBlockIntoScene(block, {x, y});
+      }
     }
     return this;
   }
 
-  _appendRow(blockTypes = []) {
-    const rowEl = document.createElement('div');
-    rowEl.setAttribute('class', 'row');
+  insertBlockIntoScene(block, pos) {
+    let obj = null;
+    if (block && block.getObject) {
+      obj = block.getObject();
+    }
+    if (!obj) {return;}
+    const x = pos.x;
+    const y = pos.y;
 
-    blockTypes.forEach(type => {
-      const blockEl = document.createElement('span');
-      blockEl.setAttribute('class', 'block ' + type);
-      rowEl.appendChild(blockEl);
-    });
+    this._domElement.appendChild(obj);
+    block && block.setPosition({x, y});
+  }
 
-    this._domElement.appendChild(rowEl);
+  static getBlockByType(blockType = '') {
+    switch(blockType) {
+      case 'wall':
+        return new Wall();
+      case 'player':
+        return new Player();
+      case 'coin':
+        return new Coin();
+      case 'spikes':
+        return new Spikes();
+      case 'diamond':
+        return new Diamond();
+    }
+    return null;
   }
 
 }

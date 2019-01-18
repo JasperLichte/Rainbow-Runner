@@ -5,7 +5,7 @@ import LevelHelper from './../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 import Coin from './objects/Coin.js';
 import Player from './objects/Player.js';
-import Spike from './objects/Spike.js';
+import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
 export default class ThreeHelper {
 
@@ -73,6 +73,7 @@ export default class ThreeHelper {
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = ThreeHelper.getBlockByType(blockType);
+        
         if (blockType === 'player' && block) {
           this._player = block;
         }
@@ -109,7 +110,7 @@ export default class ThreeHelper {
         return new Player();
         break;
       case 'spikes':
-        return new Spike();
+        return new Spikes();
         break;  
       case 'diamond':
         return new Diamond();

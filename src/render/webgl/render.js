@@ -17,16 +17,9 @@ export default (threeHelper, level) => {
     }
     // ======= ANIMATION LOOP ==========
 
-    player.getObject().position.x += 0.02;
-
     threeHelper.animateCameraPosition();
     // =================================
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   })();
-
-  // ###########################################################################
-  // ============================== FUNCTIONS ==================================
-  // ###########################################################################
-
 }
