@@ -11,7 +11,7 @@ export default class ThreeHelper {
 
   constructor() {    
     this._scene = new THREE.Scene();
-    this._scene.background = new THREE.Color(new THREE.Color(colors.background));
+    this._scene.background = new THREE.Color(colors['canvas-background']);
 
     this._camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this._scene.add(this._camera);
