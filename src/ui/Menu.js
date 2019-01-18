@@ -104,6 +104,13 @@ export default class Menu {
         });
       });
     });
+
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        this.show();
+      }
+    });
+
     return this;
   }
 
