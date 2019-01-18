@@ -49,11 +49,11 @@
   text-align: center;
   text-decoration: none;
   margin: 0.175rem 0;
-  cursor: pointer;
 }
 
 .menu .buttons > *:not(.disabled):hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .menu .menu-wrapper .buttons > .disabled {
