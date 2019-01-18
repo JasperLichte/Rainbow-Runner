@@ -1,4 +1,4 @@
-import { setCSSVar } from './../func/cssFuncs.js';
+import { setCSSColorVars } from './../func/cssFuncs.js';
 
 const colors = Object.freeze({
   'background': '#e0dede',
@@ -12,13 +12,6 @@ const colors = Object.freeze({
   'objects-diamond': '#c300ff',
 });
 
-// TODO: Refactor
-for (const key in colors) {
-  if (typeof colors[key] !== 'string') {
-    continue;
-  }
-  const cssVarName = '--' + key + '-color';
-  setCSSVar(cssVarName, colors[key])
-}
-
 export default colors;
+
+setCSSColorVars(colors);
