@@ -28,6 +28,8 @@ export default class ThreeHelper {
       },
     };
 
+    this._player = null;
+
     //--------------
     this.getScene = this.getScene.bind(this);
     this.getRenderer = this.getRenderer.bind(this);
@@ -37,6 +39,7 @@ export default class ThreeHelper {
     this.animateCameraPosition = this.animateCameraPosition.bind(this);
     this.clearScene = this.clearScene.bind(this);
     this._handleResize = this._handleResize.bind(this);
+    this.getPlayer = this.getPlayer.bind(this);
     //--------------
 
     this._handleResize();
@@ -70,6 +73,9 @@ export default class ThreeHelper {
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = ThreeHelper.getBlockByType(blockType);
+        if (blockType === 'player' && block) {
+          this._player = block;
+        }
         this.insertBlockIntoScene(block, {x, y});
       }
     }    
@@ -92,7 +98,6 @@ export default class ThreeHelper {
   }
 
   static getBlockByType(blockType = '') {
-    let obj = null;
     switch(blockType) {
       case 'wall':
         return new Wall();
@@ -194,6 +199,10 @@ export default class ThreeHelper {
       this._camera.updateProjectionMatrix();
       this._renderer.setSize(window.innerWidth, window.innerHeight);
     });
+  }
+
+  getPlayer() {
+    return this._player;
   }
 
 }

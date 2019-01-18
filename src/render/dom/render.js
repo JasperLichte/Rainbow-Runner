@@ -9,8 +9,9 @@ export default (domHelper, level) => {
   (function animate() {
     // ======= ANIMATION LOOP ==========
 
+    
 
-    //animateBackgroundColors();
+
     // =================================
     requestAnimationFrame(animate);
   })();
