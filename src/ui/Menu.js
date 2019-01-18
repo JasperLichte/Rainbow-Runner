@@ -4,6 +4,7 @@ import render3d from '../render/webgl/render.js';
 import DomHelper from '../render/dom/DomHelper.js';
 import render2d from '../render/dom/render.js';
 import { repeatedArray } from '../func/generators.js';
+
 export default class Menu {
 
   constructor() {
@@ -21,6 +22,8 @@ export default class Menu {
     // ----------------
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.isShown = this.isShown.bind(this);
     this.setContent = this.setContent.bind(this);
     this.getContent = this.getContent.bind(this);
     this.listenForEvents = this.listenForEvents.bind(this);
@@ -31,7 +34,7 @@ export default class Menu {
   }
 
   show() {
-    this._domElement.style.left = '0';
+    this._domElement.style.left = '0px';
     return this;
   }
 
@@ -42,6 +45,18 @@ export default class Menu {
       this._domElement.style.left = '200vw';
     }
     return this;
+  }
+
+  toggle() {
+    if (this.isShown()) {
+      this.hide();
+    } else {
+      this.show();
+    }
+  }
+
+  isShown() {
+    return (this._domElement.style.left === '0px');
   }
 
   setContent(html = '') {
@@ -106,9 +121,10 @@ export default class Menu {
       });
     });
 
+    // KEY DOWN
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        this.show();
+        this._hasDoneInitialRender && this.toggle();
       }
     });
 
