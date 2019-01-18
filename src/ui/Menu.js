@@ -73,7 +73,7 @@ export default class Menu {
       case 'menu':
         return `<div class="menu-wrapper">
           <h1>Rainbow Runner</h1>
-          <span class="version">Version: 0.1.0</span>
+          <span class="version">Version: 0.1.1</span>
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
               <button class="play-btn" data-mode="2d">Play in 2d!</button>
