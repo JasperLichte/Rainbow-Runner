@@ -15,7 +15,7 @@ const colors = Object.freeze({
   'ui-menu-background': '#6f738e',
   'ui-menu-wrapper-background': '#222',
   'ui-menu-wrapper-font': '#eee',
-  'ui-menu-hamburger-button': '#ff0000',
+  'ui-menu-hamburger-button': '#ffffff',
 });
 
 export default colors;
