@@ -41,7 +41,7 @@ export default class Cube {
     if (centerElement) {
       this._object.style.left = (pos.x * this._scale + ((1 - this._size.width) * this._scale / 2)) + 'px';
       this._object.style.top = (pos.y * this._scale + ((1 - this._size.height) * this._scale / 2)) + 'px';
-      return;
+      return this;
     }
     this._object.style.left = (pos.x * this._scale) + 'px';
     this._object.style.top = (pos.y * this._scale) + 'px';
