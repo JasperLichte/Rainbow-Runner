@@ -1,8 +1,7 @@
-import levels from '../levels/levels.js';
 import ThreeHelper from '../render/webgl/ThreeHelper.js';
 import DomHelper from '../render/dom/DomHelper.js';
 import render from '../render/render.js';
-import { repeatedArray } from '../func/generators.js';
+import globals from './../globals.js';
 
 export default class Menu {
 
@@ -85,18 +84,20 @@ export default class Menu {
   }
 
   listenForEvents() {
+    const levelHelper = globals.helpers.levelHelper;
     const playButtons = this._wrapper.querySelectorAll('.play-btn');
     playButtons.forEach(btn => {
       btn.addEventListener('click', _=> {
         this.hide();
         if (this._hasDoneInitialRender) {
+          // Do initial rendering only once
           return;
         }
-        const nextLevelGenerator = repeatedArray(levels);
-        const helper = (btn.getAttribute('data-mode') === '3d' 
+        
+        const renderHelper = (btn.getAttribute('data-mode') === '3d' 
           ? new ThreeHelper() 
           : new DomHelper(document.getElementById('main')));
-        render(helper, nextLevelGenerator.next().value);
+        render(renderHelper, levelHelper.getCurrentLevel());
         this._hasDoneInitialRender = true;
 
         // Disable button
@@ -108,9 +109,7 @@ export default class Menu {
         });
         
         // NEXT LEVEL BUTTON
-        document.getElementById('next-level-btn').addEventListener('click', _ => {
-          render(helper, nextLevelGenerator.next().value)
-        });
+        document.getElementById('next-level-btn').addEventListener('click', _ => render(renderHelper, levelHelper.getNextLevel()));
       });
     });
 

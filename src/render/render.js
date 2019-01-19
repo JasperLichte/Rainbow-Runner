@@ -1,18 +1,14 @@
 export default (helper, level) => {
-
-  const incrementors = helper.getIncrementors();  
-  let player = helper.getPlayer();
-
+  
   helper
     .clearScene()
     .buildLevel(level);
 
+  const incrementors = helper.getIncrementors();  
+  const player = helper.getPlayer();
+
   (function animate() {
-    // ======= ANIMATION LOOP ==========
-    if (!player) {
-      player = helper.getPlayer();
-    }
-    
+    // ======= ANIMATION LOOP ==========    
 
     helper
       .animateCameraPosition()

@@ -45,6 +45,7 @@ export default class ThreeHelper {
     //--------------
 
     this._handleResize();
+    this.listenForCameraMovements();
   }
 
   getScene() {
