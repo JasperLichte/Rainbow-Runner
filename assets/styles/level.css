@@ -17,7 +17,6 @@ main#main canvas {
 
 .dom-engine-wrapper .player {
     background-color: var(--objects-player-color);
-    transform: scale(0.925);
 }
 
 .dom-engine-wrapper .coin {
@@ -37,8 +36,7 @@ main#main canvas {
 
 .dom-engine-wrapper .wall {
     background-color: var(--objects-wall-body-color);
-    border: 2px solid var(--objects-wall-border-color);
-    transform: scale(0.925);
+    border: 1px solid var(--objects-wall-border-color);
 }
 
 .dom-engine-wrapper .void {

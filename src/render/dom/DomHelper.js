@@ -81,7 +81,7 @@ export default class DomHelper {
     const y = pos.y;
 
     this._domElement.appendChild(obj);
-    block && block.setPosition({x, y});
+    block && block.setPosition({x, y}, true);
   }
 
   static getBlockByType(blockType = '') {

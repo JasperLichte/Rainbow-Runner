@@ -2,7 +2,7 @@ import { setCSSColorVars } from './../func/cssFuncs.js';
 
 const colors = Object.freeze({
   // Canvas
-  'canvas-background': '#e0dede',
+  'canvas-background': '#909ede',
   // Objects
   'objects-cube': '#00ffed',
   'objects-coin': '#cccc00',
