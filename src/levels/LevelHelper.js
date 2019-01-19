@@ -6,11 +6,11 @@ export default class LevelHelper {
 
   constructor() {
     this._nextLevelGenerator = repeatedArray(levels);
-    this._currentLevel = this.getNextLevel();
+    this._currentLevel = this.nextLevel();
 
     // -------------
     this.getCurrentLevel = this.getCurrentLevel.bind(this);
-    this.getNextLevel = this.getNextLevel.bind(this);
+    this.nextLevel = this.nextLevel.bind(this);
   }
 
   static getBlockTypeBySymbol(symbol = '') {
@@ -26,7 +26,7 @@ export default class LevelHelper {
     return this._currentLevel;
   }
 
-  getNextLevel() {
+  nextLevel() {
     const level = this._nextLevelGenerator.next().value;
     this._currentLevel = level;
     return level;

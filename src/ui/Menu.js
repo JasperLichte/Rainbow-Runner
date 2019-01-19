@@ -109,7 +109,7 @@ export default class Menu {
         });
         
         // NEXT LEVEL BUTTON
-        document.getElementById('next-level-btn').addEventListener('click', _ => render(renderHelper, levelHelper.getNextLevel()));
+        document.getElementById('next-level-btn').addEventListener('click', _ => render(renderHelper, levelHelper.nextLevel()));
       });
     });
 
