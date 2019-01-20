@@ -1,5 +1,4 @@
 import LevelHelper from './../../levels/LevelHelper.js';
-
 import Wall from './objects/Wall.js';
 import Player from './objects/Player.js';
 import Coin from './objects/Coin.js';
