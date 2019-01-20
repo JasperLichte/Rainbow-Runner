@@ -30,7 +30,7 @@ export default class Cube {
     }
     this._position = {
       x: position.x,
-      y: position.y * -1
+      y: position.y
     };
   }
 
@@ -39,7 +39,7 @@ export default class Cube {
   }
 
   move(x, y) {
-    this._object.position.set(x, y * -1, 0);
+    this._object.position.set(x, y, 0);
     return this;
   }
 

@@ -57,7 +57,7 @@ export default class Cube {
 
   move(x, y) {
     this._object.style.left = (x * this._scale) + 'px';
-    this._object.style.top = (y * this._scale) + 'px';
+    this._object.style.top = (y * this._scale * -1) + 'px';
     return;
   }
 

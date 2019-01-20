@@ -79,7 +79,7 @@ export default class DomHelper {
     }
     if (!obj) {return;}
     const x = pos.x;
-    const y = pos.y;
+    const y = pos.y * -1;
 
     this._domElement.appendChild(obj);
     block && block.setInitialPosition({x, y}, true);
