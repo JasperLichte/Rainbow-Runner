@@ -1,6 +1,7 @@
 import symbols from './symbols.js';
 import levels from './levels.js';
 import { repeatedArray } from './../func/generators.js';
+import exceptions from './../errorhandling/exceptions.js';
 
 export default class LevelHelper {
 
@@ -20,6 +21,24 @@ export default class LevelHelper {
       }
     }
     return '';
+  }
+
+  static positionIsWall(x, y, level) {
+    if (!(Array.isArray(level)) || !level.length) {
+      throw new Error(exceptions['INVALID_LEVEL']);
+    }
+    if (!(LevelHelper.positionIsInLevelBounds(x, y, level))) {
+      return false;
+    }
+
+    return ((LevelHelper.getBlockTypeBySymbol(level[y][x])) === 'wall');
+  }
+
+  static positionIsInLevelBounds(x, y, level) {
+    if (!(Array.isArray(level)) || !level.length) {
+      throw new Error(exceptions['INVALID_LEVEL']);
+    }
+    return (y < level.length && x < level[0].length);
   }
 
   getCurrentLevel() {

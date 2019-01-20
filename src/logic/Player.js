@@ -2,6 +2,8 @@ import exceptions from './../errorhandling/exceptions.js';
 import keyboardControls from './../controls/keyboardControls.js';
 import { calcGravity } from './../func/funcs.js';
 import { GRAVITY_OF_EARTH, STEP_SIZES } from './conf/conf.js';
+import globals from './../globals.js';
+import Level from './Level.js';
 
 const playerControls = keyboardControls['player'];
 
@@ -12,16 +14,16 @@ export default class Player {
       throw new Error(exceptions['INVALID_RENDER_OBJECT']);
     }
 
-    this._position = renderObject.getInitialPosition();
-    
+    this._position = renderObject.getInitialPosition();    
     this._velocity = {x: 0, y: 0};
-    this._mass = 1;
+    this._mass = 5;
     this._gravity = calcGravity(this._mass, GRAVITY_OF_EARTH);
+    this._levelLogic = new Level(globals.helpers.levelHelper.getCurrentLevel());
 
     // -----------------
     this.getPosition = this.getPosition.bind(this);
     this._listenForControls = this._listenForControls.bind(this);
-    this._calcVelocity = this._calcVelocity.bind(this);
+    this._calcNewPosition = this._calcNewPosition.bind(this);
     this._jump = this._jump.bind(this);
     this._moveForward = this._moveForward.bind(this);
     this._moveBackward = this._moveBackward.bind(this);
@@ -31,7 +33,13 @@ export default class Player {
   }
 
   getPosition() {
-    this._calcVelocity();
+    const newPos = this._calcNewPosition();
+    if (!(this._levelLogic.newPositionIsAWall(newPos.x, newPos.y))) {
+      this._position.x = newPos.x;
+      this._position.y = newPos.y;
+      this._velocity.y = newPos.vel.y;
+    }
+    this._calcNewPosition();
     return this._position;
   }
 
@@ -47,12 +55,18 @@ export default class Player {
     });
   }
 
-  _calcVelocity() {
-    this._position.x += this._velocity.x;
-    this._position.y += this._velocity.y;
-
-    // gravity
-    this._velocity.y -= this._gravity;
+  _calcNewPosition() {
+    const newX = this._position.x + this._velocity.x;
+    const newY = this._position.y + this._velocity.y;
+    const newVelY = this._velocity.y - this._gravity;
+    return {
+      x: newX,
+      y: newY,
+      vel: {
+        x: undefined,
+        y: newVelY,
+      }
+    };
   }
 
   _jump() {
