@@ -22,10 +22,11 @@ export default class ThreeHelper {
     this._renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this._renderer.domElement);
 
+    this._cameraCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
     this._incrementors = {
       camera: {
-        x: 11.5,
-        y: 5,
+        x: this._cameraCenter.x,
+        y: this._cameraCenter.y * -1,
         z: 15,
       },
     };
@@ -196,8 +197,7 @@ export default class ThreeHelper {
     this._camera.position.x = this._incrementors.camera.x;
     this._camera.position.y = this._incrementors.camera.y;
     this._camera.position.z = this._incrementors.camera.z;
-    const levelCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
-    this._camera.lookAt(new THREE.Vector3(levelCenter.x, levelCenter.y * -1, 0));
+    this._camera.lookAt(new THREE.Vector3(this._cameraCenter.x, this._cameraCenter.y * -1, 0));
     return this;
   }
 
