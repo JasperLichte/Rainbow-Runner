@@ -9,7 +9,29 @@ export default class Player {
 
     this._position = renderObject.getInitialPosition();
 
-    console.log(this);    
+    // -----------------
+    this.getPosition = this.getPosition.bind(this);
+    this._listenForControls = this._listenForControls.bind(this);
+    this._jump = this._jump.bind(this);
+    // -----------------
+
+    this._listenForControls();
   }
-  
+
+  getPosition() {
+    return this._position;
+  }
+
+  _listenForControls() {
+    window.addEventListener('keydown', e => {
+      if (e.code === 'Space') {
+        this._jump();
+      }      
+    });
+  }
+
+  _jump() {
+    this._position.y -= 1;
+  }
+
 }

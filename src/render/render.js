@@ -11,6 +11,7 @@ export default (helper, level) => {
   (function animate() {
     // ======= ANIMATION LOOP ==========
 
+    playerObject.move(playerLogic.getPosition().x, playerLogic.getPosition().y);
     // =================================
     helper.render();
     requestAnimationFrame(animate);
