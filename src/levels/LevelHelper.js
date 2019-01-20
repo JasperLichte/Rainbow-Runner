@@ -7,10 +7,7 @@ export default class LevelHelper {
 
   constructor() {
     this._nextLevelGenerator = repeatedArray(levels);
-    this._currentLevel = this.nextLevel();
-
-    console.log(LevelHelper.isvalidLevel(this._currentLevel));
-    
+    this._currentLevel = this.nextLevel();    
 
     // -------------
     this.getCurrentLevel = this.getCurrentLevel.bind(this);
@@ -49,7 +46,10 @@ export default class LevelHelper {
   }
 
   nextLevel() {
-    const level = this._nextLevelGenerator.next().value;
+    let level = this._nextLevelGenerator.next().value;
+    while(!(LevelHelper.isvalidLevel(level))) {
+      level = this._nextLevelGenerator.next().value;
+    }
     this._currentLevel = level;
     return level;
   }
