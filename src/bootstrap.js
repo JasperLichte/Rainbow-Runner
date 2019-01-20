@@ -17,6 +17,3 @@ globals.menu = (new Menu())
   .setContent(Menu.getContentByType('menu'))
   .show()
   .listenForEvents();
-
-
-window.globals = globals;
