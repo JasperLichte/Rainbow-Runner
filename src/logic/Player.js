@@ -1,4 +1,7 @@
 import exceptions from './../errorhandling/exceptions.js';
+import keyboardControls from './../controls/keyboardControls.js';
+
+const playerControls = keyboardControls.player;
 
 export default class Player {
 
@@ -24,9 +27,10 @@ export default class Player {
 
   _listenForControls() {
     window.addEventListener('keydown', e => {
-      if (e.code === 'Space') {
-        this._jump();
-      }      
+      const control = playerControls[e.code];
+      if (this[control.action]) {
+        this[control.action]();
+      }   
     });
   }
 
