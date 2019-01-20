@@ -1,7 +1,7 @@
 import exceptions from './../errorhandling/exceptions.js';
 import keyboardControls from './../controls/keyboardControls.js';
 import { calcGravity } from './../func/funcs.js';
-import { GRAVITY_OF_EARTH } from './conf/conf.js';
+import { GRAVITY_OF_EARTH, STEP_SIZES } from './conf/conf.js';
 
 const playerControls = keyboardControls['player'];
 
@@ -23,6 +23,8 @@ export default class Player {
     this._listenForControls = this._listenForControls.bind(this);
     this._calcVelocity = this._calcVelocity.bind(this);
     this._jump = this._jump.bind(this);
+    this._moveForward = this._moveForward.bind(this);
+    this._moveBackward = this._moveBackward.bind(this);
     // -----------------
 
     this._listenForControls();
@@ -55,7 +57,15 @@ export default class Player {
 
   _jump() {
     this._velocity.y = 0;
-    this._position.y += 1;
+    this._position.y += STEP_SIZES['player']['y'];
+  }
+
+  _moveForward() {
+    this._position.x += STEP_SIZES['player']['x'];
+  }
+
+  _moveBackward() {
+    this._position.x -= STEP_SIZES['player']['x'];
   }
 
 }
