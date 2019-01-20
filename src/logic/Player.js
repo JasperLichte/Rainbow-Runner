@@ -1,5 +1,7 @@
 import exceptions from './../errorhandling/exceptions.js';
 import keyboardControls from './../controls/keyboardControls.js';
+import { calcGravity } from './../func/funcs.js';
+import { GRAVITY_OF_EARTH } from './conf/conf.js';
 
 const playerControls = keyboardControls['player'];
 
@@ -13,7 +15,8 @@ export default class Player {
     this._position = renderObject.getInitialPosition();
     
     this._velocity = {x: 0, y: 0};
-    this._gravity = 0.0000125;
+    this._mass = 1;
+    this._gravity = calcGravity(this._mass, GRAVITY_OF_EARTH);
 
     // -----------------
     this.getPosition = this.getPosition.bind(this);
