@@ -9,10 +9,9 @@ import Diamond from './objects/Diamond.js';
 export default class DomHelper {
 
   constructor(domParent) {
-    if (!domParent) {
-      domParent = document.body;
-    }
-    this._domParent = domParent;
+    this._mode = '2d';
+
+    this._domParent = domParent ? domParent : document.body;
     this._domElement = this._buildDomElement();
     this._domParent.appendChild(this._domElement);
 
@@ -21,6 +20,7 @@ export default class DomHelper {
     this._player = null;
 
     // --------------
+    this.getMode = this.getMode.bind(this);
     this.getIncrementors = this.getIncrementors.bind(this);
     this.clearScene = this.clearScene.bind(this);
     this.render = this.render.bind(this);
@@ -28,6 +28,10 @@ export default class DomHelper {
     this.buildLevel = this.buildLevel.bind(this);
     this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
     this.getPlayer = this.getPlayer.bind(this);
+  }
+
+  getMode() {
+    return this._mode;
   }
 
   getIncrementors() {

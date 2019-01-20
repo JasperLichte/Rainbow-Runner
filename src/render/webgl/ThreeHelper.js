@@ -11,7 +11,9 @@ import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
 export default class ThreeHelper {
 
-  constructor() {    
+  constructor() {
+    this._mode = '3d';
+
     this._scene = new THREE.Scene();
     this._scene.background = new THREE.Color(colors['canvas-background']);
 
@@ -34,6 +36,7 @@ export default class ThreeHelper {
     this._player = null;
 
     //--------------
+    this.getMode = this.getMode.bind(this);
     this.getScene = this.getScene.bind(this);
     this.getRenderer = this.getRenderer.bind(this);
     this.getIncrementors = this.getIncrementors.bind(this);
@@ -49,6 +52,10 @@ export default class ThreeHelper {
 
     this._handleResize();
     this.listenForCameraMovements();
+  }
+
+  getMode() {
+    return this._mode;
   }
 
   getScene() {

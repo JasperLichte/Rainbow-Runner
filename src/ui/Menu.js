@@ -97,6 +97,8 @@ export default class Menu {
         const renderHelper = (btn.getAttribute('data-mode') === '3d' 
           ? new ThreeHelper() 
           : new DomHelper(document.getElementById('main')));
+        globals.helpers.renderHelper.setHelper(renderHelper);
+        
         render(renderHelper, levelHelper.getCurrentLevel());
         this._hasDoneInitialRender = true;
 
