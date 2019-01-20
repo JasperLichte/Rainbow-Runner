@@ -4,7 +4,7 @@ import LevelHelper from './../levels/LevelHelper.js';
 export default class Level {
   
   constructor(level = []) {
-    if (!(Array.isArray(level)) || !level.length) {
+    if (!(LevelHelper.isValidLevel(level))) {
       throw new Error(exceptions['INVALID_LEVEL']);
     }
     this._levelArray = level;

@@ -24,7 +24,7 @@ export default class LevelHelper {
   }
 
   static positionIsWall(x, y, level) {
-    if (!(Array.isArray(level)) || !level.length) {
+    if (!(LevelHelper.isValidLevel(level))) {
       throw new Error(exceptions['INVALID_LEVEL']);
     }
     if (!(LevelHelper.positionIsInLevelBounds(x, y, level))) {
@@ -35,7 +35,7 @@ export default class LevelHelper {
   }
 
   static positionIsInLevelBounds(x, y, level) {
-    if (!(Array.isArray(level)) || !level.length) {
+    if (!(LevelHelper.isValidLevel(level))) {
       throw new Error(exceptions['INVALID_LEVEL']);
     }
     return (y < level.length && x < level[0].length);
@@ -47,14 +47,14 @@ export default class LevelHelper {
 
   nextLevel() {
     let level = this._nextLevelGenerator.next().value;
-    while(!(LevelHelper.isvalidLevel(level))) {
+    while(!(LevelHelper.isValidLevel(level))) {
       level = this._nextLevelGenerator.next().value;
     }
     this._currentLevel = level;
     return level;
   }
 
-  static isvalidLevel(level = []) {
+  static isValidLevel(level = []) {
     if (!(Array.isArray(level)) || !level.length) { return false; }
 
     let width = null;
@@ -73,8 +73,8 @@ export default class LevelHelper {
   }
 
   static getLevelCenter(level) {
-    if (!(LevelHelper.isvalidLevel(level))) {
-      return {x: 0, y: 0};
+    if (!(LevelHelper.isValidLevel(level))) {
+      throw new Error(exceptions['INVALID_LEVEL']);
     }
 
     return {
