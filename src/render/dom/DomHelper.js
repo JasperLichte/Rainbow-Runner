@@ -46,6 +46,7 @@ export default class DomHelper {
   }
 
   render() {
+    this.animateCameraPosition();
     return this;
   }
 

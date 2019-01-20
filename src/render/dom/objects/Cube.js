@@ -9,13 +9,14 @@ export default class Cube {
       depth: 1,
     };
     this._object = this._buildObject();
-    this._position = {};
+    this._position = null;
 
     //------------
     this._buildObject = this._buildObject.bind(this);
     this.getObject = this.getObject.bind(this);
     this.getDimensions = this.getDimensions.bind(this);
     this.setPosition = this.setPosition.bind(this);
+    this.getPosition = this.getPosition.bind(this);
     //------------
   }
 
@@ -37,6 +38,9 @@ export default class Cube {
   }
 
   setPosition(pos, centerElement = true) {
+    if (!pos.hasOwnProperty('x') || !pos.hasOwnProperty('y')) {
+      throw new Error('Invalid position object passed. Expecting an object like {x, y}');
+    }
     this._position = pos;
     if (centerElement) {
       this._object.style.left = (pos.x * this._scale + ((1 - this._size.width) * this._scale / 2)) + 'px';
@@ -46,6 +50,10 @@ export default class Cube {
     this._object.style.left = (pos.x * this._scale) + 'px';
     this._object.style.top = (pos.y * this._scale) + 'px';
     return this;
+  }
+
+  getPosition() {
+    return this._position;
   }
 
 }

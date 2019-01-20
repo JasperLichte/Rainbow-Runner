@@ -65,6 +65,7 @@ export default class ThreeHelper {
   }
 
   render() {
+    this.animateCameraPosition();
     this._renderer.render(this._scene, this._camera);
     return this;
   }
@@ -101,6 +102,7 @@ export default class ThreeHelper {
     const y = pos.y * -1;
     
     this._scene.add(obj);
+    block.setPosition({x, y});
     obj.position.set(x, y, 0);
     
     block.tweakPosition && block.tweakPosition();
