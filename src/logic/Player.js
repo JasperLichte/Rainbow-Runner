@@ -27,6 +27,9 @@ export default class Player {
 
   _listenForControls() {
     window.addEventListener('keydown', e => {
+      if (!(e.code in playerControls)) {
+        return;
+      }
       const control = playerControls[e.code];
       if (this[control.action]) {
         this[control.action]();
