@@ -15,7 +15,7 @@ export default class Cube {
     this.tweakPosition = this.tweakPosition.bind(this);
     this.getInitialPosition = this.getInitialPosition.bind(this);
     this.setInitialPosition = this.setInitialPosition.bind(this);
-    //------------
+    this.move = this.move.bind(this);
   }
 
   getObject() {
@@ -36,6 +36,11 @@ export default class Cube {
 
   getInitialPosition() {  
     return this._position;
+  }
+
+  move(x, y) {
+    this._object.position.set(x, y * -1, 0);
+    return this;
   }
 
 }

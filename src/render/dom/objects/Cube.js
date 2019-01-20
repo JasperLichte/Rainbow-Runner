@@ -19,7 +19,8 @@ export default class Cube {
     this.getDimensions = this.getDimensions.bind(this);
     this.setInitialPosition = this.setInitialPosition.bind(this);
     this.getInitialPosition = this.getInitialPosition.bind(this);
-    //------------
+    this.move = this.move.bind(this);
+    this.center = this.center.bind(this);
   }
 
   _buildObject() {
@@ -44,18 +45,26 @@ export default class Cube {
       throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
     this._position = pos;
-    if (centerElement) {
-      this._object.style.left = (pos.x * this._scale + ((1 - this._size.width) * this._scale / 2)) + 'px';
-      this._object.style.top = (pos.y * this._scale + ((1 - this._size.height) * this._scale / 2)) + 'px';
-      return this;
-    }
-    this._object.style.left = (pos.x * this._scale) + 'px';
-    this._object.style.top = (pos.y * this._scale) + 'px';
+    this.move(pos.x, pos.y);
+    centerElement && this.center();
+
     return this;
   }
 
   getInitialPosition() {
     return this._position;
+  }
+
+  move(x, y) {
+    this._object.style.left = (x * this._scale) + 'px';
+    this._object.style.top = (y * this._scale) + 'px';
+    return;
+  }
+
+  center() {
+    this._object.style.left += ((1 - this._size.width) * this._scale / 2) + 'px';
+    this._object.style.top += ((1 - this._size.height) * this._scale / 2) + 'px';
+    return this;
   }
 
 }

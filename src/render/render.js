@@ -9,7 +9,7 @@ export default (helper, level) => {
   const playerLogic = new Player(playerObject);
 
   (function animate() {
-    // ======= ANIMATION LOOP ==========    
+    // ======= ANIMATION LOOP ==========
 
     // =================================
     helper.render();
