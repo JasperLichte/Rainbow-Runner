@@ -102,7 +102,7 @@ export default class ThreeHelper {
     const y = pos.y * -1;
     
     this._scene.add(obj);
-    block.setPosition({x, y});
+    block.setInitialPosition({x, y});
     obj.position.set(x, y, 0);
     
     block.tweakPosition && block.tweakPosition();

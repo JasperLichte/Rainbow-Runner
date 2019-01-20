@@ -5,7 +5,8 @@ export default (helper, level) => {
     .clearScene()
     .buildLevel(level);
 
-  const playerLogic = new Player(helper.getPlayer());
+  const playerObject = helper.getPlayer();
+  const playerLogic = new Player(playerObject);
 
   (function animate() {
     // ======= ANIMATION LOOP ==========    

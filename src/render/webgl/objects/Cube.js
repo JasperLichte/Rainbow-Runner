@@ -13,8 +13,8 @@ export default class Cube {
     //------------
     this.getObject = this.getObject.bind(this);
     this.tweakPosition = this.tweakPosition.bind(this);
-    this.getPosition = this.getPosition.bind(this);
-    this.setPosition = this.setPosition.bind(this);
+    this.getInitialPosition = this.getInitialPosition.bind(this);
+    this.setInitialPosition = this.setInitialPosition.bind(this);
     //------------
   }
 
@@ -24,7 +24,7 @@ export default class Cube {
 
   tweakPosition() {}
 
-  setPosition(position) {
+  setInitialPosition(position) {
     if (!position.hasOwnProperty('x') || !position.hasOwnProperty('y')) {
       throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
@@ -34,7 +34,7 @@ export default class Cube {
     };
   }
 
-  getPosition() {  
+  getInitialPosition() {  
     return this._position;
   }
 

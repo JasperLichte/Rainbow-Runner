@@ -17,8 +17,8 @@ export default class Cube {
     this._buildObject = this._buildObject.bind(this);
     this.getObject = this.getObject.bind(this);
     this.getDimensions = this.getDimensions.bind(this);
-    this.setPosition = this.setPosition.bind(this);
-    this.getPosition = this.getPosition.bind(this);
+    this.setInitialPosition = this.setInitialPosition.bind(this);
+    this.getInitialPosition = this.getInitialPosition.bind(this);
     //------------
   }
 
@@ -39,7 +39,7 @@ export default class Cube {
     return this._size;
   }
 
-  setPosition(pos, centerElement = true) {
+  setInitialPosition(pos, centerElement = true) {
     if (!pos.hasOwnProperty('x') || !pos.hasOwnProperty('y')) {
       throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
@@ -54,7 +54,7 @@ export default class Cube {
     return this;
   }
 
-  getPosition() {
+  getInitialPosition() {
     return this._position;
   }
 

@@ -7,7 +7,7 @@ export default class Player {
       throw new Error(exceptions['INVALID_RENDER_OBJECT']);
     }
 
-    this._position = renderObject.getPosition();
+    this._position = renderObject.getInitialPosition();
 
     console.log(this);    
   }
