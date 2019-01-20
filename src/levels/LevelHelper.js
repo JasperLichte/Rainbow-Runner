@@ -9,6 +9,9 @@ export default class LevelHelper {
     this._nextLevelGenerator = repeatedArray(levels);
     this._currentLevel = this.nextLevel();
 
+    console.log(LevelHelper.isvalidLevel(this._currentLevel));
+    
+
     // -------------
     this.getCurrentLevel = this.getCurrentLevel.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -49,6 +52,35 @@ export default class LevelHelper {
     const level = this._nextLevelGenerator.next().value;
     this._currentLevel = level;
     return level;
+  }
+
+  static isvalidLevel(level = []) {
+    if (!(Array.isArray(level)) || !level.length) { return false; }
+
+    let width = null;
+    for (let y = 0; y < level.length; y++) {
+      if (!(Array.isArray(level[y])) || !(level[y].length)) { return false; }
+      if (!width) {
+        width = level[y].length;
+      } else {
+        if (level[y].length !== width) { return false; }
+      }
+      for (let x = 0; x < level[y]; x++) {
+        if (!(level[y][x] in symbols)) { return false; }
+      }
+    }
+    return true;
+  }
+
+  static getLevelCenter(level) {
+    if (!(LevelHelper.isvalidLevel(level))) {
+      return {x: 0, y: 0};
+    }
+
+    return {
+      y: level.length / 2,
+      x: level[0].length / 2,
+    }
   }
 
 }

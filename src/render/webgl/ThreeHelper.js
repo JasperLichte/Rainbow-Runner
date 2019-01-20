@@ -2,6 +2,8 @@ const THREE = window.THREE;
 
 import colors from './../colors.js';
 import LevelHelper from './../../levels/LevelHelper.js';
+import globals from './../../globals.js';
+
 import Wall from './objects/Wall.js';
 import Coin from './objects/Coin.js';
 import Player from './objects/Player.js';
@@ -194,7 +196,8 @@ export default class ThreeHelper {
     this._camera.position.x = this._incrementors.camera.x;
     this._camera.position.y = this._incrementors.camera.y;
     this._camera.position.z = this._incrementors.camera.z;
-    this._camera.lookAt(new THREE.Vector3(11.5, 0, 0));
+    const levelCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
+    this._camera.lookAt(new THREE.Vector3(levelCenter.x, levelCenter.y * -1, 0));
     return this;
   }
 
