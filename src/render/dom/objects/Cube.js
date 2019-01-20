@@ -1,3 +1,5 @@
+import exceptions from './../../../errorhandling/exceptions.js';
+
 export default class Cube {
 
   constructor(className = 'void') {
@@ -39,7 +41,7 @@ export default class Cube {
 
   setPosition(pos, centerElement = true) {
     if (!pos.hasOwnProperty('x') || !pos.hasOwnProperty('y')) {
-      throw new Error('Invalid position object passed. Expecting an object like {x, y}');
+      throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
     this._position = pos;
     if (centerElement) {

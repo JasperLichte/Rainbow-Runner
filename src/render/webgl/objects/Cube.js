@@ -1,4 +1,5 @@
 const THREE = window.THREE;
+import exceptions from './../../../errorhandling/exceptions.js';
 
 export default class Cube {
 
@@ -25,7 +26,7 @@ export default class Cube {
 
   setPosition(position) {
     if (!position.hasOwnProperty('x') || !position.hasOwnProperty('y')) {
-      throw new Error('Invalid position object passed. Expecting an object like {x, y}');
+      throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
     this._position = {
       x: position.x,
