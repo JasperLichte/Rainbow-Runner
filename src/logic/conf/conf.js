@@ -3,6 +3,13 @@ export const GRAVITY_OF_EARTH = 9.81;
 export const STEP_SIZES = {
   player: {
     x: 0.25,
-    y: 2.5,
+    y: 2,
   }
-}
+};
+
+export const STEP_SPEEDS = {
+  player: {
+    x: 0.025,
+    y: 0.2,
+  }
+};

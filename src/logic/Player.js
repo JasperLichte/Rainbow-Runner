@@ -1,7 +1,7 @@
 import exceptions from './../errorhandling/exceptions.js';
 import keyboardControls from './../controls/keyboardControls.js';
 import { calcGravity } from './../func/funcs.js';
-import { GRAVITY_OF_EARTH, STEP_SIZES } from './conf/conf.js';
+import { GRAVITY_OF_EARTH, STEP_SIZES, STEP_SPEEDS } from './conf/conf.js';
 import globals from './../globals.js';
 import Level from './Level.js';
 
@@ -16,7 +16,7 @@ export default class Player {
 
     this._position = renderObject.getInitialPosition();    
     this._velocity = {x: 0, y: 0};
-    this._mass = 5;
+    this._mass = 10;
     this._gravity = calcGravity(this._mass, GRAVITY_OF_EARTH);
     this._levelLogic = new Level(globals.helpers.levelHelper.getCurrentLevel());
 
@@ -71,15 +71,44 @@ export default class Player {
 
   _jump() {
     this._velocity.y = 0;
-    this._position.y += STEP_SIZES['player']['y'];
+
+    const targetHeigt = this._position.y + STEP_SIZES['player']['y'];
+    const jumpStep = _ => {
+      this._position.y += STEP_SPEEDS['player']['y'];
+
+      if (this._position.y >= targetHeigt) {  
+        return;
+      }
+      requestAnimationFrame(jumpStep);
+    };
+    jumpStep();
+    
   }
 
   _moveForward() {
-    this._position.x += STEP_SIZES['player']['x'];
+    const target = this._position.x + STEP_SIZES['player']['x'];
+    const step = _ => {
+      this._position.x += STEP_SPEEDS['player']['x'];
+
+      if (this._position.x >= target) {  
+        return;
+      }
+      requestAnimationFrame(step);
+    };
+    step();
   }
 
   _moveBackward() {
-    this._position.x -= STEP_SIZES['player']['x'];
+    const target = this._position.x - STEP_SIZES['player']['x'];
+    const step = _ => {
+      this._position.x -= STEP_SPEEDS['player']['x'];
+
+      if (this._position.x <= target) {  
+        return;
+      }
+      requestAnimationFrame(step);
+    };
+    step();
   }
 
 }
