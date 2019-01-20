@@ -1,7 +1,7 @@
 export default Object.freeze({
 
   player: {
-    'Space':        {action: '_jump'},
+    'ArrowUp':      {action: '_jump'},
     'KeyD':         {action: '_moveForward'},
     'ArrowRight':   {action: '_moveForward'},
     'KeyA':         {action: '_moveBackward'},
