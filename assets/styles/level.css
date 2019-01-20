@@ -31,7 +31,7 @@ main#main canvas {
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;    
     border-bottom: 15px solid var(--objects-spikes-color);
-    transform: scale(0.8) translateY(10px);
+    transform: scale(0.7) translate(-5px, 10px);
 }
 
 .dom-engine-wrapper .wall {
@@ -45,6 +45,7 @@ main#main canvas {
 
 .dom-engine-wrapper .diamond{
     background-color: var(--objects-diamond-color);
+    transform: scale(0.2, 0.4) translateX(-12px);
 }
 
 
