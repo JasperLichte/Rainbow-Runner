@@ -2,6 +2,9 @@ import './render/colors.js';
 import Menu from './ui/Menu.js';
 import LevelHelper from './levels/LevelHelper.js';
 import globals from './globals.js';
+import { preventDefaultEvents } from './func/funcs.js';
+
+preventDefaultEvents();
 
 // helpers
 globals.helpers = {};
