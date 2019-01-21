@@ -2,6 +2,7 @@ import ThreeHelper from '../render/webgl/ThreeHelper.js';
 import DomHelper from '../render/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from './../globals.js';
+import { REPO_URL } from './../config/env.js'; 
 
 export default class Menu {
 
@@ -76,7 +77,7 @@ export default class Menu {
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
               <button class="play-btn" data-mode="2d">Play in 2d!</button>
-              <a href="https://github.com/JasperLichte/Rainbow-Cube">Contribute</a>
+              <a href="${REPO_URL}">Contribute</a>
           </div>
           <p>By Jasper Lichte and Harun Can</p>
         </div>`;
