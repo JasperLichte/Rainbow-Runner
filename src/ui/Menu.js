@@ -2,7 +2,7 @@ import ThreeHelper from '../render/webgl/ThreeHelper.js';
 import DomHelper from '../render/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from './../globals.js';
-import { REPO_URL } from './../config/env.js'; 
+import { APP_NAME, REPO_URL } from './../config/env.js'; 
 
 export default class Menu {
 
@@ -72,7 +72,7 @@ export default class Menu {
     switch(type) {
       case 'menu':
         return `<div class="menu-wrapper">
-          <h1>Rainbow-Cube</h1>
+          <h1>${APP_NAME}</h1>
           <span class="version">Version: 0.1.2</span>
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
