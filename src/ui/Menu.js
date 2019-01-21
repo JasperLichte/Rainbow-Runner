@@ -71,7 +71,7 @@ export default class Menu {
     switch(type) {
       case 'menu':
         return `<div class="menu-wrapper">
-          <h1>Rainbow Runner</h1>
+          <h1>Rainbow-Cube</h1>
           <span class="version">Version: 0.1.2</span>
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
