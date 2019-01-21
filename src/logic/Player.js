@@ -9,12 +9,12 @@ const playerControls = keyboardControls['player'];
 
 export default class Player {
 
-  constructor(renderObject) {
-    if (!renderObject) {
-      throw new Error(exceptions['INVALID_RENDER_OBJECT']);
+  constructor(initialPosition) {
+    if (!initialPosition) {
+      throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
 
-    this._position = renderObject.getInitialPosition();    
+    this._position = initialPosition;    
     this._velocity = {x: 0, y: 0};
     this._mass = 10;
     this._gravity = calcGravity(this._mass, GRAVITY_OF_EARTH);

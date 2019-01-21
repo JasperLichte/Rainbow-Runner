@@ -6,12 +6,13 @@ export default (helper, level) => {
     .buildLevel(level);
 
   const playerObject = helper.getPlayer();
-  const playerLogic = new Player(playerObject);
+  const playerLogic = new Player(playerObject.getInitialPosition());
 
   (function animate() {
     // ======= ANIMATION LOOP ==========
 
-    playerObject.move(playerLogic.getPosition().x, playerLogic.getPosition().y);
+    const playerPosition = playerLogic.getPosition();
+    playerObject.move(playerPosition.x, playerPosition.y);
     // =================================
     helper.render();
     requestAnimationFrame(animate);
