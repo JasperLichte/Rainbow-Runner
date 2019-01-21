@@ -1,6 +1,4 @@
-import { setCSSColorVars } from './../func/cssFuncs.js';
-
-const colors = Object.freeze({
+export default Object.freeze({
   // Canvas
   'canvas-background': '#909ede',
   // Objects
@@ -17,7 +15,3 @@ const colors = Object.freeze({
   'ui-menu-wrapper-font': '#eee',
   'ui-menu-hamburger-button': '#ffffff',
 });
-
-export default colors;
-
-setCSSColorVars(colors);
