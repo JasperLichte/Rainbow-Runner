@@ -1,4 +1,4 @@
-# Rainbow Cubes
+# Rainbow Cube
 
 A simple Jump 'n Run game written in ECMAScript2018.
 
