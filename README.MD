@@ -1,4 +1,4 @@
-# Rainbow Cube
+# Rainbow Runner
 
 ![alt text](https://www.media.lichte.info/rainbow-cube/assets/Banner.png)
 
