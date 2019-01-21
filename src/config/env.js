@@ -4,4 +4,4 @@ export const CONTRIBUTORS = Object.freeze({
 });
 
 export const APP_NAME = 'Rainbow Runner';
-export const REPO_URL = 'https://github.com/JasperLichte/Rainbow-Cube';
+export const REPO_URL = 'https://github.com/JasperLichte/Rainbow-Runner';
