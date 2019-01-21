@@ -1,6 +1,8 @@
 ![alt text](https://www.media.lichte.info/rainbow-cube/assets/Banner.png)
 
-> Written in ECMAScript 2018 using ThreeJs
+# v0.1.2
+
+> A jump 'n run game written in ECMAScript 2018 using ThreeJs
 
 ## Demo
 
