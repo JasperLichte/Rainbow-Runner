@@ -37,6 +37,7 @@ export default class Player {
     if (!(this._levelLogic.newPositionIsAWall(newPos.x, newPos.y))) {
       this._position.x = newPos.x;
       this._position.y = newPos.y;
+      this._velocity.x = newPos.vel.x;
       this._velocity.y = newPos.vel.y;
     }
     this._calcNewPosition();
@@ -49,9 +50,7 @@ export default class Player {
         return;
       }
       const control = playerControls[e.code];
-      if (this[control.action]) {
-        this[control.action]();
-      }   
+      this[control.action] && this[control.action]();
     });
   }
 
@@ -63,7 +62,7 @@ export default class Player {
       x: newX,
       y: newY,
       vel: {
-        x: undefined,
+        x: this._velocity.x,
         y: newVelY,
       }
     };
