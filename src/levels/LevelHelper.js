@@ -1,16 +1,16 @@
 import symbols from './symbols.js';
 import levels from './levels.js';
-import { repeatedArray } from './../func/generators.js';
 import exceptions from './../errorhandling/exceptions.js';
 
 export default class LevelHelper {
 
   constructor() {
-    this._nextLevelGenerator = repeatedArray(levels);
-    this._currentLevel = this.nextLevel();    
+    this._currentLevelIndex = -1;
+    this._currentLevel = this.nextLevel();
 
     // -------------
     this.getCurrentLevel = this.getCurrentLevel.bind(this);
+    this.getCurrentLevelIndex = this.getCurrentLevelIndex.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
   }
 
@@ -45,11 +45,17 @@ export default class LevelHelper {
     return this._currentLevel;
   }
 
+  getCurrentLevelIndex() {
+    return this._currentLevelIndex;
+  }
+
+  getTotalLevels() {
+    return levels.length
+  }
+
   nextLevel() {
-    let level = this._nextLevelGenerator.next().value;
-    while(!(LevelHelper.isValidLevel(level))) {
-      level = this._nextLevelGenerator.next().value;
-    }
+    this._currentLevelIndex = (this._currentLevelIndex + 1) % levels.length;
+    const level = levels[this._currentLevelIndex];
     this._currentLevel = level;
     return level;
   }

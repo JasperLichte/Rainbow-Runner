@@ -59,8 +59,7 @@ export default class Menu {
   }
 
   setContent(html = '') {
-    this._content = html;    
-    this._wrapper.innerHTML = this._content;
+    this._wrapper.innerHTML = this._content = html;
     return this;
   }
 
@@ -110,9 +109,6 @@ export default class Menu {
             el.setAttribute('disabled', true);
           }
         });
-        
-        // NEXT LEVEL BUTTON
-        document.getElementById('next-level-btn').addEventListener('click', _ => render(renderHelper, levelHelper.nextLevel()));
       });
     });
 
