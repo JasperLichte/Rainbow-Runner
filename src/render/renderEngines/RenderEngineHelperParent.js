@@ -1,7 +1,6 @@
 export default class RenderEngineHelperParent {
 
   constructor(mode = '') {
-
     this._mode = mode;
     this._incrementors = {};
     this._player = null;

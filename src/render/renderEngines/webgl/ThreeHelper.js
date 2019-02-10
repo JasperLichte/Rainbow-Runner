@@ -18,10 +18,8 @@ export default class ThreeHelper extends RenderEngineHelperParent {
 
     this._scene = new THREE.Scene();
     this._scene.background = new THREE.Color(colors['canvas-background']);
-
     this._camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this._scene.add(this._camera);
-
     this._renderer = new THREE.WebGLRenderer({antialias: true});
     this._renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this._renderer.domElement);
