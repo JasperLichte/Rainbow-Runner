@@ -1,4 +1,4 @@
-export default class RenderEngineHelper {
+export default class RenderEngineHelperParent {
 
   constructor(mode = '') {
 

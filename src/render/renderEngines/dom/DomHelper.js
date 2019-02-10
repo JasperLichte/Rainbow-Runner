@@ -1,4 +1,4 @@
-import RenderEngineHelper from './../RenderEngineHelper.js';
+import RenderEngineHelperParent from './../RenderEngineHelperParent.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 import Player from './objects/Player.js';
@@ -6,7 +6,7 @@ import Coin from './objects/Coin.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
 
-export default class DomHelper extends RenderEngineHelper {
+export default class DomHelper extends RenderEngineHelperParent {
 
   constructor(domParent) {
     super('2d');

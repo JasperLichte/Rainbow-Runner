@@ -1,6 +1,6 @@
 const THREE = window.THREE;
 
-import RenderEngineHelper from './../RenderEngineHelper.js';
+import RenderEngineHelperParent from './../RenderEngineHelperParent.js';
 import colors from './../../colors.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
 import globals from './../../../globals.js';
@@ -11,7 +11,7 @@ import Player from './objects/Player.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
 
-export default class ThreeHelper extends RenderEngineHelper {
+export default class ThreeHelper extends RenderEngineHelperParent {
 
   constructor() {
     super('3d');
