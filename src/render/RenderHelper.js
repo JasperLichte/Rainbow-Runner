@@ -5,11 +5,11 @@ export default class RenderHelper {
     this._helper = null;
 
     // --------------
-    this.setHelper = this.setHelper.bind(this);
+    this.setEngineHelper = this.setEngineHelper.bind(this);
     this.getHelper = this.getHelper.bind(this);
   }
 
-  setHelper(helper) {
+  setEngineHelper(helper) {
     this._helper = helper;
   }
 

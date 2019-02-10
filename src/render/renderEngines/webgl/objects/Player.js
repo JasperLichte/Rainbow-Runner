@@ -1,7 +1,7 @@
 const THREE = window.THREE;
 
 import Cube from './Cube.js';
-import colors from './../../colors.js';
+import colors from './../../../colors.js';
 
 export default class Player extends Cube {
 

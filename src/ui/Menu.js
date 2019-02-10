@@ -1,5 +1,5 @@
-import ThreeHelper from '../render/webgl/ThreeHelper.js';
-import DomHelper from '../render/dom/DomHelper.js';
+import ThreeHelper from '../render/renderEngines/webgl/ThreeHelper.js';
+import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from './../globals.js';
 import { APP_NAME, REPO_URL } from './../config/env.js'; 
@@ -94,12 +94,12 @@ export default class Menu {
           return;
         }
         
-        const renderHelper = (btn.getAttribute('data-mode') === '3d' 
+        const renderEngineHelper = (btn.getAttribute('data-mode') === '3d' 
           ? new ThreeHelper() 
           : new DomHelper(document.getElementById('main')));
-        globals.helpers.renderHelper.setHelper(renderHelper);
+        globals.helpers.renderHelper.setEngineHelper(renderEngineHelper);
         
-        render(renderHelper, levelHelper.getCurrentLevel());
+        render(renderEngineHelper, levelHelper.getCurrentLevel());
         this._hasDoneInitialRender = true;
 
         // Disable button

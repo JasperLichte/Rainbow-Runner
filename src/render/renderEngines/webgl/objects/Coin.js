@@ -1,7 +1,7 @@
 const THREE = window.THREE;
 
 import RotatingObject from './RotatingObject.js';
-import colors from './../../colors.js';
+import colors from './../../../colors.js';
 
 export default class Coin extends RotatingObject {
 

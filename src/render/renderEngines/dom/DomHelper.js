@@ -1,40 +1,19 @@
-import LevelHelper from './../../levels/LevelHelper.js';
+import RenderEngineHelper from './../RenderEngineHelper.js';
+import LevelHelper from './../../../levels/LevelHelper.js';
 import Wall from './objects/Wall.js';
 import Player from './objects/Player.js';
 import Coin from './objects/Coin.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
 
-export default class DomHelper {
+export default class DomHelper extends RenderEngineHelper {
 
   constructor(domParent) {
-    this._mode = '2d';
+    super('2d');
 
     this._domParent = domParent ? domParent : document.body;
     this._domElement = this._buildDomElement();
     this._domParent.appendChild(this._domElement);
-
-    this._incrementors = {};
-
-    this._player = null;
-
-    // --------------
-    this.getMode = this.getMode.bind(this);
-    this.getIncrementors = this.getIncrementors.bind(this);
-    this.clearScene = this.clearScene.bind(this);
-    this.render = this.render.bind(this);
-    this.animateCameraPosition = this.animateCameraPosition.bind(this);
-    this.buildLevel = this.buildLevel.bind(this);
-    this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
-    this.getPlayer = this.getPlayer.bind(this);
-  }
-
-  getMode() {
-    return this._mode;
-  }
-
-  getIncrementors() {
-    return this._incrementors;
   }
 
   _buildDomElement() {
@@ -102,14 +81,6 @@ export default class DomHelper {
         return new Diamond();
     }
     return null;
-  }
-
-  getPlayer() {
-    return this._player;
-  }
-  
-  animateCameraPosition() {
-    return this;
   }
 
 }

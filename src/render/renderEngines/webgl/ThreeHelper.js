@@ -1,18 +1,20 @@
 const THREE = window.THREE;
 
-import colors from './../colors.js';
-import LevelHelper from './../../levels/LevelHelper.js';
-import globals from './../../globals.js';
+import RenderEngineHelper from './../RenderEngineHelper.js';
+import colors from './../../colors.js';
+import LevelHelper from './../../../levels/LevelHelper.js';
+import globals from './../../../globals.js';
 
 import Wall from './objects/Wall.js';
 import Coin from './objects/Coin.js';
 import Player from './objects/Player.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
-export default class ThreeHelper {
+
+export default class ThreeHelper extends RenderEngineHelper {
 
   constructor() {
-    this._mode = '3d';
+    super('3d');
 
     this._scene = new THREE.Scene();
     this._scene.background = new THREE.Color(colors['canvas-background']);
@@ -32,46 +34,6 @@ export default class ThreeHelper {
         z: 15,
       },
     };
-
-    this._player = null;
-
-    //--------------
-    this.getMode = this.getMode.bind(this);
-    this.getScene = this.getScene.bind(this);
-    this.getRenderer = this.getRenderer.bind(this);
-    this.getIncrementors = this.getIncrementors.bind(this);
-    this.render = this.render.bind(this);
-    this.buildLevel = this.buildLevel.bind(this);
-    this.insertBlockIntoScene = this.insertBlockIntoScene.bind(this);
-    this.listenForCameraMovements = this.listenForCameraMovements.bind(this);
-    this.animateCameraPosition = this.animateCameraPosition.bind(this);
-    this.clearScene = this.clearScene.bind(this);
-    this._handleResize = this._handleResize.bind(this);
-    this.getPlayer = this.getPlayer.bind(this);
-    //--------------
-
-    this._handleResize();
-    this.listenForCameraMovements();
-  }
-
-  getMode() {
-    return this._mode;
-  }
-
-  getScene() {
-    return this._scene;
-  }
-
-  getRenderer() {
-    return this._renderer;
-  }
-
-  getCamera() {
-    return this._camera;
-  }
-
-  getIncrementors() {
-    return this._incrementors;
   }
 
   render() {
@@ -215,16 +177,13 @@ export default class ThreeHelper {
     return this;
   }
 
-  _handleResize() {
+  handleResize() {
     window.addEventListener('resize', _ => {
       this._camera.aspect = window.innerWidth / window.innerHeight;
       this._camera.updateProjectionMatrix();
       this._renderer.setSize(window.innerWidth, window.innerHeight);
     });
-  }
-
-  getPlayer() {
-    return this._player;
+    return this;
   }
 
 }

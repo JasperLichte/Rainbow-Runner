@@ -1,5 +1,5 @@
 const THREE = window.THREE;
-import exceptions from './../../../errorhandling/exceptions.js';
+import exceptions from './../../../../errorhandling/exceptions.js';
 
 export default class Cube {
 

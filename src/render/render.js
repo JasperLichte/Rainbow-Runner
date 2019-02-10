@@ -1,14 +1,16 @@
 import CurrentLevelPanel from './../ui/CurrentLevelPanel.js';
 import Player from './../logic/Player.js';
 
-export default (helper, level) => {
+export default (engineHelper, level) => {
   (new CurrentLevelPanel()).listenForEvents();
 
-  helper
+  engineHelper
     .clearScene()
-    .buildLevel(level);
+    .buildLevel(level)
+    .listenForCameraMovements()
+    .handleResize();
 
-  const playerObject = helper.getPlayer();
+  const playerObject = engineHelper.getPlayer();
   const playerLogic = new Player(playerObject.getInitialPosition());
 
   (function animate() {
@@ -17,7 +19,7 @@ export default (helper, level) => {
     const playerPosition = playerLogic.getPosition();
     playerObject.move(playerPosition.x, playerPosition.y);
     // =================================
-    helper.render();
+    engineHelper.render();
     requestAnimationFrame(animate);
   })();
 }
