@@ -36,12 +36,14 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     };
   }
 
+  //* @OVERRIDE
   render() {
     this.animateCameraPosition();
     this._renderer.render(this._scene, this._camera);
     return this;
   }
 
+  //* @OVERRIDE
   buildLevel(level = []) {
     if (!Array.isArray(level)) {
       return;
@@ -64,6 +66,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     return this;
   }
 
+  //* @OVERRIDE
   insertBlockIntoScene(block, pos) {
     let obj = null;
     if (block && block.getObject) {
@@ -101,6 +104,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     return null;
   }
 
+  //* @OVERRIDE
   listenForCameraMovements() {
     let isMouseDown = false;
     let lastMousePos = {};
@@ -162,6 +166,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     return this;
   }
 
+  //* @OVERRIDE
   animateCameraPosition() {
     this._camera.position.x = this._incrementors.camera.x;
     this._camera.position.y = this._incrementors.camera.y;
@@ -170,6 +175,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     return this;
   }
 
+  //* @OVERRIDE
   clearScene() {
     while (this._scene.children.length > 0) {
       this._scene.remove(this._scene.children[0]);
@@ -177,6 +183,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     return this;
   }
 
+  //* @OVERRIDE
   handleResize() {
     window.addEventListener('resize', _ => {
       this._camera.aspect = window.innerWidth / window.innerHeight;

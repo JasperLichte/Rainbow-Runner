@@ -22,16 +22,19 @@ export default class DomHelper extends RenderEngineHelperParent {
     return el;
   }
 
+  //* @OVERRIDE
   clearScene() {
     this._domElement.innerHTML = '';
     return this;
   }
 
+  //* @OVERRIDE
   render() {
     this.animateCameraPosition();
     return this;
   }
 
+  //* @OVERRIDE
   buildLevel(level) {
     if (!(Array.isArray(level))) {
       return;
@@ -54,6 +57,7 @@ export default class DomHelper extends RenderEngineHelperParent {
     return this;
   }
 
+  //* @OVERRIDE
   insertBlockIntoScene(block, pos) {
     let obj = null;
     if (block && block.getObject) {
