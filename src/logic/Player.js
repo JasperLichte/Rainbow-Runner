@@ -24,9 +24,9 @@ export default class Player {
     this.getPosition = this.getPosition.bind(this);
     this._listenForControls = this._listenForControls.bind(this);
     this._calcNewPosition = this._calcNewPosition.bind(this);
-    this._jump = this._jump.bind(this);
-    this._moveForward = this._moveForward.bind(this);
-    this._moveBackward = this._moveBackward.bind(this);
+    this.jump = this.jump.bind(this);
+    this.moveForward = this.moveForward.bind(this);
+    this.moveBackward = this.moveBackward.bind(this);
     // -----------------
 
     this._listenForControls();
@@ -68,7 +68,7 @@ export default class Player {
     };
   }
 
-  _jump() {
+  jump() {
     this._velocity.y = 0;
 
     const targetHeigt = this._position.y + STEP_SIZES['player']['y'];
@@ -84,7 +84,7 @@ export default class Player {
     
   }
 
-  _moveForward() {
+  moveForward() {
     const target = this._position.x + STEP_SIZES['player']['x'];
     const step = _ => {
       this._position.x += STEP_SPEEDS['player']['x'];
@@ -97,7 +97,7 @@ export default class Player {
     step();
   }
 
-  _moveBackward() {
+  moveBackward() {
     const target = this._position.x - STEP_SIZES['player']['x'];
     const step = _ => {
       this._position.x -= STEP_SPEEDS['player']['x'];
