@@ -4,10 +4,6 @@
 
 > A jump 'n run game written in Typescript using ThreeJs
 
-## Demo
-
-[Github pages](https://jasperlichte.github.io/Rainbow-Runner/)
-
 ## Contributors
 
 - [Jasper Lichte](https://github.com/JasperLichte)
