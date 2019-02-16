@@ -1,14 +1,16 @@
+import RenderObject from './RenderObject.js';
+
 export default class RenderEngineHelperParent {
 
   protected mode: string = '';
   protected incrementors: object = {};
   protected player = null;
 
-  constructor(_mode = '') {
+  constructor(_mode: string = '') {
     this.mode = _mode;
   }
 
-  public getMode() {
+  public getMode(): string {
     return this.mode;
   }
 
@@ -16,35 +18,35 @@ export default class RenderEngineHelperParent {
     return this.incrementors;
   }
 
-  public render() {
+  public render(): RenderEngineHelperParent {
     return this;
   }
 
-  public buildLevel(level = []) {
+  public buildLevel(level: string[][] = []): RenderEngineHelperParent {
     return this;
   }
 
-  public insertBlockIntoScene(block, pos) {
+  public insertBlockIntoScene(block, pos): RenderEngineHelperParent {
     return this;
   }
 
-  public listenForCameraMovements() {
+  public listenForCameraMovements(): RenderEngineHelperParent {
     return this;
   }
 
-  public animateCameraPosition() {
+  public animateCameraPosition(): RenderEngineHelperParent {
     return this;
   }
 
-  public clearScene() {
+  public clearScene(): RenderEngineHelperParent {
     return this;
   }
 
-  public handleResize() {
+  public handleResize(): RenderEngineHelperParent {
     return this;
   }
 
-  public getPlayer() {
+  public getPlayer(): RenderObject {
     return this.player;
   }
 

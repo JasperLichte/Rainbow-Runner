@@ -1,7 +1,8 @@
 import CurrentLevelPanel from './../ui/CurrentLevelPanel.js';
 import Player from './../logic/Player.js';
+import RenderEngineHelperParent from './renderEngines/RenderEngineHelperParent.js';
 
-export default (engineHelper, level) => {
+export default (engineHelper: RenderEngineHelperParent, level: string[][]) => {
   (new CurrentLevelPanel()).listenForEvents();
 
   engineHelper

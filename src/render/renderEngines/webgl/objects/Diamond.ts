@@ -14,6 +14,7 @@ export default class Diamond extends RotatingObject {
 
   tweakPosition() {
     this.object.position.y -= 0.2;
+    return this;
   }
 
 }

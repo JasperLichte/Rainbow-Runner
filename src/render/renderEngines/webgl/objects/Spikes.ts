@@ -14,6 +14,7 @@ export default class Spikes extends Cube {
 
   public tweakPosition() {
     this.object.position.y -= (0.35 + 0.075);
+    return this;
   }
 
 }

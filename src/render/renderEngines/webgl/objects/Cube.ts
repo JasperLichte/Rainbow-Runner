@@ -1,41 +1,21 @@
 // @ts-ignore
 const THREE = window.THREE;
-import exceptions from './../../../../errorhandling/exceptions.js';
+import RenderObject from '../../RenderObject.js';
 
-export default class Cube {
+export default class Cube extends RenderObject {
 
   protected geometry;
   protected material;
-  protected object;
-  protected position;
 
-  constructor(color = '#ffffff') {    
+  constructor(color = '#ffffff') {
+    super();
     this.geometry = new THREE.BoxGeometry(1, 1, 1);
     this.material = new THREE.MeshBasicMaterial({color: color});
     this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
-  public getObject() {
-    return this.object;
-  }
-
-  public tweakPosition() {}
-
-  public setInitialPosition(position) {
-    if (!position.hasOwnProperty('x') || !position.hasOwnProperty('y')) {
-      throw new Error(exceptions['INVALID_POSITION_OBJECT']);
-    }
-    this.position = {
-      x: position.x,
-      y: position.y
-    };
-  }
-
-  public getInitialPosition() {  
-    return this.position;
-  }
-
-  public move(x, y) {
+  public move(x, y): Cube {
+    super.move(x, y);
     this.object.position.set(x, y, 0);
     return this;
   }

@@ -9,6 +9,7 @@ export default class Player extends Cube {
 
   public tweakPosition() {
     this.object.position.y -= 0.15;
+    return this;
   }  
 
 }
