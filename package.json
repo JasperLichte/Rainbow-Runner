@@ -4,6 +4,7 @@
   "description": "A simple Jump 'n Run game written in ECMAScript2018.",
   "main": "src/app.js",
   "scripts": {
+    "watch": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,9 @@
   "devDependencies": {
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4"
   }
 }
