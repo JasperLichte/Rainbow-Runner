@@ -86,10 +86,16 @@ class TemplatesHelper {
      * @return string
      */
     static function inlineJs() {
-        return
-"<script>
-    window.addEventListener('load', function() {document.body.classList.remove('preload')});
-</script>";
+        return "" .
+        "<script>" .
+        "window.addEventListener('load', function() {document.body.classList.remove('preload')});" .
+        "window.CONFIG = {
+            APP_NAME: '" . APP_NAME . "',
+            PRODUCTION: !!" . PRODUCTION . ",
+            REPO_URL: '" . REPO_URL . "',
+            CONTRIBUTORS: '" . \json_encode(CONTRIBUTORS) . "',
+        }" .
+        "</script>";
     }
 
     /**
@@ -131,8 +137,8 @@ class TemplatesHelper {
             self::BODY_OPENING_TAG .
             $content . "\n" .
             self::BODY_CLOSING_TAG .
-            self::jsIncludes($jsFiles) .
             self::inlineJs() .
+            self::jsIncludes($jsFiles) .
             self::HTML_CLOSING_TAG;
     }
 

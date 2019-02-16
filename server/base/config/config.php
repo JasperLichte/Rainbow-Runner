@@ -4,6 +4,18 @@ define('APP_NAME', 'Rainbow-Cube');
 
 define('PRODUCTION', true);
 
+define('REPO_URL', 'https://github.com/JasperLichte/Rainbow-Runner');
+define('CONTRIBUTORS', [
+  'JasperLichte' => [
+    'name' => 'Jasper Lichte',
+    'githubUrl' => 'https://github.com/JasperLichte',
+  ],
+  'TaZn' => [
+    'name' => 'Harun Can',
+    'githubUrl' => 'https://github.com/TaZn',
+  ]
+]);
+
 define('DEFAULT_LANGUAGE', 'en');
 define('SUPPORTED_LANGUAGES', ['en', 'de', 'es', 'fr']);
 
