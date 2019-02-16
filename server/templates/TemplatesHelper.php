@@ -93,10 +93,11 @@ class TemplatesHelper {
                 document.body.classList.remove('preload')
             });" .
             "window.CONFIG = {
-                APP_NAME: '" . APP_NAME . "',
-                PRODUCTION: " . (int)PRODUCTION . ",
-                REPO_URL: '" . REPO_URL . "',
+                APP_NAME:     '" . APP_NAME . "',
+                PRODUCTION:    " . (int)PRODUCTION . ",
+                REPO_URL:     '" . REPO_URL . "',
                 CONTRIBUTORS: '" . \json_encode(CONTRIBUTORS) . "',
+                VERSION:      '" . VERSION . "',
             };" .
             "</script>";
     }

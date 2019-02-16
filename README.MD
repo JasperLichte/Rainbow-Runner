@@ -1,6 +1,6 @@
 ![alt text](https://www.media.lichte.info/rainbow-cube/assets/Banner.png)
 
-# v0.1.2
+# v0.1.3
 
 > A jump 'n run game written in TypeScript and PHP using ThreeJs
 

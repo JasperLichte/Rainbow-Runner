@@ -11,3 +11,4 @@ export const APP_NAME = conf['APP_NAME'];
 export const PRODUCTION = !!conf['PRODUCTION'];
 export const REPO_URL = conf['REPO_URL'];
 export const CONTRIBUTORS = JSON.parse(conf['CONTRIBUTORS']);
+export const VERSION = conf['VERSION'];

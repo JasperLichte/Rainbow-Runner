@@ -2,7 +2,7 @@ import ThreeHelper from '../render/renderEngines/webgl/ThreeHelper.js';
 import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from './../globals.js';
-import { APP_NAME, REPO_URL, CONTRIBUTORS } from './../config/env.js'; 
+import { APP_NAME, REPO_URL, CONTRIBUTORS, VERSION } from './../config/env.js'; 
 
 export default class Menu {
 
@@ -70,7 +70,7 @@ export default class Menu {
 
         return `<div class="menu-wrapper">
           <h1>${APP_NAME}</h1>
-          <span class="version">Version: 0.1.2</span>
+          <span class="version">Version: ${VERSION}</span>
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
               <button class="play-btn" data-mode="2d">Play in 2d!</button>

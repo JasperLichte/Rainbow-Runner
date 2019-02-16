@@ -3,6 +3,7 @@
 define('APP_NAME', 'Rainbow-Cube');
 
 define('PRODUCTION', false);
+define('VERSION', '0.1.3');
 
 define('REPO_URL', 'https://github.com/JasperLichte/Rainbow-Runner');
 define('CONTRIBUTORS', [
