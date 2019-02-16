@@ -3,16 +3,15 @@ import render from './../render/render.js';
 
 export default class CurrentLevelPanel {
 
-  private _domElement: HTMLElement;
-  private _content: string;
+  private domElement: HTMLElement;
+  private content: string;
 
-  constructor() {
+  public constructor() {
     CurrentLevelPanel.remove();
-    this._domElement = document.createElement('div');
-    this._domElement.setAttribute('class', 'current-level-panel');
-    this._content = CurrentLevelPanel.getContentByType();
-    this._domElement.innerHTML = this._content;
-    document.body.appendChild(this._domElement);
+    this.domElement = document.createElement('div');
+    this.domElement.setAttribute('class', 'current-level-panel');
+    this.domElement.innerHTML = this.content = CurrentLevelPanel.getContentByType();
+    document.body.appendChild(this.domElement);
   }
 
   public static remove(): void {
@@ -20,16 +19,16 @@ export default class CurrentLevelPanel {
     els.forEach(el => el.remove());
   }
 
-  public setContent(html = ''): CurrentLevelPanel {
-    this._domElement.innerHTML = this._content = html;
+  public setContent(html: string = ''): CurrentLevelPanel {
+    this.domElement.innerHTML = this.content = html;
     return this;
   }
 
   public getContent(): string {
-    return this._content;
+    return this.content;
   }
 
-  public static getContentByType(type = ''): string {
+  public static getContentByType(type: string = ''): string {
     switch(type) {
       default:
         return `
@@ -45,7 +44,7 @@ export default class CurrentLevelPanel {
   }
 
   public listenForEvents(): CurrentLevelPanel {
-    document.getElementById('next-level-btn').addEventListener('click', _ => {
+    document.getElementById('next-level-btn').addEventListener('click', () => {
       render(globals.helpers.renderHelper.getHelper(), globals.helpers.levelHelper.nextLevel())
     });
 

@@ -1,18 +1,19 @@
 export default class RenderEngineHelperParent {
 
-  protected _mode: string = '';
-  protected _incrementors: object = {};
-  protected _player = null;
+  protected mode: string = '';
+  protected incrementors: object = {};
+  protected player = null;
 
-  constructor(protected mode = '') {
+  constructor(_mode = '') {
+    this.mode = _mode;
   }
 
   public getMode() {
-    return this._mode;
+    return this.mode;
   }
 
   public getIncrementors() {
-    return this._incrementors;
+    return this.incrementors;
   }
 
   public render() {
@@ -44,7 +45,7 @@ export default class RenderEngineHelperParent {
   }
 
   public getPlayer() {
-    return this._player;
+    return this.player;
   }
 
 }

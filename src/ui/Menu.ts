@@ -6,34 +6,34 @@ import { APP_NAME, REPO_URL, CONTRIBUTORS } from './../config/env.js';
 
 export default class Menu {
 
-  private _domElement: HTMLElement;
-  private _wrapper: HTMLElement;
-  private _content: string = '';
-  private _hasDoneInitialRender: boolean = false;
-  private _hamburger;
+  private domElement: HTMLDivElement = null;
+  private wrapper: HTMLDivElement = null;
+  private content: string = '';
+  private hasDoneInitialRender: boolean = false;
+  private hamburger: HTMLButtonElement = null;
 
   public constructor() {
-    this._domElement = document.createElement('div');
-    this._domElement.setAttribute('class', 'menu');
-    this._wrapper = document.createElement('div');
-    this._wrapper.setAttribute('class', 'wrapper');
-    this._wrapper.innerHTML = this._content;
-    this._domElement.appendChild(this._wrapper);
-    document.body.appendChild(this._domElement);
+    this.domElement = document.createElement('div');
+    this.domElement.setAttribute('class', 'menu');
+    this.wrapper = document.createElement('div');
+    this.wrapper.setAttribute('class', 'wrapper');
+    this.wrapper.innerHTML = this.content;
+    this.domElement.appendChild(this.wrapper);
+    document.body.appendChild(this.domElement);
 
-    this._addHamburgerButton();
+    this.addHamburgerButton();
   }
 
   public show(): Menu {
-    this._domElement.style.left = '0px';
+    this.domElement.style.left = '0px';
     return this;
   }
 
   public hide(): Menu {
     if (Math.random() > 0.5) {
-      this._domElement.style.left = '-100vw';
+      this.domElement.style.left = '-100vw';
     } else {
-      this._domElement.style.left = '200vw';
+      this.domElement.style.left = '200vw';
     }
     return this;
   }
@@ -48,16 +48,16 @@ export default class Menu {
   }
 
   public isShown(): boolean {
-    return (this._domElement.style.left === '0px');
+    return (this.domElement.style.left === '0px');
   }
 
   public setContent(html: string = ''): Menu {
-    this._wrapper.innerHTML = this._content = html;
+    this.wrapper.innerHTML = this.content = html;
     return this;
   }
 
   public getContent(): string {
-    return this._content;
+    return this.content;
   }
 
   public static getContentByType(type: string = 'menu'): string {
@@ -84,11 +84,11 @@ export default class Menu {
 
   public listenForEvents(): Menu {
     const levelHelper = globals.helpers.levelHelper;
-    const playButtons = this._wrapper.querySelectorAll('.play-btn');
+    const playButtons = this.wrapper.querySelectorAll('.play-btn');
     playButtons.forEach(btn => {
-      btn.addEventListener('click', _=> {
+      btn.addEventListener('click', () => {
         this.hide();
-        if (this._hasDoneInitialRender) {
+        if (this.hasDoneInitialRender) {
           // Do initial rendering only once
           return;
         }
@@ -99,7 +99,7 @@ export default class Menu {
         globals.helpers.renderHelper.setEngineHelper(renderEngineHelper);
         
         render(renderEngineHelper, levelHelper.getCurrentLevel());
-        this._hasDoneInitialRender = true;
+        this.hasDoneInitialRender = true;
 
         // Disable button
         playButtons.forEach(el => {
@@ -114,20 +114,20 @@ export default class Menu {
     // KEY DOWN
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        this._hasDoneInitialRender && this.toggle();
+        this.hasDoneInitialRender && this.toggle();
       }
     });
 
     return this;
   }
 
-  private _addHamburgerButton(): Menu {
-    this._hamburger = document.createElement('button');
-    this._hamburger.setAttribute('class', 'menu-hamburger');
-    this._hamburger.innerHTML = '<span></span><span></span><span></span>';
-    document.body.appendChild(this._hamburger);
+  private addHamburgerButton(): Menu {
+    this.hamburger = document.createElement('button');
+    this.hamburger.setAttribute('class', 'menu-hamburger');
+    this.hamburger.innerHTML = '<span></span><span></span><span></span>';
+    document.body.appendChild(this.hamburger);
 
-    this._hamburger.addEventListener('click', _ => {
+    this.hamburger.addEventListener('click', () => {
       this.show();
     });
 

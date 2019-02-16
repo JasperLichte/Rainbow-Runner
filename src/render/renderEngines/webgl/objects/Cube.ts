@@ -4,19 +4,19 @@ import exceptions from './../../../../errorhandling/exceptions.js';
 
 export default class Cube {
 
-  protected _geometry;
-  protected _material;
-  protected _object;
-  protected _position;
+  protected geometry;
+  protected material;
+  protected object;
+  protected position;
 
   constructor(color = '#ffffff') {    
-    this._geometry = new THREE.BoxGeometry(1, 1, 1);
-    this._material = new THREE.MeshBasicMaterial({color: color});
-    this._object = new THREE.Mesh(this._geometry, this._material);
+    this.geometry = new THREE.BoxGeometry(1, 1, 1);
+    this.material = new THREE.MeshBasicMaterial({color: color});
+    this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
   public getObject() {
-    return this._object;
+    return this.object;
   }
 
   public tweakPosition() {}
@@ -25,18 +25,18 @@ export default class Cube {
     if (!position.hasOwnProperty('x') || !position.hasOwnProperty('y')) {
       throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
-    this._position = {
+    this.position = {
       x: position.x,
       y: position.y
     };
   }
 
   public getInitialPosition() {  
-    return this._position;
+    return this.position;
   }
 
   public move(x, y) {
-    this._object.position.set(x, y, 0);
+    this.object.position.set(x, y, 0);
     return this;
   }
 

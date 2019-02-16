@@ -8,12 +8,12 @@ export default class Spikes extends Cube {
 
   constructor() {
     super(colors['objects-spikes']);
-    this._geometry = new THREE.ConeGeometry(0.3, 0.3, 32);
-    this._object = new THREE.Mesh(this._geometry, this._material);
+    this.geometry = new THREE.ConeGeometry(0.3, 0.3, 32);
+    this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
   public tweakPosition() {
-    this._object.position.y -= (0.35 + 0.075);
+    this.object.position.y -= (0.35 + 0.075);
   }
 
 }

@@ -4,11 +4,11 @@ import exceptions from './../errorhandling/exceptions.js';
 
 export default class LevelHelper {
 
-  private _currentLevelIndex: number = -1;
-  private _currentLevel;
+  private currentLevelIndex: number = -1;
+  private currentLevel;
 
   public constructor() {
-    this._currentLevel = this.nextLevel();
+    this.currentLevel = this.nextLevel();
   }
 
   public static getBlockTypeBySymbol(symbol = ''): string {
@@ -39,11 +39,11 @@ export default class LevelHelper {
   }
 
   public getCurrentLevel() {
-    return this._currentLevel;
+    return this.currentLevel;
   }
 
   public getCurrentLevelIndex(): number {
-    return this._currentLevelIndex;
+    return this.currentLevelIndex;
   }
 
   public getTotalLevels(): number {
@@ -51,9 +51,9 @@ export default class LevelHelper {
   }
 
   public nextLevel() {
-    this._currentLevelIndex = (this._currentLevelIndex + 1) % levels.length;
-    const level = levels[this._currentLevelIndex];
-    this._currentLevel = level;
+    this.currentLevelIndex = (this.currentLevelIndex + 1) % levels.length;
+    const level = levels[this.currentLevelIndex];
+    this.currentLevel = level;
     return level;
   }
 

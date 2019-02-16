@@ -14,11 +14,11 @@ import Diamond from './objects/Diamond.js';
 
 export default class ThreeHelper extends RenderEngineHelperParent {
 
-  private _scene = null;
-  private _camera = null;
-  private _renderer = null;
-  private _cameraCenter = null;
-  protected _incrementors = {
+  private scene = null;
+  private camera = null;
+  private renderer = null;
+  private cameraCenter = null;
+  protected incrementors = {
     camera: {
       x: null,
       y: null,
@@ -29,19 +29,19 @@ export default class ThreeHelper extends RenderEngineHelperParent {
   public constructor() {
     super('3d');
 
-    this._scene = new THREE.Scene();
-    this._scene.background = new THREE.Color(colors['canvas-background']);
-    this._camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this._scene.add(this._camera);
-    this._renderer = new THREE.WebGLRenderer({antialias: true});
-    this._renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this._renderer.domElement);
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(colors['canvas-background']);
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.scene.add(this.camera);
+    this.renderer = new THREE.WebGLRenderer({antialias: true});
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(this.renderer.domElement);
 
-    this._cameraCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
-    this._incrementors = {
+    this.cameraCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
+    this.incrementors = {
       camera: {
-        x: this._cameraCenter.x,
-        y: this._cameraCenter.y * -1,
+        x: this.cameraCenter.x,
+        y: this.cameraCenter.y * -1,
         z: 15,
       },
     };
@@ -50,7 +50,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
   //* @OVERRIDE
   public render() {
     this.animateCameraPosition();
-    this._renderer.render(this._scene, this._camera);
+    this.renderer.render(this.scene, this.camera);
     return this;
   }
 
@@ -69,7 +69,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
         const block = ThreeHelper.getBlockByType(blockType);
         
         if (blockType === 'player' && block) {
-          this._player = block;
+          this.player = block;
         }
         this.insertBlockIntoScene(block, {x, y});
       }
@@ -87,7 +87,7 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     const x = pos.x;
     const y = pos.y * -1;
     
-    this._scene.add(obj);
+    this.scene.add(obj);
     block.setInitialPosition({x, y});
     obj.position.set(x, y, 0);
     
@@ -122,32 +122,32 @@ export default class ThreeHelper extends RenderEngineHelperParent {
     let lastMousePos = {x: null, y: null};
   
     // WHEEL
-    this._renderer.domElement.addEventListener('wheel', e => {
+    this.renderer.domElement.addEventListener('wheel', e => {
       isMouseDown = false;
       const scrollingUp = (e.deltaY < 0);
       if (scrollingUp) {
-        if (this._incrementors.camera.z >= 2) {
-          this._incrementors.camera.z -= 0.6;
+        if (this.incrementors.camera.z >= 2) {
+          this.incrementors.camera.z -= 0.6;
         }
       } else {
-        if (this._incrementors.camera.z <= 45) {
-          this._incrementors.camera.z += 0.6;
+        if (this.incrementors.camera.z <= 45) {
+          this.incrementors.camera.z += 0.6;
         }
       }
     });
   
     // MOUSEDOWN
-    this._renderer.domElement.addEventListener('mousedown', _ => {
+    this.renderer.domElement.addEventListener('mousedown', () => {
       isMouseDown = true
     });
   
     // MOUSUP
-    this._renderer.domElement.addEventListener('mouseup', _ => {
+    this.renderer.domElement.addEventListener('mouseup', () => {
       isMouseDown = false
     });
   
     // lMOUSEMOVE
-    this._renderer.domElement.addEventListener('mousemove', e => {
+    this.renderer.domElement.addEventListener('mousemove', e => {
       if (!isMouseDown) {
         return;
       }
@@ -164,12 +164,12 @@ export default class ThreeHelper extends RenderEngineHelperParent {
       const movedToRight = (lastMousePos.x < currentMousePos.x);
       const movedToLeft = (lastMousePos.x > currentMousePos.x);
       if (movedToRight) {
-        if (this._incrementors.camera.x < 35) {
-          this._incrementors.camera.x += 0.25;
+        if (this.incrementors.camera.x < 35) {
+          this.incrementors.camera.x += 0.25;
         }
       } else if (movedToLeft) {
-        if (this._incrementors.camera.x > -35) {
-          this._incrementors.camera.x -= 0.25;
+        if (this.incrementors.camera.x > -35) {
+          this.incrementors.camera.x -= 0.25;
         }
       }
   
@@ -180,27 +180,27 @@ export default class ThreeHelper extends RenderEngineHelperParent {
 
   //* @OVERRIDE
   public animateCameraPosition() {
-    this._camera.position.x = this._incrementors.camera.x;
-    this._camera.position.y = this._incrementors.camera.y;
-    this._camera.position.z = this._incrementors.camera.z;
-    this._camera.lookAt(new THREE.Vector3(this._cameraCenter.x, this._cameraCenter.y * -1, 0));
+    this.camera.position.x = this.incrementors.camera.x;
+    this.camera.position.y = this.incrementors.camera.y;
+    this.camera.position.z = this.incrementors.camera.z;
+    this.camera.lookAt(new THREE.Vector3(this.cameraCenter.x, this.cameraCenter.y * -1, 0));
     return this;
   }
 
   //* @OVERRIDE
   public clearScene() {
-    while (this._scene.children.length > 0) {
-      this._scene.remove(this._scene.children[0]);
+    while (this.scene.children.length > 0) {
+      this.scene.remove(this.scene.children[0]);
     }
     return this;
   }
 
   //* @OVERRIDE
   public handleResize() {
-    window.addEventListener('resize', _ => {
-      this._camera.aspect = window.innerWidth / window.innerHeight;
-      this._camera.updateProjectionMatrix();
-      this._renderer.setSize(window.innerWidth, window.innerHeight);
+    window.addEventListener('resize', () => {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
     });
     return this;
   }

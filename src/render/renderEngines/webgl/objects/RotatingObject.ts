@@ -4,33 +4,33 @@ import Cube from './Cube.js';
 
 export default class RotatingObject extends Cube {
 
-  protected _rotationSpeed: number;
-  protected _rotationDir: boolean;
+  protected rotationSpeed: number;
+  protected rotationDir: boolean;
 
   constructor(randomSpeed = true, randomDir = true, color = '#ffffff') {
     super(color);
 
-    this._rotationSpeed = 0.01;
+    this.rotationSpeed = 0.01;
     if (randomSpeed) {
-      this._rotationSpeed = Math.random() * 0.050 + 0.025;
+      this.rotationSpeed = Math.random() * 0.050 + 0.025;
     }
-    this._rotationDir = true;
+    this.rotationDir = true;
     if (randomDir) {
-      this._rotationDir = (Math.random() > 0.5);
+      this.rotationDir = (Math.random() > 0.5);
     }
 
-    this._rotate = this._rotate.bind(this);
+    this.rotate = this.rotate.bind(this);
 
-    this._rotate();
+    this.rotate();
   }
 
-  _rotate() {
-    if (this._rotationDir) {
-      this._object.rotation.y += this._rotationSpeed;    
+  rotate() {
+    if (this.rotationDir) {
+      this.object.rotation.y += this.rotationSpeed;    
     } else {
-      this._object.rotation.y -= this._rotationSpeed;  
+      this.object.rotation.y -= this.rotationSpeed;  
     }
-    requestAnimationFrame(this._rotate);
+    requestAnimationFrame(this.rotate);
   }
 
 }

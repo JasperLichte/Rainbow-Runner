@@ -10,12 +10,12 @@ export default class Wall extends Cube {
     super(colors['objects-wall-body']);
 
     const wireframe = new THREE.LineSegments(
-      new THREE.EdgesGeometry(this._object.geometry), 
+      new THREE.EdgesGeometry(this.object.geometry), 
       new THREE.LineBasicMaterial({color: colors['objects-wall-border'], linewidth: 1})
     );
     wireframe.renderOrder = 1;
 
-    this._object.add(wireframe);
+    this.object.add(wireframe);
   }
 
 }

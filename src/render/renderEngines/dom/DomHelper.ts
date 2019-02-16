@@ -8,18 +8,18 @@ import Diamond from './objects/Diamond.js';
 
 export default class DomHelper extends RenderEngineHelperParent {
 
-  private _domParent;
-  private _domElement;
+  private domParent;
+  private domElement;
 
   public constructor(domParent) {
     super('2d');
 
-    this._domParent = domParent ? domParent : document.body;
-    this._domElement = this._buildDomElement();
-    this._domParent.appendChild(this._domElement);
+    this.domParent = domParent ? domParent : document.body;
+    this.domElement = this.buildDomElement();
+    this.domParent.appendChild(this.domElement);
   }
 
-  private _buildDomElement() {
+  private buildDomElement() {
     const el = document.createElement('div');
     el.setAttribute('class', 'dom-engine-wrapper');
     return el;
@@ -27,7 +27,7 @@ export default class DomHelper extends RenderEngineHelperParent {
 
   //* @OVERRIDE
   public clearScene() {
-    this._domElement.innerHTML = '';
+    this.domElement.innerHTML = '';
     return this;
   }
 
@@ -53,7 +53,7 @@ export default class DomHelper extends RenderEngineHelperParent {
         this.insertBlockIntoScene(block, {x, y});
 
         if (blockType === 'player' && block) {
-          this._player = block;
+          this.player = block;
         }
       }
     }
@@ -70,7 +70,7 @@ export default class DomHelper extends RenderEngineHelperParent {
     const x = pos.x;
     const y = pos.y * -1;
 
-    this._domElement.appendChild(obj);
+    this.domElement.appendChild(obj);
     block && block.setInitialPosition({x, y}, true);
     return this;
   }
