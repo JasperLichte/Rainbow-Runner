@@ -88,15 +88,17 @@ class TemplatesHelper {
      */
     static function inlineJs() {
         return "" .
-        "<script>" .
-        "window.addEventListener('load', function() {document.body.classList.remove('preload')});" .
-        "window.CONFIG = {
-            APP_NAME: '" . APP_NAME . "',
-            PRODUCTION: " . (int)PRODUCTION . ",
-            REPO_URL: '" . REPO_URL . "',
-            CONTRIBUTORS: '" . \json_encode(CONTRIBUTORS) . "',
-        }" .
-        "</script>";
+            "<script>" .
+            "window.addEventListener('load', function() {
+                document.body.classList.remove('preload')
+            });" .
+            "window.CONFIG = {
+                APP_NAME: '" . APP_NAME . "',
+                PRODUCTION: " . (int)PRODUCTION . ",
+                REPO_URL: '" . REPO_URL . "',
+                CONTRIBUTORS: '" . \json_encode(CONTRIBUTORS) . "',
+            };" .
+            "</script>";
     }
 
     /**
