@@ -1,7 +1,7 @@
 // @ts-ignore
 const THREE = window.THREE;
 
-import RenderEngineHelperParent from './../RenderEngineHelperParent.js';
+import RenderEngineHelper from './../RenderEngineHelper.js';
 import colors from './../../colors.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
 import globals from './../../../globals.js';
@@ -12,7 +12,7 @@ import Player from './objects/Player.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
 
-export default class ThreeHelper extends RenderEngineHelperParent {
+export default class ThreeHelper extends RenderEngineHelper {
 
   private scene = null;
   private camera = null;

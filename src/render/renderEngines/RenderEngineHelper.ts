@@ -1,6 +1,6 @@
 import RenderObject from './RenderObject.js';
 
-export default class RenderEngineHelperParent {
+export default class RenderEngineHelper {
 
   protected mode: string = '';
   protected incrementors: object = {};
@@ -18,31 +18,31 @@ export default class RenderEngineHelperParent {
     return this.incrementors;
   }
 
-  public render(): RenderEngineHelperParent {
+  public render(): RenderEngineHelper {
     return this;
   }
 
-  public buildLevel(level: string[][] = []): RenderEngineHelperParent {
+  public buildLevel(level: string[][] = []): RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block, pos): RenderEngineHelperParent {
+  public insertBlockIntoScene(block, pos): RenderEngineHelper {
     return this;
   }
 
-  public listenForCameraMovements(): RenderEngineHelperParent {
+  public listenForCameraMovements(): RenderEngineHelper {
     return this;
   }
 
-  public animateCameraPosition(): RenderEngineHelperParent {
+  public animateCameraPosition(): RenderEngineHelper {
     return this;
   }
 
-  public clearScene(): RenderEngineHelperParent {
+  public clearScene(): RenderEngineHelper {
     return this;
   }
 
-  public handleResize(): RenderEngineHelperParent {
+  public handleResize(): RenderEngineHelper {
     return this;
   }
 
