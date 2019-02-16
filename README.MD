@@ -2,7 +2,7 @@
 
 # v0.1.2
 
-> A jump 'n run game written in ECMAScript 2018 using ThreeJs
+> A jump 'n run game written in Typescript using ThreeJs
 
 ## Demo
 
