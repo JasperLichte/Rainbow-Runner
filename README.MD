@@ -4,6 +4,9 @@
 
 > A jump 'n run game written in TypeScript and PHP using ThreeJs
 
+## Demo
+[lichte.info](https://www.lichte.info/)
+
 ## Installation:
 Run `npm run build` to start the compilation.
 
