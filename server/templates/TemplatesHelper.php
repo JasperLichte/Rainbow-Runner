@@ -77,7 +77,8 @@ class TemplatesHelper {
         }
 
         $mainJs = ABS_ROOT_DIR . (PRODUCTION ? 'assets/bundle.js' : 'build/app.js');
-        $html .= "<script type=\"text/javascript\" src=\"{$mainJs}\"></script>\n";
+        $mainJsType = (PRODUCTION ? 'text/javascript' : 'module');
+        $html .= "<script type=\"{$mainJsType}\" src=\"{$mainJs}\"></script>\n";
 
         return $html;
     }
@@ -91,7 +92,7 @@ class TemplatesHelper {
         "window.addEventListener('load', function() {document.body.classList.remove('preload')});" .
         "window.CONFIG = {
             APP_NAME: '" . APP_NAME . "',
-            PRODUCTION: !!" . PRODUCTION . ",
+            PRODUCTION: " . (int)PRODUCTION . ",
             REPO_URL: '" . REPO_URL . "',
             CONTRIBUTORS: '" . \json_encode(CONTRIBUTORS) . "',
         }" .

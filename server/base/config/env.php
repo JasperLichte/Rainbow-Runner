@@ -2,7 +2,7 @@
 
 define('APP_NAME', 'Rainbow-Cube');
 
-define('PRODUCTION', true);
+define('PRODUCTION', false);
 
 define('REPO_URL', 'https://github.com/JasperLichte/Rainbow-Runner');
 define('CONTRIBUTORS', [
@@ -10,7 +10,7 @@ define('CONTRIBUTORS', [
     'name' => 'Jasper Lichte',
     'githubUrl' => 'https://github.com/JasperLichte',
   ],
-  'TaZn' => [
+  [
     'name' => 'Harun Can',
     'githubUrl' => 'https://github.com/TaZn',
   ]

@@ -2,7 +2,7 @@ import ThreeHelper from '../render/renderEngines/webgl/ThreeHelper.js';
 import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from './../globals.js';
-import { APP_NAME, REPO_URL } from './../config/env.js'; 
+import { APP_NAME, REPO_URL, CONTRIBUTORS } from './../config/env.js'; 
 
 export default class Menu {
 
@@ -63,6 +63,11 @@ export default class Menu {
   public static getContentByType(type: string = 'menu'): string {
     switch(type) {
       case 'menu':
+        let contributorsHtml = '';
+        for (const key in CONTRIBUTORS) {
+          contributorsHtml += CONTRIBUTORS[key]['name'] + ' ';
+        }
+
         return `<div class="menu-wrapper">
           <h1>${APP_NAME}</h1>
           <span class="version">Version: 0.1.2</span>
@@ -71,7 +76,7 @@ export default class Menu {
               <button class="play-btn" data-mode="2d">Play in 2d!</button>
               <a href="${REPO_URL}">Contribute</a>
           </div>
-          <p>By Jasper Lichte and Harun Can</p>
+          <p>By ${contributorsHtml}</p>
         </div>`;
     }
     return '';
