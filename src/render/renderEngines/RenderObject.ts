@@ -15,7 +15,7 @@ export default class RenderObject {
     return this;
   }
 
-  public setInitialPosition(position, centerElement = true): RenderObject {
+  public setInitialPosition(position: Position, centerElement = true): RenderObject {
     this.position = {
       x: position.x,
       y: position.y

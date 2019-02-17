@@ -12,7 +12,7 @@ export default (engineHelper: RenderEngineHelper, level: string[][]) => {
     .handleResize();
 
   const playerObject = engineHelper.getPlayer();
-  const playerLogic = new Player(playerObject.getInitialPosition());  
+  const playerLogic = new Player(playerObject.getInitialPosition());
 
   (function animate() {
     // ======= ANIMATION LOOP ==========

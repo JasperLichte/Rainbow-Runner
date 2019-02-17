@@ -1,4 +1,5 @@
 import RenderObject from './RenderObject.js';
+import Position from '../../interfaces/Position.js';
 
 export default class RenderEngineHelper {
 
@@ -30,7 +31,7 @@ export default class RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block, pos): RenderEngineHelper {
+  public insertBlockIntoScene(block: RenderObject, pos: Position): RenderEngineHelper {
     return this;
   }
 
