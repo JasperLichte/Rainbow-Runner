@@ -13,14 +13,6 @@ TemplatesHelper::getHtml(
         ['id' => 'main']
     ),
     TemplatesHelper::getTitleByPageName('Start'),
-    [
-        'doc.css',
-        'defaults.css',
-        'ui/menu.css',
-        'ui/currentLevelPanel.css',
-        'level.css',
-    ],
-    [
-        'three.min.js',
-    ]
+    ['bundle.css'],
+    ['three.min.js']
 );

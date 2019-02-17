@@ -1,6 +1,8 @@
 node_modules
 build
-assets/bundle.js
+assets/scripts/bundle.js
+assets/styles/bundle.css
+assets/styles/bundle.css.map
 
 .vscode
 .idea

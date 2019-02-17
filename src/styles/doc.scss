@@ -12,11 +12,12 @@ body {
   width: 100vw;
   overflow: hidden;
   font-family: var(--font-1);
-}
 
-body.preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
- }
+  .preload * {
+    transition: none;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
+}

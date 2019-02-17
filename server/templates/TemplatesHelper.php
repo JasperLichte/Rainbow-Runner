@@ -76,7 +76,7 @@ class TemplatesHelper {
             $html .= "<script type=\"text/javascript\" src=\"{$file}\"></script>\n";
         }
 
-        $mainJs = ABS_ROOT_DIR . (PRODUCTION ? 'assets/bundle.js' : 'build/app.js');
+        $mainJs = ABS_ROOT_DIR . (PRODUCTION ? 'assets/scripts/bundle.js' : 'build/app.js');
         $mainJsType = (PRODUCTION ? 'text/javascript' : 'module');
         $html .= "<script type=\"{$mainJsType}\" src=\"{$mainJs}\"></script>\n";
 

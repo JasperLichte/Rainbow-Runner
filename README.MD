@@ -12,7 +12,8 @@ Run `npm run build` to start the compilation.
 
 ## Development:
 * Make sure you set the `PRODUCTION` flag to `false` in `server/base/config/env.php`
-* Run `npm run watch` at the root level for a handier development process.
+* Run `npm run watch-ts` to listen for changes in the **TypeScript** code
+* Run `npm run watch-sass` to listen for changes in the **Sass** code
 
 ## Contributors
 

@@ -4,8 +4,9 @@
   "description": "A simple Jump 'n Run game written in ECMAScript2018.",
   "main": "src/app.js",
   "scripts": {
-    "watch": "tsc -w",
-    "build": "tsc && webpack",
+    "watch-ts": "tsc -w",
+    "watch-sass": "sass --watch src/styles/index.scss assets/styles/bundle.css",
+    "build": "tsc && sass --update src/styles/index.scss assets/styles/bundle.css && webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/JasperLichte/Rainbow-Cube#readme",
   "devDependencies": {
+    "sass": "^1.17.0",
+    "typescript": "^3.3.3",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.3"
   },
