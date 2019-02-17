@@ -115,7 +115,6 @@ class TemplatesHelper {
     }
 
     /**
-     * @param string $language
      * @param string $content
      * @param string $title
      * @param array $cssFiles
