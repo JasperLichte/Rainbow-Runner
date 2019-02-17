@@ -1,6 +1,7 @@
 import symbols from './symbols.js';
 import levels from './levels.js';
 import exceptions from './../errorhandling/exceptions.js';
+import Position from '../interfaces/Position.js';
 
 export default class LevelHelper {
 
@@ -75,7 +76,7 @@ export default class LevelHelper {
     return true;
   }
 
-  public static getLevelCenter(level) {
+  public static getLevelCenter(level): Position {
     if (!(LevelHelper.isValidLevel(level))) {
       throw new Error(exceptions['INVALID_LEVEL']);
     }

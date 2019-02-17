@@ -1,6 +1,7 @@
 // @ts-ignore
 const THREE = window.THREE;
 import RenderObject from '../../RenderObject.js';
+import Position from '../../../../interfaces/Position.js';
 
 export default class Cube extends RenderObject {
 
@@ -14,9 +15,9 @@ export default class Cube extends RenderObject {
     this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
-  public move(x, y): Cube {
-    super.move(x, y);
-    this.object.position.set(x, y, 0);
+  public move(position: Position): Cube {
+    super.move(position);
+    this.object.position.set(position.x, position.y, 0);
     return this;
   }
 

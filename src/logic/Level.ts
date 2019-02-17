@@ -1,18 +1,20 @@
 import exceptions from './../errorhandling/exceptions.js';
 import LevelHelper from './../levels/LevelHelper.js';
+import Position from '../interfaces/Position.js';
 
 export default class Level {
 
   private levelArray = [];
   
-  constructor(level = []) {
+  constructor(level: string[][] = []) {
     if (!(LevelHelper.isValidLevel(level))) {
       throw new Error(exceptions['INVALID_LEVEL']);
     }
     this.levelArray = level;
   }
 
-  newPositionIsAWall(x: number, y: number) {
+  newPositionIsAWall(position: Position): boolean {
+    const { x, y } = position;
     const blockSize = 1;
 
     let newX = x - (blockSize / 2);

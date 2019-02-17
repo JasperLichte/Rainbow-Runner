@@ -1,7 +1,9 @@
+import Position from "../../interfaces/Position";
+
 export default class RenderObject {
 
   protected object;
-  protected position = {x: null, y: null};
+  protected position: Position = {x: null, y: null};
   protected size = {width: 1, height: 1, depth: 1};
 
   public getObject() {
@@ -22,7 +24,7 @@ export default class RenderObject {
     return this;
   }
 
-  public getInitialPosition() {  
+  public getInitialPosition(): Position {  
     return this.position;
   }
 
@@ -34,8 +36,8 @@ export default class RenderObject {
     return this;
   }
 
-  public move(x, y): RenderObject {
-    this.position = {x, y};
+  public move(position: Position): RenderObject {
+    this.position = position;
     return this;
   }
 

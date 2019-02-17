@@ -1,5 +1,5 @@
 import RenderObject from '../../RenderObject.js';
-import exceptions from './../../../../errorhandling/exceptions.js';
+import Position from '../../../../interfaces/Position.js';
 
 export default class Cube extends RenderObject {
 
@@ -36,10 +36,10 @@ export default class Cube extends RenderObject {
     return this;
   }
 
-  public move(x, y): Cube {
-    super.move(x, y);
-    this.object.style.left = (x * this.scale) + 'px';
-    this.object.style.top = (y * this.scale * -1) + 'px';
+  public move(position: Position): Cube {
+    super.move(position);
+    this.object.style.left = (position.x * this.scale) + 'px';
+    this.object.style.top = (position.y * this.scale * -1) + 'px';
     return this;
   }
 

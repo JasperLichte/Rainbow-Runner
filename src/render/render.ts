@@ -19,7 +19,7 @@ export default (engineHelper: RenderEngineHelper, level: string[][]) => {
     
 
     const playerPosition = playerLogic.getPosition();
-    playerObject.move(playerPosition.x, playerPosition.y);
+    playerObject.move({x: playerPosition.x, y: playerPosition.y});
     // =================================
     engineHelper.render();
     requestAnimationFrame(animate);

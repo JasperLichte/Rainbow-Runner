@@ -4,16 +4,17 @@ import { calcGravity } from './../func/funcs.js';
 import { GRAVITY_OF_EARTH, STEP_SIZES, STEP_SPEEDS } from './conf/conf.js';
 import globals from './../globals.js';
 import Level from './Level.js';
+import Position from './../interfaces/Position.js';
 
 export default class Player {
 
-  private position;
+  private position: Position;
   private velocity = {x: 0, y: 0};
   private mass: number = 10;
   private gravity: number;
   private levelLogic;
 
-  public constructor(initialPosition) {
+  public constructor(initialPosition: Position) {
     if (!initialPosition) {
       throw new Error(exceptions['INVALID_POSITION_OBJECT']);
     }
@@ -25,9 +26,9 @@ export default class Player {
     this.listenForControls();
   }
 
-  public getPosition() {
-    const newPos = this.calcNewPosition();
-    if (!(this.levelLogic.newPositionIsAWall(newPos.x, newPos.y))) {
+  public getPosition(): Position {
+    const newPos: Position = this.calcNewPosition();
+    if (!(this.levelLogic.newPositionIsAWall(newPos))) {
       this.position.x = newPos.x;
       this.position.y = newPos.y;
       this.velocity.x = newPos.vel.x;
@@ -47,16 +48,13 @@ export default class Player {
     });
   }
 
-  calcNewPosition() {
-    const newX = this.position.x + this.velocity.x;
-    const newY = this.position.y + this.velocity.y;
-    const newVelY = this.velocity.y - this.gravity;
+  calcNewPosition(): Position {
     return {
-      x: newX,
-      y: newY,
+      x: this.position.x + this.velocity.x,
+      y: this.position.y + this.velocity.y,
       vel: {
         x: this.velocity.x,
-        y: newVelY,
+        y: this.velocity.y - this.gravity,
       }
     };
   }
