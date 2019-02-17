@@ -4,7 +4,11 @@ export default class RenderEngineHelper {
 
   protected mode: string = '';
   protected incrementors: object = {};
-  protected player = null;
+  protected player:   RenderObject = null;
+  protected walls:    RenderObject[] = [];
+  protected coins:    RenderObject[] = [];
+  protected diamonds: RenderObject[] = [];
+  protected spikes:   RenderObject[] = [];
 
   constructor(_mode: string = '') {
     this.mode = _mode;
@@ -48,6 +52,42 @@ export default class RenderEngineHelper {
 
   public getPlayer(): RenderObject {
     return this.player;
+  }
+
+  public getWalls(): RenderObject[] {
+    return this.walls;
+  }
+
+  public getCoins(): RenderObject[] {
+    return this.coins;
+  }
+
+  public getDiamonds(): RenderObject[] {
+    return this.diamonds;
+  }
+
+  public getSpikes(): RenderObject[] {
+    return this.spikes;
+  }
+
+  protected setRenderObject(type: string = '', renderObject: RenderObject): void {
+    switch(type) {
+      case 'player':
+        this.player = renderObject;
+        break;
+      case 'wall':
+        this.walls.push(renderObject);
+        break;
+      case 'coin':
+        this.coins.push(renderObject);
+        break;
+      case 'diamond':
+        this.diamonds.push(renderObject);
+        break;
+      case 'spikes':
+        this.spikes.push(renderObject);
+        break;
+    }
   }
 
 }

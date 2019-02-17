@@ -67,10 +67,8 @@ export default class ThreeHelper extends RenderEngineHelper {
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = ThreeHelper.getBlockByType(blockType);
-        
-        if (blockType === 'player' && block) {
-          this.player = block;
-        }
+
+        this.setRenderObject(blockType, block);
         this.insertBlockIntoScene(block, {x, y});
       }
     }    

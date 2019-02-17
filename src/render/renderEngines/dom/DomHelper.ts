@@ -50,11 +50,9 @@ export default class DomHelper extends RenderEngineHelper {
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = DomHelper.getBlockByType(blockType);
+        
+        this.setRenderObject(blockType, block);
         this.insertBlockIntoScene(block, {x, y});
-
-        if (blockType === 'player' && block) {
-          this.player = block;
-        }
       }
     }
     return this;

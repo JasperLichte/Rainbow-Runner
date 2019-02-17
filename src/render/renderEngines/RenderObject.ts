@@ -1,10 +1,11 @@
 import Position from "../../interfaces/Position";
+import Size from "../../interfaces/Size";
 
 export default class RenderObject {
 
   protected object;
   protected position: Position = {x: null, y: null};
-  protected size = {width: 1, height: 1, depth: 1};
+  protected size: Size = {width: 1, height: 1};
 
   public getObject() {
     return this.object;
@@ -28,7 +29,7 @@ export default class RenderObject {
     return this.position;
   }
 
-  public getDimensions() {
+  public getSize(): Size {
     return this.size;
   }
 
