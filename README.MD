@@ -8,7 +8,7 @@
 [lichte.info](https://www.lichte.info/)
 
 ## Installation:
-Run `npm run build` to start the compilation.
+After running `npm i`, fire up `npm run build` to start the compilation.
 
 ## Development:
 * Make sure you set the `PRODUCTION` flag to `false` in `server/base/config/env.php`
