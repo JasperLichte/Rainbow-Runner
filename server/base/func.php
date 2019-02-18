@@ -41,7 +41,6 @@ function getRootUrl() {
     else{
         $protocol = 'http';
     }
-    var_dump($_SERVER);
     return 
         $protocol . 
         '://' . 
