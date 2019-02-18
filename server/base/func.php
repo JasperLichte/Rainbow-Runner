@@ -41,5 +41,14 @@ function getRootUrl() {
     else{
         $protocol = 'http';
     }
-    return $protocol . '://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"] . '?') . '/';
+    var_dump($_SERVER);
+    return 
+        $protocol . 
+        '://' . 
+        $_SERVER['SERVER_NAME'] . 
+        (isset($_SERVER['SERVER_PORT']
+            && !empty($_SERVER['SERVER_PORT']))
+            ? ':' . $_SERVER['SERVER_PORT'] : '') .
+        dirname($_SERVER["REQUEST_URI"] . '?') 
+        . '/';
 }
