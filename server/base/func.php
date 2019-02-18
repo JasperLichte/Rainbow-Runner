@@ -45,9 +45,9 @@ function getRootUrl() {
         $protocol . 
         '://' . 
         $_SERVER['SERVER_NAME'] . 
-        (isset($_SERVER['SERVER_PORT'])
-            && !empty($_SERVER['SERVER_PORT'])
-            ? ':' . $_SERVER['SERVER_PORT'] : '') .
+        (isset($_SERVER['SERVER_PORT']) && !empty($_SERVER['SERVER_PORT'])
+            ? ':' . $_SERVER['SERVER_PORT']
+            : '') .
         dirname($_SERVER["REQUEST_URI"] . '?') 
         . '/';
 }

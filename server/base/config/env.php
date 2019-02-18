@@ -1,6 +1,6 @@
 <?php
 
-define('APP_NAME', 'Rainbow-Cube');
+define('APP_NAME', 'Rainbow-Runner');
 
 define('PRODUCTION', false);
 define('VERSION', '0.1.3');
