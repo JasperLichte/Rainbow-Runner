@@ -1,7 +1,7 @@
 import { playerControls } from '../../controls/keyboardControls.js';
 import { STEP_SIZES, STEP_SPEEDS } from '../conf/conf.js';
 import Position from '../../interfaces/Position.js';
-import ControllableObject from './ContrallableObject.js';
+import ControllableObject from './ControllableObject.js';
 
 export default class Player extends ControllableObject {
 
