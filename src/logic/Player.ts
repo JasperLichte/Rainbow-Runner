@@ -15,10 +15,6 @@ export default class Player {
   private levelLogic;
 
   public constructor(initialPosition: Position) {
-    if (!initialPosition) {
-      throw new Error(exceptions['INVALID_POSITION_OBJECT']);
-    }
-
     this.position = initialPosition;
     this.gravity = calcGravity(this.mass, GRAVITY_OF_EARTH);
     this.levelLogic = new Level(globals.helpers.levelHelper.getCurrentLevel());
