@@ -2,8 +2,8 @@ import CurrentLevelPanel from './../ui/CurrentLevelPanel.js';
 import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
 import globals from '../globals.js';
 import Level from '../logic/Level.js';
-import Element from '../interfaces/Element.js';
 import RenderHelper from './RenderHelper.js';
+import { moveElements, rotateElements } from './animationLoopFuncs.js';
 
 export default (engineHelper: RenderEngineHelper, level: string[][]) => {
 
@@ -18,20 +18,15 @@ export default (engineHelper: RenderEngineHelper, level: string[][]) => {
     .handleResize();
 
   const movingElements = RenderHelper.buildMovingElementsArray(engineHelper);
+  const rotatingElements = RenderHelper.buildRotatingElementsArray(engineHelper);
 
   (function animate() {
-    // ======= ANIMATION LOOP ==========
+    // ======== ANIMATION LOOP ==========
 
     moveElements(movingElements);
-    // =================================
+    rotateElements(rotatingElements);
+    // ==================================
     engineHelper.render();
     requestAnimationFrame(animate);
   })();
-
-  function moveElements(elements: Element[]): void {
-    for (var i = 0, len = elements.length; i < len; i++) {
-      elements[i].object.move(elements[i].logic.getPosition());
-    }
-  }
-
 }

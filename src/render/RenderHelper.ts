@@ -1,6 +1,7 @@
 import RenderEnineHelperParent from './renderEngines/RenderEngineHelper.js';
 import Element from '../interfaces/Element.js';
 import Player from '../logic/objects/Player.js';
+import RenderObject from './renderEngines/RenderObject.js';
 
 export default class RenderHelper {
 
@@ -31,6 +32,19 @@ export default class RenderHelper {
     });
 
     return elements;
+  }
+
+  public static buildRotatingElementsArray(engineHelper: RenderEnineHelperParent): Element[] {
+    const arr: Element[] = [];
+
+    for (const coin of engineHelper.getCoins()) {
+      arr.push({
+        object: coin,
+        logic: null,
+      });
+    }
+    
+    return arr;
   }
 
 }

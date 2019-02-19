@@ -16,10 +16,6 @@ export default class RotatingObject extends Cube {
     if (randomDir) {
       this.rotationDir = (Math.random() > 0.5);
     }
-
-    this.rotate = this.rotate.bind(this);
-
-    this.rotate();
   }
 
   rotate(): RotatingObject {
@@ -28,7 +24,6 @@ export default class RotatingObject extends Cube {
     } else {
       this.object.rotation.y -= this.rotationSpeed;  
     }
-    requestAnimationFrame(this.rotate);
     return this;
   }
 

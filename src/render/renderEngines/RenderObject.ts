@@ -1,6 +1,5 @@
 import Position from "../../interfaces/Position";
 import Size from "../../interfaces/Size";
-import { Object3D } from "three";
 
 export default class RenderObject {
 
@@ -37,6 +36,10 @@ export default class RenderObject {
 
   public move(position: Position): RenderObject {
     this.position = position;
+    return this;
+  }
+
+  public rotate(): RenderObject {
     return this;
   }
 
