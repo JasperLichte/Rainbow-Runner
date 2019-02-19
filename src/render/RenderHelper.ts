@@ -1,4 +1,6 @@
 import RenderEnineHelperParent from './renderEngines/RenderEngineHelper.js';
+import Element from '../interfaces/Element.js';
+import Player from '../logic/objects/Player.js';
 
 export default class RenderHelper {
 
@@ -18,6 +20,17 @@ export default class RenderHelper {
     }
 
     return this.helper.getMode();
+  }
+
+  public static buildMovingElementsArray(engineHelper: RenderEnineHelperParent): Element[] {
+    const elements: Element[] = [];
+
+    elements.push({
+      object: engineHelper.getPlayer(),
+      logic: new Player(engineHelper.getPlayer().getInitialPosition())
+    });
+
+    return elements;
   }
 
 }
