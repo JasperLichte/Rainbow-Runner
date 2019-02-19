@@ -12,7 +12,7 @@ export default class Diamond extends RotatingObject {
     this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
-  tweakPosition() {
+  tweakPosition(): Diamond {
     this.object.position.y -= 0.2;
     return this;
   }

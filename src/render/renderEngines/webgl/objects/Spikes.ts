@@ -12,7 +12,7 @@ export default class Spikes extends Cube {
     this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
-  public tweakPosition() {
+  public tweakPosition(): Spikes {
     this.object.position.y -= (0.35 + 0.075);
     return this;
   }

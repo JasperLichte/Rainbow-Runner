@@ -7,7 +7,7 @@ export default class Player extends Cube {
     super(colors['objects-player']);
   }
 
-  public tweakPosition() {
+  public tweakPosition(): Player {
     this.object.position.y -= 0.15;
     return this;
   }  

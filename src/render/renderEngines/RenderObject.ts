@@ -1,9 +1,10 @@
 import Position from "../../interfaces/Position";
 import Size from "../../interfaces/Size";
+import { Object3D } from "three";
 
 export default class RenderObject {
 
-  protected object;
+  protected object: HTMLElement | any;
   protected position: Position = {x: null, y: null};
   protected size: Size = {width: 1, height: 1};
 

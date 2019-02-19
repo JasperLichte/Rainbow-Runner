@@ -12,7 +12,7 @@ export default class Coin extends RotatingObject {
     this.object = new THREE.Mesh(this.geometry, this.material);
   }
 
-  tweakPosition() {
+  tweakPosition(): Coin {
     this.object.position.y -= 0.2;
     return this;
   }

@@ -2,13 +2,14 @@
 const THREE = window.THREE;
 import RenderObject from '../../RenderObject.js';
 import Position from '../../../../interfaces/Position.js';
+import { Geometry, Material } from 'three/index.js';
 
 export default class Cube extends RenderObject {
 
-  protected geometry;
-  protected material;
+  protected geometry: Geometry;
+  protected material: Material;
 
-  constructor(color = '#ffffff') {
+  constructor(color: string = '#ffffff') {
     super();
     this.geometry = new THREE.BoxGeometry(1, 1, 1);
     this.material = new THREE.MeshBasicMaterial({color: color});

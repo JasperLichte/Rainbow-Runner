@@ -1,5 +1,3 @@
-// @ts-ignore
-const THREE = window.THREE;
 import Cube from './Cube.js';
 
 export default class RotatingObject extends Cube {
@@ -24,13 +22,14 @@ export default class RotatingObject extends Cube {
     this.rotate();
   }
 
-  rotate() {
+  rotate(): RotatingObject {
     if (this.rotationDir) {
       this.object.rotation.y += this.rotationSpeed;    
     } else {
       this.object.rotation.y -= this.rotationSpeed;  
     }
     requestAnimationFrame(this.rotate);
+    return this;
   }
 
 }
