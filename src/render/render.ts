@@ -29,7 +29,7 @@ export default (engineHelper: RenderEngineHelper, level: string[][]) => {
   })();
 
   function moveElements(elements: Element[]): void {
-    for (let i = elements.length - 1; i >= 0; i--) {
+    for (var i = 0, len = elements.length; i < len; i++) {
       elements[i].object.move(elements[i].logic.getPosition());
     }
   }
