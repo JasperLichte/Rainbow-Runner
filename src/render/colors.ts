@@ -1,11 +1,10 @@
 export default Object.freeze({
   // Canvas
-  'canvas-background': '#909ede',
+  'canvas-background': '#111',
   // Objects
-  'objects-cube': '#00ffed',
   'objects-coin': '#cccc00',
-  'objects-wall-body': '#222222',
-  'objects-wall-border': '#eeeeee',
+  'objects-wall-body': '#222',
+  'objects-wall-border': '#f00',
   'objects-player': '#0087ff',
   'objects-spikes': '#ad1818',
   'objects-diamond': '#c300ff',
@@ -14,4 +13,7 @@ export default Object.freeze({
   'ui-menu-wrapper-background': '#222',
   'ui-menu-wrapper-font': '#eee',
   'ui-menu-hamburger-button': '#ffffff',
+  'ui-menu-currentLevelPanel-button-background': '#eee',
+  'ui-menu-currentLevelPanel-button-font': '#222',
+  'ui-menu-currentLevelPanel-levelCount-font': '#fff',
 });
