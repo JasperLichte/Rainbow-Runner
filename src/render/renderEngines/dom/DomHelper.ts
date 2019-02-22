@@ -5,6 +5,7 @@ import Player from './objects/Player.js';
 import Coin from './objects/Coin.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
+import Cube from './objects/Cube.js';
 
 export default class DomHelper extends RenderEngineHelper {
 
@@ -25,28 +26,19 @@ export default class DomHelper extends RenderEngineHelper {
     return el;
   }
 
-  //* @OVERRIDE
   public clearScene() {
     this.domElement.innerHTML = '';
     return this;
   }
 
-  //* @OVERRIDE
   public render() {
     this.animateCameraPosition();
     return this;
   }
 
-  //* @OVERRIDE
-  public buildLevel(level) {
-    if (!(Array.isArray(level))) {
-      return;
-    }
+  public buildLevel(level: string[][]) {
     for (let y = 0; y < level.length; y++) {
       const row = level[y];
-      if (!(Array.isArray(row))) {
-        return;
-      }
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
         const block = DomHelper.getBlockByType(blockType);
@@ -58,8 +50,7 @@ export default class DomHelper extends RenderEngineHelper {
     return this;
   }
 
-  //* @OVERRIDE
-  public insertBlockIntoScene(block, pos) {
+  public insertBlockIntoScene(block: Cube, pos) {
     let obj = null;
     if (block && block.getObject) {
       obj = block.getObject();
@@ -73,7 +64,7 @@ export default class DomHelper extends RenderEngineHelper {
     return this;
   }
 
-  public static getBlockByType(blockType = '') {
+  public static getBlockByType(blockType: string = '') {
     switch(blockType) {
       case 'wall':
         return new Wall();
