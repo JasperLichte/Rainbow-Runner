@@ -7,16 +7,16 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: var(--ui-menu-currentLevelPanel-levelCount-font-color);
+  color: var(--ui-currentLevelPanel-levelCount-font-color);
 
   #next-level-btn {
-    background: var(--ui-menu-currentLevelPanel-button-background-color);
+    background: var(--ui-currentLevelPanel-button-background-color);
     border: none;
     padding: 1rem;
     font-size: 1rem;
     opacity: 0.6;
     transition: all 0.25s ease;
-    color: var(--ui-menu-currentLevelPanel-button-font-color);
+    color: var(--ui-currentLevelPanel-button-font-color);
     cursor: pointer;
 
     :hover {
@@ -35,6 +35,16 @@
   }
 
   #fpsCounter {
+    .low {
+      color: var(--ui-fpsCounter-low-color);
+    }
 
+    .medium {
+      color: var(--ui-fpsCounter-medium-color);
+    }
+
+    .high {
+      color: var(--ui-fpsCounter-high-color);
+    }
   }
 }

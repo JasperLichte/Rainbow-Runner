@@ -58,7 +58,18 @@ export default class CurrentLevelPanel {
   }
 
   public updateFpsCounter(fps: number) {
+    if (!fps) return;
     this.fpsCounterElement.innerText = `${fps}fps`;
+
+    let className = '';
+    if (fps <= 10) {
+      className = 'low';
+    } else if (fps <= 40) {
+      className = 'medium';
+    } else {
+      className = 'high';
+    }
+    this.fpsCounterElement.classList.add(className);
   }
 
 }
