@@ -5,8 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "watch-ts": "tsc -w",
-    "watch-sass": "sass --watch src/styles/index.scss assets/styles/bundle.css",
-    "build": "tsc && sass --update src/styles/index.scss assets/styles/bundle.css && webpack",
+    "watch-sass": "sass --watch styles/index.scss assets/styles/bundle.css",
+    "build": "tsc && sass --update styles/index.scss assets/styles/bundle.css && webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
