@@ -47,14 +47,12 @@ export default class ThreeHelper extends RenderEngineHelper {
     };
   }
 
-  //* @OVERRIDE
   public render() {
     this.animateCameraPosition();
     this.renderer.render(this.scene, this.camera);
     return this;
   }
 
-  //* @OVERRIDE
   public buildLevel(level = []) {
     if (!Array.isArray(level)) {
       return;
@@ -75,7 +73,6 @@ export default class ThreeHelper extends RenderEngineHelper {
     return this;
   }
 
-  //* @OVERRIDE
   public insertBlockIntoScene(block, pos) {
     let obj = null;
     if (block && block.getObject) {
@@ -114,7 +111,6 @@ export default class ThreeHelper extends RenderEngineHelper {
     return null;
   }
 
-  //* @OVERRIDE
   public listenForCameraMovements() {
     let isMouseDown = false;
     let lastMousePos = {x: null, y: null};
@@ -133,50 +129,48 @@ export default class ThreeHelper extends RenderEngineHelper {
         }
       }
     });
-  
-    // MOUSEDOWN
-    this.renderer.domElement.addEventListener('mousedown', () => {
-      isMouseDown = true
-    });
-  
-    // MOUSUP
-    this.renderer.domElement.addEventListener('mouseup', () => {
-      isMouseDown = false
-    });
-  
-    // lMOUSEMOVE
-    this.renderer.domElement.addEventListener('mousemove', e => {
-      if (!isMouseDown) {
-        return;
-      }
+
+    const mouseDown = () => {  
+      isMouseDown = true;
+    };
+
+    const mouseUp = () => {
+      isMouseDown = false;
+    };
+
+    const mouseMove = e => {
+      if (!isMouseDown && e.type !== 'touchmove') return;
+
+      const currentMousePos = (e.type === 'touchmove'
+        ? { x: e.touches[0].clientX, y: e.touches[0].clientY }
+        : { x: e.x, y: e.y });
+
       if (!lastMousePos.x) {
-        lastMousePos = {
-          x: e.x,
-          y: e.y
-        }
+        lastMousePos = currentMousePos;
       }
-      const currentMousePos = {
-        x: e.x,
-        y: e.y
-      }
-      const movedToRight = (lastMousePos.x < currentMousePos.x);
-      const movedToLeft = (lastMousePos.x > currentMousePos.x);
-      if (movedToRight) {
+
+      if (lastMousePos.x < currentMousePos.x) {
         if (this.incrementors.camera.x < 35) {
           this.incrementors.camera.x += 0.25;
         }
-      } else if (movedToLeft) {
+      } else if (lastMousePos.x > currentMousePos.x) {
         if (this.incrementors.camera.x > -35) {
           this.incrementors.camera.x -= 0.25;
         }
       }
   
       lastMousePos = currentMousePos;
-    });
+    };
+  
+    this.renderer.domElement.addEventListener('mousedown', mouseDown);
+    this.renderer.domElement.addEventListener('touchdown', mouseDown);
+    this.renderer.domElement.addEventListener('mouseup', mouseUp);
+    this.renderer.domElement.addEventListener('touchup', mouseUp);
+    this.renderer.domElement.addEventListener('mousemove', mouseMove);
+    this.renderer.domElement.addEventListener('touchmove', mouseMove);
     return this;
   }
 
-  //* @OVERRIDE
   public animateCameraPosition() {
     this.camera.position.x = this.incrementors.camera.x;
     this.camera.position.y = this.incrementors.camera.y;
@@ -185,7 +179,6 @@ export default class ThreeHelper extends RenderEngineHelper {
     return this;
   }
 
-  //* @OVERRIDE
   public clearScene() {
     while (this.scene.children.length > 0) {
       this.scene.remove(this.scene.children[0]);
@@ -193,7 +186,6 @@ export default class ThreeHelper extends RenderEngineHelper {
     return this;
   }
 
-  //* @OVERRIDE
   public handleResize() {
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight;
