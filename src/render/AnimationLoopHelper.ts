@@ -53,15 +53,7 @@ export default class AnimationLoopHelper {
     this.lastUpdatedTime = (new Date).getTime();  
   }
 
-  public getTimeElapsed() {
-    return this.timeElapsedSinceLastFrame;
-  }
-
-  public getFrames() {
-    return this.totalFrames;
-  }
-
-  public getFps() {
+  private getFps() {
     return ~~(1000 / this.timeElapsedSinceLastFrame);
   }
 
