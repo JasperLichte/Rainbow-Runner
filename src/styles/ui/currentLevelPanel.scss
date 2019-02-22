@@ -7,6 +7,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: var(--ui-menu-currentLevelPanel-levelCount-font-color);
 
   #next-level-btn {
     background: var(--ui-menu-currentLevelPanel-button-background-color);
@@ -27,10 +28,13 @@
   .levelCounter {
     padding: 1rem;
     font-size: 1.4rem;
-    color: var(--ui-menu-currentLevelPanel-levelCount-font-color);
 
     span:not(.slash) {
       font-weight: 700;
     }
+  }
+
+  #fpsCounter {
+
   }
 }

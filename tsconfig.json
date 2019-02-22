@@ -3,7 +3,7 @@
     "outDir": "./build",
     "allowJs": true,
     "target": "es5",
-    "removeComments": true,
+    "removeComments": false,
     "module": "es6",
   },
   "include": [

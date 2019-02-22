@@ -22,7 +22,7 @@ export default class RenderHelper {
     return this.helper.getMode();
   }
 
-  public static buildMovingElementsArray(engineHelper: RenderEnineHelperParent): Element[] {
+  public static getMovingElements(engineHelper: RenderEnineHelperParent): Element[] {
     const elements: Element[] = [];
 
     elements.push({
@@ -33,7 +33,7 @@ export default class RenderHelper {
     return elements;
   }
 
-  public static buildRotatingElementsArray(engineHelper: RenderEnineHelperParent): Element[] {
+  public static getRotatingElements(engineHelper: RenderEnineHelperParent): Element[] {
     const arr: Element[] = [];
 
     for (const coin of engineHelper.getCoins()) {

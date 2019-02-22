@@ -5,6 +5,7 @@ export default class CurrentLevelPanel {
 
   private domElement: HTMLElement;
   private content: string;
+  private fpsCounterElement: HTMLElement;
 
   public constructor() {
     CurrentLevelPanel.remove();
@@ -12,6 +13,8 @@ export default class CurrentLevelPanel {
     this.domElement.setAttribute('class', 'current-level-panel');
     this.domElement.innerHTML = this.content = CurrentLevelPanel.getContentByType();
     document.body.appendChild(this.domElement);
+
+    this.fpsCounterElement = document.querySelector('#fpsCounter > span');
   }
 
   public static remove(): void {
@@ -32,6 +35,9 @@ export default class CurrentLevelPanel {
     switch(type) {
       default:
         return `
+          <div id="fpsCounter">
+            <span></span>
+          </div>
           <div class="levelCounter">
             <span class="currentLevelInd">${globals.helpers.levelHelper.getCurrentLevelIndex() + 1}</span>
             <span class="slash">/</span>
@@ -49,6 +55,10 @@ export default class CurrentLevelPanel {
     });
 
     return this;
+  }
+
+  public updateFpsCounter(fps: number) {
+    this.fpsCounterElement.innerText = `${fps}fps`;
   }
 
 }

@@ -1,32 +1,12 @@
-import CurrentLevelPanel from './../ui/CurrentLevelPanel.js';
 import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
-import globals from '../globals.js';
-import Level from '../logic/Level.js';
-import RenderHelper from './RenderHelper.js';
-import { moveElements, rotateElements } from './animationLoopFuncs.js';
+import AnimationLoopHelper from './AnimationLoopHelper.js';
 
 export default (engineHelper: RenderEngineHelper, level: string[][]) => {
 
-  (new CurrentLevelPanel()).listenForEvents();
-
-  globals.helpers.levelLogic = new Level(level);
-
-  engineHelper
-    .clearScene()
-    .buildLevel(level)
-    .listenForCameraMovements()
-    .handleResize();
-
-  const movingElements = RenderHelper.buildMovingElementsArray(engineHelper);
-  const rotatingElements = RenderHelper.buildRotatingElementsArray(engineHelper);
-
+  const animationLoopHelper = new AnimationLoopHelper(engineHelper, level);
   (function animate() {
-    // ======== ANIMATION LOOP ==========
+    animationLoopHelper.update();
 
-    moveElements(movingElements);
-    rotateElements(rotatingElements);
-    // ==================================
-    engineHelper.render();
     requestAnimationFrame(animate);
   })();
 }
