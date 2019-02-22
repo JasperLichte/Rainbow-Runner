@@ -17,23 +17,19 @@ export default class AnimationLoopHelper {
 
   public constructor(engineHelper: RenderEngineHelper, level: string[][]) {
     this.engineHelper = engineHelper;
-    this.prepareEngineHelper(level);
-    this.movingElements = RenderHelper.getMovingElements(this.engineHelper);
-    this.rotatingElements = RenderHelper.getRotatingElements(this.engineHelper);
-
     this.currentLevelPanel = new CurrentLevelPanel();
     this.prepare(level);
+    this.movingElements = RenderHelper.getMovingElements(this.engineHelper);
+    this.rotatingElements = RenderHelper.getRotatingElements(this.engineHelper);
   }
 
-  private prepareEngineHelper(level: string[][]) {
+  private prepare(level: string[][]) {
     this.engineHelper
       .clearScene()
       .buildLevel(level)
       .listenForCameraMovements()
       .handleResize();
-  }
 
-  private prepare(level: string[][]) {
     globals.helpers.levelLogic = new Level(level);
     this.currentLevelPanel.listenForEvents();
 
