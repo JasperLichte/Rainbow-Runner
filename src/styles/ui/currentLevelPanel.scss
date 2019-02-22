@@ -8,6 +8,10 @@
   justify-content: flex-end;
   align-items: center;
   color: var(--ui-currentLevelPanel-levelCount-font-color);
+  -webkit-user-select: none;        
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   #next-level-btn {
     background: var(--ui-currentLevelPanel-button-background-color);

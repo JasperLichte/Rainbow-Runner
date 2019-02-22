@@ -69,7 +69,7 @@ export default class CurrentLevelPanel {
     } else {
       className = 'high';
     }
-    this.fpsCounterElement.classList.add(className);
+    this.fpsCounterElement.setAttribute('class', className);
   }
 
 }
