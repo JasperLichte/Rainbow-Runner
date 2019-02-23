@@ -7,6 +7,7 @@ import CurrentLevelPanel from '../ui/CurrentLevelPanel.js';
 
 export default class AnimationLoopHelper {
 
+  private isRunning: boolean = true;
   private engineHelper: RenderEngineHelper;
   private totalFrames: number = 0;
   private lastUpdatedTime: number;
@@ -37,6 +38,8 @@ export default class AnimationLoopHelper {
   }
 
   public update() {
+    if (!this.isRunning) return;
+
     this.setTimeElapsed();
     this.moveElements();
     this.rotateElements();
@@ -69,6 +72,14 @@ export default class AnimationLoopHelper {
     for (var i = 0, len = this.rotatingElements.length; i < len; i++) {
       this.rotatingElements[i].object.rotate();
     }
+  }
+
+  public stop() {
+    this.isRunning = false;
+  }
+
+  public resume() {
+    this.isRunning = true;
   }
 
 }
