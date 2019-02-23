@@ -4,10 +4,10 @@ import RenderHelper from './RenderHelper.js';
 import globals from '../globals.js';
 import Level from '../logic/Level.js';
 import CurrentLevelPanel from '../ui/CurrentLevelPanel.js';
+import PlayPauseButton from '../ui/PlayPauseButton.js';
 
-export default class AnimationLoopHelper {
+export default class AnimationLoop {
 
-  private isRunning: boolean = true;
   private engineHelper: RenderEngineHelper;
   private totalFrames: number = 0;
   private lastUpdatedTime: number;
@@ -15,10 +15,12 @@ export default class AnimationLoopHelper {
   private movingElements: Element[];
   private rotatingElements: Element[];
   private currentLevelPanel: CurrentLevelPanel;
+  //private playPauseButton: PlayPauseButton;
 
   public constructor(engineHelper: RenderEngineHelper, level: string[][]) {
     this.engineHelper = engineHelper;
     this.currentLevelPanel = new CurrentLevelPanel();
+    //this.playPauseButton = new PlayPauseButton();
     this.prepare(level);
     this.movingElements = RenderHelper.getMovingElements(this.engineHelper);
     this.rotatingElements = RenderHelper.getRotatingElements(this.engineHelper);
@@ -38,13 +40,14 @@ export default class AnimationLoopHelper {
   }
 
   public update() {
-    if (!this.isRunning) return;
+    this.engineHelper.render();
+    //this.playPauseButton.update();
+    if (!AnimationLoop.isRunning()) return;
 
     this.setTimeElapsed();
     this.moveElements();
     this.rotateElements();
     this.totalFrames % 10 === 0 && this.currentLevelPanel.updateFpsCounter(this.getFps());
-    this.engineHelper.render();
     this.totalFrames++;
   }
 
@@ -74,12 +77,16 @@ export default class AnimationLoopHelper {
     }
   }
 
-  public stop() {
-    this.isRunning = false;
+  public static isRunning() {
+    return globals.state.isRunning;
   }
 
-  public resume() {
-    this.isRunning = true;
+  public static stop() {
+    globals.state.isRunning = false;
+  }
+
+  public static start() {
+    globals.state.isRunning = true;
   }
 
 }

@@ -19,4 +19,5 @@ export default Object.freeze({
   'ui-fpsCounter-low': '#e00',
   'ui-fpsCounter-medium': '#ee0',
   'ui-fpsCounter-high': '#0e0',
+  'ui-play-button': '#0087ff',
 });

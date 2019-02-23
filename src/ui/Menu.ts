@@ -3,6 +3,7 @@ import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from './../globals.js';
 import { APP_NAME, REPO_URL, CONTRIBUTORS, VERSION } from './../config/env.js'; 
+import AnimationLoop from '../render/AnimationLoop.js';
 
 export default class Menu {
 
@@ -26,6 +27,7 @@ export default class Menu {
 
   public show(): Menu {
     this.domElement.style.left = '0px';
+    AnimationLoop.stop();
     return this;
   }
 
@@ -35,6 +37,7 @@ export default class Menu {
     } else {
       this.domElement.style.left = '200vw';
     }
+    this.hasDoneInitialRender && AnimationLoop.start();
     return this;
   }
 
