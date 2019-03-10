@@ -72,7 +72,7 @@ export default class RenderEngineHelper {
     return this.spikes;
   }
 
-  protected getRenderObject(blockType: string) {
+  protected getRenderObject(blockType: string): RenderObject {
     return RenderObjectFactory.getObject(this.mode, blockType);
   }
 
