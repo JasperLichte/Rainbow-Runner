@@ -11,7 +11,14 @@ export default class Config {
   }
 
   public static set(key: string, value: any) {
-    this[key] = value;
+    if (!Config.isSet(key)) {
+      this[key] = value;
+    }
+  }
+
+  public static isSet(key:string): boolean {
+    if (!(key in this)) { return false; }
+    return !!this[key];
   }
 
 }
