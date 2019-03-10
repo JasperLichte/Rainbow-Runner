@@ -5,38 +5,39 @@ import Player from './objects/Player.js';
 import Coin from './objects/Coin.js';
 import Spikes from './objects/Spikes.js';
 import Diamond from './objects/Diamond.js';
-import Cube from './objects/Cube.js';
+import RenderObject from '../RenderObject.js';
+import Position from '../../../interfaces/Position.js';
 
 export default class DomHelper extends RenderEngineHelper {
 
-  private domParent;
-  private domElement;
+  private domParent: HTMLElement;
+  private domElement: HTMLElement;
 
-  public constructor(domParent) {
+  public constructor(domParent: HTMLElement) {
     super('2d');
 
-    this.domParent = domParent ? domParent : document.body;
+    this.domParent = domParent;
     this.domElement = this.buildDomElement();
     this.domParent.appendChild(this.domElement);
   }
 
-  private buildDomElement() {
+  private buildDomElement(): HTMLElement {
     const el = document.createElement('div');
     el.setAttribute('class', 'dom-engine-wrapper');
     return el;
   }
 
-  public clearScene() {
+  public clearScene(): DomHelper {
     this.domElement.innerHTML = '';
     return this;
   }
 
-  public render() {
+  public render(): DomHelper {
     this.animateCameraPosition();
     return this;
   }
 
-  public buildLevel(level: string[][]) {
+  public buildLevel(level: string[][]): DomHelper {
     for (let y = 0; y < level.length; y++) {
       const row = level[y];
       for (let x = 0; x < row.length; x++) {
@@ -50,7 +51,7 @@ export default class DomHelper extends RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block: Cube, pos) {
+  public insertBlockIntoScene(block: RenderObject, pos: Position): DomHelper {
     let obj = null;
     if (block && block.getObject) {
       obj = block.getObject();
@@ -64,7 +65,7 @@ export default class DomHelper extends RenderEngineHelper {
     return this;
   }
 
-  public static getBlockByType(blockType: string = '') {
+  public static getBlockByType(blockType: string = ''): RenderObject {
     switch(blockType) {
       case 'wall':
         return new Wall();
