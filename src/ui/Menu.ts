@@ -35,7 +35,7 @@ export default class Menu {
     if (Math.random() > 0.5) {
       this.domElement.style.left = '-100vw';
     } else {
-      this.domElement.style.left = '200vw';
+      this.domElement.style.left = '100vw';
     }
     this.hasDoneInitialRender && AnimationLoop.start();
     return this;
