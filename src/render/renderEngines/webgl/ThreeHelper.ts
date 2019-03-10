@@ -20,7 +20,7 @@ export default class ThreeHelper extends RenderEngineHelper {
     }
   };
 
-  public constructor() {
+  public constructor(domParent: HTMLElement) {
     super('3d');
 
     this.scene = new THREE.Scene();
@@ -28,8 +28,8 @@ export default class ThreeHelper extends RenderEngineHelper {
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.scene.add(this.camera);
     this.renderer = new THREE.WebGLRenderer({antialias: true});
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
+    this.renderer.setSize(domParent.clientWidth, domParent.clientHeight);
+    domParent.appendChild(this.renderer.domElement);
 
     this.cameraCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
     this.incrementors = {
