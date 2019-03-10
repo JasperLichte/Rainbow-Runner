@@ -5,9 +5,6 @@ import Position from '../../../interfaces/Position.js';
 
 export default class DomHelper extends RenderEngineHelper {
 
-  private domParent: HTMLElement;
-  private domElement: HTMLElement;
-
   public constructor(domParent: HTMLElement) {
     super('2d');
 

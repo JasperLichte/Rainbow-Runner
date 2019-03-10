@@ -5,14 +5,16 @@ import RenderObjectFactory from './RenderObjectFactory.js';
 export default class RenderEngineHelper {
 
   protected mode: string = '';
-  protected incrementors: object = {};
+  protected incrementors = { camera: { x: null, y: null, z: null, } };
   protected player:   RenderObject = null;
   protected walls:    RenderObject[] = [];
   protected coins:    RenderObject[] = [];
   protected diamonds: RenderObject[] = [];
   protected spikes:   RenderObject[] = [];
+  protected domParent: HTMLElement;
+  protected domElement: HTMLElement;
 
-  constructor(_mode: string = '') {
+  protected constructor(_mode: string = '') {
     this.mode = _mode;
   }
 
