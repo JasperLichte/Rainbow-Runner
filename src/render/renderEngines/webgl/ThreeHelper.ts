@@ -1,17 +1,10 @@
 // @ts-ignore
 const THREE = window.THREE;
-
 import RenderEngineHelper from './../RenderEngineHelper.js';
 import colors from './../../colors.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
 import globals from './../../../globals.js';
-
-import Wall from './objects/Wall.js';
-import Coin from './objects/Coin.js';
-import Player from './objects/Player.js';
-import Spikes from './objects/Spikes.js';
-import Diamond from './objects/Diamond.js';
-import Cube from './objects/Cube.js';
+import RenderObject from '../RenderObject.js';
 
 export default class ThreeHelper extends RenderEngineHelper {
 
@@ -59,7 +52,7 @@ export default class ThreeHelper extends RenderEngineHelper {
       const row = level[y];
       for (let x = 0; x < row.length; x++) {
         const blockType = LevelHelper.getBlockTypeBySymbol(row[x]);
-        const block = ThreeHelper.getBlockByType(blockType);
+        const block = this.getRenderObject(blockType);
 
         this.setRenderObject(blockType, block);
         this.insertBlockIntoScene(block, {x, y});
@@ -68,7 +61,7 @@ export default class ThreeHelper extends RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block: Cube, pos) {
+  public insertBlockIntoScene(block: RenderObject, pos) {
     let obj = null;
     if (block && block.getObject) {
       obj = block.getObject();
@@ -83,27 +76,6 @@ export default class ThreeHelper extends RenderEngineHelper {
     
     block.tweakPosition && block.tweakPosition();
     return this;
-  }
-
-  public static getBlockByType(blockType: string = '') {
-    switch(blockType) {
-      case 'wall':
-        return new Wall();
-        break;
-      case 'coin':
-        return new Coin();
-        break;
-      case 'player':
-        return new Player();
-        break;
-      case 'spikes':
-        return new Spikes();
-        break;  
-      case 'diamond':
-        return new Diamond();
-        break;
-    }
-    return null;
   }
 
   public listenForCameraMovements() {

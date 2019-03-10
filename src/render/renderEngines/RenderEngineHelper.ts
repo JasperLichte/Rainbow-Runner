@@ -1,5 +1,6 @@
 import RenderObject from './RenderObject.js';
 import Position from '../../interfaces/Position.js';
+import RenderObjectFactory from './RenderObjectFactory.js';
 
 export default class RenderEngineHelper {
 
@@ -69,6 +70,10 @@ export default class RenderEngineHelper {
 
   public getSpikes(): RenderObject[] {
     return this.spikes;
+  }
+
+  protected getRenderObject(blockType: string) {
+    return RenderObjectFactory.getObject(this.mode, blockType);
   }
 
   protected setRenderObject(type: string = '', renderObject: RenderObject): void {
