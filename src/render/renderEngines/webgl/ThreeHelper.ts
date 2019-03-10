@@ -61,7 +61,7 @@ export default class ThreeHelper extends RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block: RenderObject, pos) {
+  protected insertBlockIntoScene(block: RenderObject, pos) {
     let obj = null;
     if (block && block.getObject) {
       obj = block.getObject();

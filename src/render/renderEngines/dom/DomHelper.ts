@@ -2,7 +2,6 @@ import RenderEngineHelper from './../RenderEngineHelper.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
 import RenderObject from '../RenderObject.js';
 import Position from '../../../interfaces/Position.js';
-import RenderObjectFactory from '../RenderObjectFactory.js';
 
 export default class DomHelper extends RenderEngineHelper {
 
@@ -47,7 +46,7 @@ export default class DomHelper extends RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block: RenderObject, pos: Position): DomHelper {
+  protected insertBlockIntoScene(block: RenderObject, pos: Position): DomHelper {
     let obj = null;
     if (block && block.getObject) {
       obj = block.getObject();

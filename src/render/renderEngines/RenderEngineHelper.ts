@@ -32,7 +32,7 @@ export default class RenderEngineHelper {
     return this;
   }
 
-  public insertBlockIntoScene(block: RenderObject, pos: Position): RenderEngineHelper {
+  protected insertBlockIntoScene(block: RenderObject, pos: Position): RenderEngineHelper {
     return this;
   }
 
