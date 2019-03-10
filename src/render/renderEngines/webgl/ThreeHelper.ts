@@ -22,7 +22,7 @@ export default class ThreeHelper extends RenderEngineHelper {
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.scene.add(this.camera);
     this.renderer = new THREE.WebGLRenderer({antialias: true});
-    this.renderer.setSize(domParent.clientWidth, domParent.clientHeight);
+    this.renderer.setSize(this.domParent.clientWidth, this.domParent.clientHeight);
     this.domElement = this.renderer.domElement;
     domParent.appendChild(this.domElement);
 
@@ -150,9 +150,9 @@ export default class ThreeHelper extends RenderEngineHelper {
 
   public handleResize() {
     window.addEventListener('resize', () => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.aspect = this.domParent.clientWidth / this.domParent.clientHeight;
       this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setSize(this.domParent.clientWidth, this.domParent.clientHeight);
     });
     return this;
   }
