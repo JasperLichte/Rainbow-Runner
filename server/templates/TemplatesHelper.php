@@ -36,7 +36,13 @@ class TemplatesHelper {
     static function metas() {
         return
             "<meta charset=\"" . self::CHARSET . "\">\n" .
-            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
+            "<meta
+                name=\"viewport\"
+                content=\"
+                    width=device-width,
+                    initial-scale=1.0,
+                    user-scalable=no\"
+            >\n";
     }
 
     /**
