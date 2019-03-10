@@ -67,24 +67,18 @@ export default class Menu {
     switch(type) {
       case 'menu':
         const CONTRIBUTORS = Config.get('CONTRIBUTORS');
-        const APP_NAME = Config.get('APP_NAME');
-        const VERSION = Config.get('VERSION');
-        const REPO_URL = Config.get('REPO_URL');
-
-        let contributorsHtml = '';
-        for (const key in CONTRIBUTORS) {
-          contributorsHtml += CONTRIBUTORS[key]['name'] + ' ';
-        }
+        const contributorsHtml = [];
+        for (const key in CONTRIBUTORS) { contributorsHtml.push(CONTRIBUTORS[key]['name']); }
 
         return `<div class="menu-wrapper">
-          <h1>${APP_NAME}</h1>
-          <span class="version">Version: ${VERSION}</span>
+          <h1>${Config.get('APP_NAME')}</h1>
+          <span class="version">Version: ${Config.get('VERSION')}</span>
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
               <button class="play-btn" data-mode="2d">Play in 2d!</button>
-              <a href="${REPO_URL}">Contribute</a>
+              <a href="${Config.get('REPO_URL')}">Contribute</a>
           </div>
-          <p>By ${contributorsHtml}</p>
+          <p>By ${contributorsHtml.join(', ')}</p>
         </div>`;
     }
     return '';
