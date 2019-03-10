@@ -1,8 +1,9 @@
+import './config/env.js';
 import colors from './render/colors.js';
 import Menu from './ui/Menu.js';
 import LevelHelper from './levels/LevelHelper.js';
 import RenderHelper from './render/RenderHelper.js';
-import globals from './globals.js';
+import globals from './globals/globals.js';
 import { preventDefaultEvents } from './func/funcs.js';
 import { setCSSColorVars } from './func/cssFuncs.js';
 

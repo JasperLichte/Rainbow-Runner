@@ -1,4 +1,4 @@
-import globals from './../globals.js';
+import globals from '../globals/globals.js';
 import render from './../render/render.js';
 
 export default class CurrentLevelPanel {

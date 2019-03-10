@@ -3,7 +3,7 @@ const THREE = window.THREE;
 import RenderEngineHelper from './../RenderEngineHelper.js';
 import colors from './../../colors.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
-import globals from './../../../globals.js';
+import globals from '../../../globals/globals.js';
 import RenderObject from '../RenderObject.js';
 
 export default class ThreeHelper extends RenderEngineHelper {

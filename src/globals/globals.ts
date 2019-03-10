@@ -1,7 +1,7 @@
-import LevelHelper from './levels/LevelHelper.js';
-import RenderHelper from './render/RenderHelper.js';
-import Menu from './ui/Menu.js';
-import Level from './logic/Level.js';
+import LevelHelper from '../levels/LevelHelper.js';
+import RenderHelper from '../render/RenderHelper.js';
+import Menu from '../ui/Menu.js';
+import Level from '../logic/Level.js';
 
 const levelHelper: LevelHelper = null;
 const renderHelper: RenderHelper = null;

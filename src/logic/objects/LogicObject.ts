@@ -1,6 +1,6 @@
 import Position from '../../interfaces/Position.js';
 import Level from '../Level.js';
-import globals from '../../globals.js';
+import globals from '../../globals/globals.js';
 
 export default class LogicObject {
 

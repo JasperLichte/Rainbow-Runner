@@ -1,9 +1,9 @@
 import ThreeHelper from '../render/renderEngines/webgl/ThreeHelper.js';
 import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
-import globals from './../globals.js';
-import { APP_NAME, REPO_URL, CONTRIBUTORS, VERSION } from './../config/env.js'; 
+import globals from '../globals/globals.js';
 import AnimationLoop from '../render/AnimationLoop.js';
+import Config from '../globals/Config.js';
 
 export default class Menu {
 
@@ -66,6 +66,11 @@ export default class Menu {
   public static getContentByType(type: string = 'menu'): string {
     switch(type) {
       case 'menu':
+        const CONTRIBUTORS = Config.get('CONTRIBUTORS');
+        const APP_NAME = Config.get('APP_NAME');
+        const VERSION = Config.get('VERSION');
+        const REPO_URL = Config.get('REPO_URL');
+
         let contributorsHtml = '';
         for (const key in CONTRIBUTORS) {
           contributorsHtml += CONTRIBUTORS[key]['name'] + ' ';
