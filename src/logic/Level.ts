@@ -1,4 +1,3 @@
-import exceptions from './../errorhandling/exceptions.js';
 import LevelHelper from './../levels/LevelHelper.js';
 import Position from '../interfaces/Position.js';
 
@@ -7,9 +6,6 @@ export default class Level {
   private levelArray = [];
   
   constructor(level: string[][] = []) {
-    if (!(LevelHelper.isValidLevel(level))) {
-      throw new Error(exceptions['INVALID_LEVEL']);
-    }
     this.levelArray = level;
   }
 
