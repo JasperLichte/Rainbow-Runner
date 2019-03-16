@@ -1,10 +1,10 @@
 // DO NOT CHANGE THESE
 export default Object.freeze({
-  'wall': 'x',
+  'wall': '|',
   'player': '@',
-  'lava': '*',
+  'lava': '=',
   'coin': 'o',
-  'void': '-',
+  'void': ' ',
   'spikes': '^',
-  'diamond': '<>'
+  'diamond': '&'
 });

@@ -1,5 +1,6 @@
 import globals from '../globals/globals.js';
 import render from './../render/render.js';
+import LevelHelper from '../levels/LevelHelper.js';
 
 export default class CurrentLevelPanel {
 
@@ -38,11 +39,11 @@ export default class CurrentLevelPanel {
           <div id="fpsCounter">
             <span></span>
           </div>
-          <div class="levelCounter">
+          ${true ? '' : `<div class="levelCounter">
             <span class="currentLevelInd">${globals.helpers.levelHelper.getCurrentLevelIndex() + 1}</span>
             <span class="slash">/</span>
-            <span class="totallevels">${globals.helpers.levelHelper.getTotalLevels()}</span>
-          </div>
+            <span class="totallevels">${LevelHelper.getTotalLevels()}</span>
+          </div>`}
           <button id="next-level-btn">Next Level</button>
         `;
     }
@@ -50,8 +51,8 @@ export default class CurrentLevelPanel {
   }
 
   public listenForEvents(): CurrentLevelPanel {
-    document.getElementById('next-level-btn').addEventListener('click', () => {
-      render(globals.helpers.renderHelper.getHelper(), globals.helpers.levelHelper.nextLevel())
+    document.getElementById('next-level-btn').addEventListener('click', async () => {
+      render(globals.helpers.renderHelper.getHelper(), await globals.helpers.levelHelper.nextLevel())
     });
 
     return this;

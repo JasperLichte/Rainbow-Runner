@@ -1,11 +1,12 @@
 import symbols from './symbols.js';
-import levels from './levels.js';
 import exceptions from './../errorhandling/exceptions.js';
 import Position from '../interfaces/Position.js';
+import { encodeQueryData } from '../func/httpFuncs.js';
 
 export default class LevelHelper {
 
-  private currentLevelIndex: number = -1;
+  public static readonly SERVER_PATH = './server/levels/xmlLevelRequests.php?';
+  private currentLevelIndex: number = 0;
   private currentLevel;
 
   public constructor() {
@@ -47,14 +48,17 @@ export default class LevelHelper {
     return this.currentLevelIndex;
   }
 
-  public getTotalLevels(): number {
-    return levels.length
+  public static async getTotalLevels() {
+    const res = await fetch(LevelHelper.SERVER_PATH + encodeQueryData({
+      'f': 'getTotalLevels',
+    }));
+    return await res.json();
   }
 
-  public nextLevel() {
-    this.currentLevelIndex = (this.currentLevelIndex + 1) % levels.length;
-    const level = levels[this.currentLevelIndex];
+  public async nextLevel() {
+    const level = await LevelHelper.loadLevel(this.currentLevelIndex);
     this.currentLevel = level;
+    this.currentLevelIndex++;
     return level;
   }
 
@@ -85,6 +89,14 @@ export default class LevelHelper {
       y: level.length / 2,
       x: level[0].length / 2,
     }
+  }
+
+  private static async loadLevel(index: number) {
+    const res = await fetch(LevelHelper.SERVER_PATH + encodeQueryData({
+      'f': 'getNextLevel',
+      'params': JSON.stringify([index]),
+    }));
+    return await res.json();  
   }
 
 }
