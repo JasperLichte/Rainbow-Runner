@@ -190,6 +190,7 @@ class TemplatesHelper {
             'REPO_URL'        => REPO_URL,
             'VERSION'         => VERSION,
             'CONTRIBUTORS'    => CONTRIBUTORS,
+            'ABS_ROOT_DIR'    => ABS_ROOT_DIR,
         ];
     }
 

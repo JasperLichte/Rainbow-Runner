@@ -2,10 +2,12 @@ import symbols from './symbols.js';
 import exceptions from './../errorhandling/exceptions.js';
 import Position from '../interfaces/Position.js';
 import { encodeQueryData } from '../func/httpFuncs.js';
+import Config from '../globals/Config.js';
 
 export default class LevelHelper {
 
-  public static readonly SERVER_PATH = './server/levels/xmlLevelRequests.php?';
+  public static readonly SERVER_PATH
+    = Config.get('ABS_ROOT_DIR') + 'server/levels/xmlLevelRequests.php?';
   private currentLevelIndex: number = 0;
   private currentLevel;
 
