@@ -1,15 +1,20 @@
-import exceptions from './../errorhandling/exceptions.js';
 import Config from '../globals/Config.js';
 
 // @ts-ignore
-const conf = window.CONFIG;
+const conf = window.__CONF;
 
-if (!conf) {
-  throw new Error(exceptions['UNEXPECTED_SERVER_BEHAVIOR']);
-}
+let serverConfig = {};
+try {
+  serverConfig = JSON.parse(conf);
+} catch(e) {}
 
-Config.set('APP_NAME', conf['APP_NAME']);
-Config.set('PRODUCTION', !!conf['PRODUCTION']);
-Config.set('REPO_URL', conf['REPO_URL']);
-Config.set('CONTRIBUTORS', JSON.parse(conf['CONTRIBUTORS']));
-Config.set('VERSION', conf['VERSION']);
+const int = (inp: any) => parseInt(inp);
+const float = (inp: any) => parseFloat(inp);
+const string = (inp: any) => '' + inp;
+const bool = (inp: any) => !!inp;
+
+Config.set('APP_NAME', string(serverConfig['APP_NAME']));
+Config.set('PRODUCTION', bool(serverConfig['PRODUCTION']));
+Config.set('REPO_URL', string(serverConfig['REPO_URL']));
+Config.set('CONTRIBUTORS', serverConfig['CONTRIBUTORS']);
+Config.set('VERSION', string(serverConfig['VERSION']));

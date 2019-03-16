@@ -1,11 +1,5 @@
 export default class Config {
 
-  private static APP_NAME: string;
-  private static PRODUCTION: boolean;
-  private static REPO_URL: string;
-  private static CONTRIBUTORS: {}|[];
-  private static VERSION: string;
-
   public static get(key: string) {
     return this[key];
   }

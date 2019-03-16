@@ -98,26 +98,40 @@ class TemplatesHelper {
             "window.addEventListener('load', function() {
                 document.body.classList.remove('preload')
             });" .
-            "window.CONFIG = {
-                APP_NAME:     '" . APP_NAME . "',
-                PRODUCTION:    " . (int)PRODUCTION . ",
-                REPO_URL:     '" . REPO_URL . "',
-                CONTRIBUTORS: '" . \json_encode(CONTRIBUTORS) . "',
-                VERSION:      '" . VERSION . "',
-            };" .
+            self::copyRightConsoleLog() .
+            "window.__CONF = '" . str_replace("'", '', \json_encode(self::getConf())) . "';" .
             "</script>";
     }
 
     /**
      * @return string
      */
-    static function copyRightComment() {
+    static function copyRightComment()
+    {
         return
             "\n<!--\n\n" .
-            "   This software belongs to:\n" .
-            "   Jasper Lichte\n" .
-            "   jasper@lichte.info" .
+            self::copyRightContent() .
             "\n\n-->\n\n";
+    }
+
+    /**
+     * @return string
+     */
+    static function copyRightConsoleLog()
+    {
+        return "console.info('" . self::copyRightContent() . "');";
+    }
+
+    /**
+     * @return string
+     */
+    static function copyRightContent()
+    {
+        $contributors = [];
+        foreach (CONTRIBUTORS as $contributor) {
+            $contributors[] = $contributor['name'] . ' ('.$contributor['githubUrl'].')';
+        }
+        return 'This software belongs to: ' . implode(', ', $contributors);
     }
 
     /**
@@ -163,6 +177,20 @@ class TemplatesHelper {
             return APP_NAME . ' | ' . $page;
         }
         return APP_NAME;
+    }
+
+    /**
+     * @return array
+     */
+    private static function getConf()
+    {
+        return [
+            'APP_NAME'        => APP_NAME,
+            'PRODUCTION'      => (int)PRODUCTION,
+            'REPO_URL'        => REPO_URL,
+            'VERSION'         => VERSION,
+            'CONTRIBUTORS'    => CONTRIBUTORS,
+        ];
     }
 
 }
