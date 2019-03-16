@@ -52,7 +52,7 @@ export default class CurrentLevelPanel {
 
   public listenForEvents(): CurrentLevelPanel {
     document.getElementById('next-level-btn').addEventListener('click', async () => {
-      render(globals.helpers.renderHelper.getHelper(), await globals.helpers.levelHelper.nextLevel())
+      render(globals.helpers.renderHelper.getHelper(), await globals.helpers.levelHelper.getLevel())
     });
 
     return this;

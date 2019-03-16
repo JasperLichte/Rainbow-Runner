@@ -29,15 +29,15 @@ class LevelHelper
      * @return array
      * @throws \Exception
      */
-    public static function getNextLevel($currentLevelIndex = 0) {
+    public static function getLevel($currentLevelIndex = 0) {
         $currentLevelIndex = (int)$currentLevelIndex;
         $availableLevels = array_map(function($template) {
             return new Level($template);
         }, self::getAvailableLevels());
 
-        $nextLevelIndex = ($currentLevelIndex % count($availableLevels));
-        if (isset($availableLevels[$nextLevelIndex]) && ($availableLevels[$nextLevelIndex] instanceof Level)) {
-            return $availableLevels[$nextLevelIndex]->getTemplate();
+        $levelIndex = ($currentLevelIndex % count($availableLevels));
+        if (isset($availableLevels[$levelIndex]) && ($availableLevels[$levelIndex] instanceof Level)) {
+            return $availableLevels[$levelIndex]->getTemplate();
         }
         return [];
     }

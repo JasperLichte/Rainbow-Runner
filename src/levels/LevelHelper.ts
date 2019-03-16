@@ -10,7 +10,7 @@ export default class LevelHelper {
   private currentLevel;
 
   public constructor() {
-    this.currentLevel = this.nextLevel();
+    this.currentLevel = this.getLevel();
   }
 
   public static getBlockTypeBySymbol(symbol = ''): string {
@@ -50,7 +50,7 @@ export default class LevelHelper {
     return await res.json();
   }
 
-  public async nextLevel() {
+  public async getLevel() {
     const level = await LevelHelper.loadLevel(this.currentLevelIndex);
     this.currentLevel = level;
     this.currentLevelIndex++;
@@ -66,7 +66,7 @@ export default class LevelHelper {
 
   private static async loadLevel(index: number) {
     const res = await fetch(LevelHelper.SERVER_PATH + encodeQueryData({
-      'f': 'getNextLevel',
+      'f': 'getLevel',
       'params': JSON.stringify([index]),
     }));
     return await res.json();  

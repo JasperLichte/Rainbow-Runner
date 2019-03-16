@@ -7,12 +7,12 @@ require_once __DIR__ . './LevelHelper.php';
 $reqFunc = (isset($_GET['f']) & !empty($_GET['f']) ? $_GET['f'] : '');
 
 const FUNCTIONS = [
-    'getNextLevel',
+    'getLevel',
     'getTotalLevels',
 ];
 
 if (!$reqFunc || !in_array($reqFunc, FUNCTIONS)) {
-    echo json_encode(['error' => 'No function provided']);
+    echo json_encode(['error' => 'Invalid function provided']);
     exit();
 }
 $funcParams = [];
@@ -35,12 +35,12 @@ try {
  *
  * prints encoded array
  */
-function getNextLevel($params) {
+function getLevel($params) {
     if (!isset($params[0])) {
         exit();
     }
     try {
-        $level = LevelHelper::getNextLevel($params[0]);
+        $level = LevelHelper::getLevel($params[0]);
         echo json_encode($level);
     } catch(Exception $e) {
         exit();
