@@ -19,3 +19,4 @@ Config.set('ABS_ROOT_DIR', string(serverConfig['ABS_ROOT_DIR']));
 Config.set('REPO_URL', string(serverConfig['REPO_URL']));
 Config.set('CONTRIBUTORS', serverConfig['CONTRIBUTORS']);
 Config.set('VERSION', string(serverConfig['VERSION']));
+Config.set('RENDER_SYMBOLS', serverConfig['RENDER_SYMBOLS']);

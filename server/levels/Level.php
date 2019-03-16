@@ -33,7 +33,7 @@ class Level
             $newRow = [];
             foreach ($row as $cell) {
                 if (!in_array($cell, LevelHelper::OBJECTS)) {
-                    $newRow[] = LevelHelper::OBJECTS['VOID'];
+                    $newRow[] = LevelHelper::OBJECTS['void'];
                 } else {
                     $newRow[] = $cell;
                 }

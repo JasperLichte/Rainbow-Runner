@@ -1,4 +1,3 @@
-import symbols from './symbols.js';
 import exceptions from './../errorhandling/exceptions.js';
 import Position from '../interfaces/Position.js';
 import { encodeQueryData } from '../func/httpFuncs.js';
@@ -16,6 +15,7 @@ export default class LevelHelper {
   }
 
   public static getBlockTypeBySymbol(symbol = ''): string {
+    const symbols = Config.get('RENDER_SYMBOLS');
     for (const key in symbols) {
       if (symbols[key] === symbol) {
         return key;

@@ -13,6 +13,7 @@ import RenderObject from './RenderObject.js';
 export default class RenderObjectFactory {
 
   public static getObject(renderMode: string, blockType: string): RenderObject {
+    blockType = blockType.toLowerCase();
     if (renderMode === '2d') {
       switch(blockType) {
         case 'wall':
