@@ -2,10 +2,10 @@
 
 namespace templates;
 
-use levels\LevelHelper;
+use levels\Levels;
 
 require_once __DIR__ . './../base/base.php';
-require_once __DIR__ . './../levels/LevelHelper.php';
+require_once __DIR__ . './../levels/Levels.php';
 
 class TemplatesHelper {
 
@@ -194,7 +194,7 @@ class TemplatesHelper {
             'VERSION'         => VERSION,
             'CONTRIBUTORS'    => CONTRIBUTORS,
             'ABS_ROOT_DIR'    => ABS_ROOT_DIR,
-            'RENDER_SYMBOLS'  => LevelHelper::OBJECTS,
+            'RENDER_SYMBOLS'  => Levels::OBJECTS,
         ];
     }
 

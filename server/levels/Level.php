@@ -2,7 +2,7 @@
 
 namespace levels;
 
-require_once __DIR__ . './LevelHelper.php';
+require_once __DIR__ . './Levels.php';
 
 class Level
 {
@@ -32,8 +32,8 @@ class Level
         foreach ($template as $row) {
             $newRow = [];
             foreach ($row as $cell) {
-                if (!in_array($cell, LevelHelper::OBJECTS)) {
-                    $newRow[] = LevelHelper::OBJECTS['void'];
+                if (!in_array($cell, Levels::OBJECTS)) {
+                    $newRow[] = Levels::OBJECTS['void'];
                 } else {
                     $newRow[] = $cell;
                 }

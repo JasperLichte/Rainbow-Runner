@@ -7,15 +7,6 @@ require_once __DIR__ . './Levels.php';
 
 class LevelHelper
 {
-    const OBJECTS = [
-        'wall' => '|',
-        'player' => '@',
-        'lava' => '=',
-        'coin' => 'o',
-        'void' => ' ',
-        'spikes' => '^',
-        'diamond' => '&',
-    ];
 
     private static $availableLevels = [
         Levels::LEVEL_1,
