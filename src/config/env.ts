@@ -1,22 +1,26 @@
 import Config from './Config.js';
 
-// @ts-ignore
-const conf = window.__CONF;
-
-let serverConfig = {};
 try {
-  serverConfig = JSON.parse(conf);
+  // @ts-ignore
+  const conf = window.__CONF;
+  const serverConfig = JSON.parse(conf);
+
+  for (const key in serverConfig) {
+    Config.set(key, parseConfData(serverConfig[key]['value'], serverConfig[key]['type']));
+  }
 } catch(e) {}
 
-const int = (inp: any) => parseInt(inp);
-const float = (inp: any) => parseFloat(inp);
-const string = (inp: any) => '' + inp;
-const bool = (inp: any) => !!inp;
-
-Config.set('APP_NAME', string(serverConfig['APP_NAME']));
-Config.set('PRODUCTION', bool(serverConfig['PRODUCTION']));
-Config.set('ABS_ROOT_DIR', string(serverConfig['ABS_ROOT_DIR']));
-Config.set('REPO_URL', string(serverConfig['REPO_URL']));
-Config.set('CONTRIBUTORS', serverConfig['CONTRIBUTORS']);
-Config.set('VERSION', string(serverConfig['VERSION']));
-Config.set('RENDER_SYMBOLS', serverConfig['RENDER_SYMBOLS']);
+function parseConfData(value: any, type: string) {
+  switch (type) {
+    case 'string':
+      return '' + value;
+    case 'int':
+      return parseInt(value);
+    case 'float':
+      return parseFloat(value);
+    case 'bool':
+      return !!value;
+    default:
+      return value;
+  }
+}

@@ -188,13 +188,34 @@ class TemplatesHelper {
     private static function getConf()
     {
         return [
-            'APP_NAME'        => APP_NAME,
-            'PRODUCTION'      => (int)PRODUCTION,
-            'REPO_URL'        => REPO_URL,
-            'VERSION'         => VERSION,
-            'CONTRIBUTORS'    => CONTRIBUTORS,
-            'ABS_ROOT_DIR'    => ABS_ROOT_DIR,
-            'RENDER_SYMBOLS'  => Levels::OBJECTS,
+            'APP_NAME'       => [
+                'type' => 'string',
+                'value' => APP_NAME
+            ],
+            'PRODUCTION'     => [
+                'type' => 'bool',
+                'value' => (int)PRODUCTION
+            ],
+            'REPO_URL'       => [
+                'type' => 'string',
+                'value' => REPO_URL
+            ],
+            'VERSION'        => [
+                'type' => 'string',
+                'value' => VERSION
+            ],
+            'CONTRIBUTORS'   => [
+                'type' => 'any',
+                'value' => CONTRIBUTORS
+            ],
+            'ABS_ROOT_DIR'   => [
+                'type' => 'string',
+                'value' => ABS_ROOT_DIR
+            ],
+            'RENDER_SYMBOLS' => [
+                'type' => 'any',
+                'value' => Levels::OBJECTS
+            ],
         ];
     }
 
