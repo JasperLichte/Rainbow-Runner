@@ -1,4 +1,4 @@
-import Config from '../globals/Config.js';
+import Config from './Config.js';
 
 // @ts-ignore
 const conf = window.__CONF;

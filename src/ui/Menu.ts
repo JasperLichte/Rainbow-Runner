@@ -3,7 +3,7 @@ import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
 import globals from '../globals/globals.js';
 import AnimationLoop from '../render/AnimationLoop.js';
-import Config from '../globals/Config.js';
+import Config from '../config/Config.js';
 
 export default class Menu {
 

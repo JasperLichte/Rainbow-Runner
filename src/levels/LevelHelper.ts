@@ -1,6 +1,6 @@
 import Position from '../interfaces/Position.js';
 import { encodeQueryData } from '../func/httpFuncs.js';
-import Config from '../globals/Config.js';
+import Config from '../config/Config.js';
 
 export default class LevelHelper {
 

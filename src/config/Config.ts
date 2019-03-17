@@ -1,18 +1,20 @@
 export default class Config {
 
+  private static consts = {};
+
   public static get(key: string) {
-    return this[key];
+    return Config.consts[key];
   }
 
   public static set(key: string, value: any) {
     if (!Config.isSet(key)) {
-      this[key] = value;
+      Config.consts[key] = value;
     }
   }
 
   public static isSet(key:string): boolean {
-    if (!(key in this)) { return false; }
-    return !!this[key];
+    if (!(key in Config.consts)) { return false; }
+    return !!Config.consts[key];
   }
 
 }
