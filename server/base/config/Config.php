@@ -66,31 +66,31 @@ class Config
         return [
             'APP_NAME'       => [
                 'type' => 'string',
-                'value' => self::APP_NAME
+                'value' => self::APP_NAME,
             ],
             'PRODUCTION'     => [
                 'type' => 'bool',
-                'value' => (int)self::PRODUCTION
+                'value' => (int)self::PRODUCTION,
             ],
             'REPO_URL'       => [
                 'type' => 'string',
-                'value' => self::REPO_URL
+                'value' => self::REPO_URL,
             ],
             'VERSION'        => [
                 'type' => 'string',
-                'value' => self::VERSION
+                'value' => self::VERSION,
             ],
             'CONTRIBUTORS'   => [
                 'type' => 'any',
-                'value' => self::CONTRIBUTORS
+                'value' => self::CONTRIBUTORS,
             ],
             'ABS_ROOT_DIR'   => [
                 'type' => 'string',
-                'value' => self::ABS_ROOT_DIR()
+                'value' => self::ABS_ROOT_DIR(),
             ],
             'RENDER_SYMBOLS' => [
                 'type' => 'any',
-                'value' => Levels::OBJECTS
+                'value' => Levels::OBJECTS,
             ],
         ];
     }
@@ -104,12 +104,18 @@ class Config
             : self::ABS_ROOT_DIR() . 'build/app.js');
     }
 
+    /**
+     * @return string
+     */
     public static function MAIN_JS_FILE_TYPE() {
         return (self::PRODUCTION
             ? 'text/javascript'
             : 'module');
     }
 
+    /**
+     * @return string
+     */
     public static function MAIN_JS_FILE_IMPORT() {
         return '<script type="' . self::MAIN_JS_FILE_TYPE() . '" src="' . self::MAIN_JS_FILE() . '"></script>';
     }
