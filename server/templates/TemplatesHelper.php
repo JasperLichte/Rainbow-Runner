@@ -2,7 +2,7 @@
 
 namespace templates;
 
-use levels\Levels;
+use base\config\Config;
 
 require_once __DIR__ . './../base/base.php';
 require_once __DIR__ . './../levels/Levels.php';
@@ -65,7 +65,7 @@ class TemplatesHelper {
             if (!is_string($file)) {
                 continue;
             }
-            $file = STYLES_ROOT_DIR . $file;
+            $file = Config::STYLES_ROOT_DIR() . $file;
             $html .= "<link rel=\"stylesheet\" href=\"{$file}\">\n";
         }
         return $html;
@@ -81,14 +81,11 @@ class TemplatesHelper {
             if (!is_string($file)) {
                 continue;
             }
-            $file = SCRIPTS_ROOT_DIR . $file;
+            $file = Config::SCRIPTS_ROOT_DIR() . $file;
             $html .= "<script type=\"text/javascript\" src=\"{$file}\"></script>\n";
         }
 
-        $mainJs = (PRODUCTION ? SCRIPTS_ROOT_DIR . 'bundle.js' : ABS_ROOT_DIR . 'build/app.js');
-        $mainJsType = (PRODUCTION ? 'text/javascript' : 'module');
-        $html .= "<script type=\"{$mainJsType}\" src=\"{$mainJs}\"></script>\n";
-
+        $html .= Config::MAIN_JS_FILE_IMPORT();
         return $html;
     }
 
@@ -102,7 +99,7 @@ class TemplatesHelper {
                 document.body.classList.remove('preload')
             });" .
             self::copyRightConsoleLog() .
-            "window.__CONF = '" . str_replace("'", '', \json_encode(self::getConf())) . "';" .
+            "window.__CONF = '" . str_replace("'", '', \json_encode(Config::getConfArray())) . "';" .
             "</script>";
     }
 
@@ -131,7 +128,7 @@ class TemplatesHelper {
     static function copyRightContent()
     {
         $contributors = [];
-        foreach (CONTRIBUTORS as $contributor) {
+        foreach (Config::CONTRIBUTORS as $contributor) {
             $contributors[] = $contributor['name'] . ' ('.$contributor['githubUrl'].')';
         }
         return 'This software belongs to: ' . implode(', ', $contributors);
@@ -180,43 +177,6 @@ class TemplatesHelper {
             return APP_NAME . ' | ' . $page;
         }
         return APP_NAME;
-    }
-
-    /**
-     * @return array
-     */
-    private static function getConf()
-    {
-        return [
-            'APP_NAME'       => [
-                'type' => 'string',
-                'value' => APP_NAME
-            ],
-            'PRODUCTION'     => [
-                'type' => 'bool',
-                'value' => (int)PRODUCTION
-            ],
-            'REPO_URL'       => [
-                'type' => 'string',
-                'value' => REPO_URL
-            ],
-            'VERSION'        => [
-                'type' => 'string',
-                'value' => VERSION
-            ],
-            'CONTRIBUTORS'   => [
-                'type' => 'any',
-                'value' => CONTRIBUTORS
-            ],
-            'ABS_ROOT_DIR'   => [
-                'type' => 'string',
-                'value' => ABS_ROOT_DIR
-            ],
-            'RENDER_SYMBOLS' => [
-                'type' => 'any',
-                'value' => Levels::OBJECTS
-            ],
-        ];
     }
 
 }
