@@ -24,32 +24,32 @@ if (isset($_GET['params']) && !empty($_GET['params'])) {
 }
 
 try {
-    $reqFunc($funcParams);
+    echo json_encode($reqFunc($funcParams));
 } catch(Exception $exception) {
-    exit();
+    echo json_encode(['error' => 'Internal server error']);
 }
 
 /**
  * @param array $params
  * [currentLevelIndex]
  *
- * prints encoded array
+ * @return array
  */
 function getLevel($params) {
     if (!isset($params[0])) {
-        exit();
+        return [];
     }
     try {
         $level = LevelHelper::getLevel($params[0]);
-        echo json_encode($level);
+        return $level;
     } catch(Exception $e) {
-        exit();
+        return [];
     }
 }
 
 /**
- * prints encoded int
+ * @return int
  */
 function getTotalLevels() {
-    echo json_encode(count(LevelHelper::getAvailableLevels()));
+    return count(LevelHelper::getAvailableLevels());
 }
