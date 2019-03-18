@@ -15,6 +15,7 @@ export default class AnimationLoop {
   private movingElements: Element[];
   private rotatingElements: Element[];
   private currentLevelPanel: CurrentLevelPanel;
+  private static running: boolean = false;
   //private playPauseButton: PlayPauseButton;
 
   public constructor(engineHelper: RenderEngineHelper, level: string[][]) {
@@ -78,15 +79,15 @@ export default class AnimationLoop {
   }
 
   public static isRunning() {
-    return globals.state.isRunning;
+    return AnimationLoop.running
   }
 
   public static stop() {
-    globals.state.isRunning = false;
+    AnimationLoop.running = false;
   }
 
   public static start() {
-    globals.state.isRunning = true;
+    AnimationLoop.running = true;
   }
 
 }
