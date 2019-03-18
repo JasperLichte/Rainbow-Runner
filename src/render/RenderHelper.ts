@@ -1,16 +1,16 @@
-import RenderEnineHelperParent from './renderEngines/RenderEngineHelper.js';
+import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
 import Element from '../interfaces/Element.js';
 import Player from '../logic/objects/Player.js';
 
 export default class RenderHelper {
 
-  private helper: RenderEnineHelperParent;
+  private helper: RenderEngineHelper;
 
-  public setEngineHelper(helper) {
+  public setEngineHelper(helper: RenderEngineHelper) {
     this.helper = helper;
   }
 
-  public getHelper(): RenderEnineHelperParent {
+  public getHelper(): RenderEngineHelper {
     return this.helper;
   }
 
@@ -22,7 +22,7 @@ export default class RenderHelper {
     return this.helper.getMode();
   }
 
-  public static getMovingElements(engineHelper: RenderEnineHelperParent): Element[] {
+  public static getMovingElements(engineHelper: RenderEngineHelper): Element[] {
     const elements: Element[] = [];
 
     elements.push({
@@ -33,7 +33,7 @@ export default class RenderHelper {
     return elements;
   }
 
-  public static getRotatingElements(engineHelper: RenderEnineHelperParent): Element[] {
+  public static getRotatingElements(engineHelper: RenderEngineHelper): Element[] {
     const arr: Element[] = [];
 
     for (const coin of engineHelper.getCoins()) {
