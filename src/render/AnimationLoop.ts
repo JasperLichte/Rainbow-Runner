@@ -4,7 +4,6 @@ import RenderHelper from './RenderHelper.js';
 import globals from '../globals/globals.js';
 import Level from '../logic/Level.js';
 import CurrentLevelPanel from '../ui/CurrentLevelPanel.js';
-import PlayPauseButton from '../ui/PlayPauseButton.js';
 
 export default class AnimationLoop {
 
@@ -16,12 +15,10 @@ export default class AnimationLoop {
   private rotatingElements: Element[];
   private currentLevelPanel: CurrentLevelPanel;
   private static running: boolean = false;
-  //private playPauseButton: PlayPauseButton;
 
   public constructor(engineHelper: RenderEngineHelper, level: string[][]) {
     this.engineHelper = engineHelper;
     this.currentLevelPanel = new CurrentLevelPanel();
-    //this.playPauseButton = new PlayPauseButton();
     this.prepare(level);
     this.movingElements = RenderHelper.getMovingElements(this.engineHelper);
     this.rotatingElements = RenderHelper.getRotatingElements(this.engineHelper);
@@ -42,7 +39,6 @@ export default class AnimationLoop {
 
   public update() {
     this.engineHelper.render();
-    //this.playPauseButton.update();
     if (!AnimationLoop.isRunning()) return;
 
     this.setTimeElapsed();
