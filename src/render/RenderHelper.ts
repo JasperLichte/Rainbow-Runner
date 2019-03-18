@@ -42,6 +42,13 @@ export default class RenderHelper {
         logic: null,
       });
     }
+
+    for (const diamond of engineHelper.getDiamonds()) {
+      arr.push({
+        object: diamond,
+        logic: null,
+      });
+    }
     
     return arr;
   }
