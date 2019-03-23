@@ -6,8 +6,8 @@ export default class ControllableObject extends GravityObject {
 
     protected controls;
 
-    constructor(initialPosition: Position) {
-        super(initialPosition);
+    protected constructor(initialPosition: Position, stepSizes: Position, stepSpeeds: Position) {
+        super(initialPosition, stepSizes, stepSpeeds);
     }
 
     protected listenForControls(): void {

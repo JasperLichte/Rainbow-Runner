@@ -6,7 +6,7 @@ import ControllableObject from './ControllableObject.js';
 export default class Player extends ControllableObject {
 
   public constructor(initialPosition: Position) {
-    super(initialPosition);
+    super(initialPosition, STEP_SIZES['player'], STEP_SPEEDS['player']);
     this.controls = playerControls;
 
     this.listenForControls();
@@ -14,17 +14,20 @@ export default class Player extends ControllableObject {
 
   public jump(): Player {
     this.velocity.y = 0;
-    this.position.y = this.position.y + STEP_SIZES['player']['y'];
+    this.targetY = this.position.y + this.stepSizes.y;
+    this.targetYReached = () => this.position.y >= this.targetY;
     return this;    
   }
 
   public moveForward(): Player {
-    this.position.x = this.position.x + STEP_SIZES['player']['x'];
+    this.targetX = this.position.x + this.stepSizes.x;
+    this.targetYReached = () => this.position.x >= this.targetX;
     return this;
   }
 
   public moveBackward(): Player {
-    this.position.x = this.position.x - STEP_SIZES['player']['x'];
+    this.targetX = this.position.x - this.stepSizes.x;
+    this.targetYReached = () => this.position.x <= this.targetX;
     return this;
   }
 

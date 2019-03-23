@@ -8,20 +8,15 @@ export default class GravityObject extends MoveableObject {
   protected mass: number = 10;
   protected gravity: number;
 
-  constructor(initialPosition :Position) {
-    super(initialPosition);
+  protected constructor(initialPosition: Position, stepSizes: Position, stepSpeeds: Position) {
+    super(initialPosition, stepSizes, stepSpeeds);
     this.gravity = calcGravity(this.mass, GRAVITY_OF_EARTH);
   }
   
   protected calcNewPosition(): Position {
-    return {
-      x: this.position.x + this.velocity.x,
-      y: this.position.y + this.velocity.y,
-      vel: {
-        x: this.velocity.x,
-        y: this.velocity.y - this.gravity,
-      }
-    };
+    let pos = super.calcNewPosition();
+    pos.vel.y -= this.gravity;
+    return pos
   }
 
 }

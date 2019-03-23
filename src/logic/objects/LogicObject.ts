@@ -4,7 +4,7 @@ export default class LogicObject {
 
   protected position: Position;
 
-  constructor(initialPosition: Position) {
+  protected constructor(initialPosition: Position) {
     this.position = initialPosition;
   }
 
