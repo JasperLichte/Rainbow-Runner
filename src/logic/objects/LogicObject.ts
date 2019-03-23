@@ -1,19 +1,15 @@
 import Position from '../../interfaces/Position.js';
-import Level from '../Level.js';
-import globals from '../../globals/globals.js';
 
 export default class LogicObject {
 
-    protected position: Position;
-    protected levelLogic: Level;
+  protected position: Position;
 
-    constructor(initialPosition: Position) {
-        this.position = initialPosition;
-        this.levelLogic = globals.helpers.levelLogic;
-    }
+  constructor(initialPosition: Position) {
+    this.position = initialPosition;
+  }
 
-    public getPosition(): Position {
-        return this.position;
-    }
+  public getPosition(): Position {
+    return this.position;
+  }
 
 }

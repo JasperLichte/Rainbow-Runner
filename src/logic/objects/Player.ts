@@ -14,45 +14,17 @@ export default class Player extends ControllableObject {
 
   public jump(): Player {
     this.velocity.y = 0;
-
-    const targetHeigt = this.position.y + STEP_SIZES['player']['y'];
-    const jumpStep = () => {
-      this.position.y += STEP_SPEEDS['player']['y'];
-
-      if (this.position.y >= targetHeigt) {  
-        return;
-      }
-      requestAnimationFrame(jumpStep);
-    };
-    jumpStep();
+    this.position.y = this.position.y + STEP_SIZES['player']['y'];
     return this;    
   }
 
   public moveForward(): Player {
-    const target = this.position.x + STEP_SIZES['player']['x'];
-    const step = () => {
-      this.position.x += STEP_SPEEDS['player']['x'];
-
-      if (this.position.x >= target) {  
-        return;
-      }
-      requestAnimationFrame(step);
-    };
-    step();
+    this.position.x = this.position.x + STEP_SIZES['player']['x'];
     return this;
   }
 
   public moveBackward(): Player {
-    const target = this.position.x - STEP_SIZES['player']['x'];
-    const step = () => {
-      this.position.x -= STEP_SPEEDS['player']['x'];
-
-      if (this.position.x <= target) {  
-        return;
-      }
-      requestAnimationFrame(step);
-    };
-    step();
+    this.position.x = this.position.x - STEP_SIZES['player']['x'];
     return this;
   }
 
