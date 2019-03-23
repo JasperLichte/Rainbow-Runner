@@ -47,9 +47,9 @@ export default class MoveableObject extends LogicObject {
           this.resetXTarget();
         } else {
           if (x < this.targetX) {
-            x += this.stepSizes.x;
+            x += this.stepSpeeds.x;
           } else if (x > this.targetX) {
-            x -= this.stepSizes.x;
+            x -= this.stepSpeeds.x;
           }
         }
       }
@@ -59,9 +59,9 @@ export default class MoveableObject extends LogicObject {
           this.resetYTarget();
         } else {
           if (y < this.targetY) {
-            y += this.stepSizes.y;
+            y += this.stepSpeeds.y;
           } else if (y > this.targetY) {
-            y -= this.stepSizes.y;
+            y -= this.stepSpeeds.y;
           }
         }
       }
