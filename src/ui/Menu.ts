@@ -1,7 +1,7 @@
 import ThreeHelper from '../render/renderEngines/webgl/ThreeHelper.js';
 import DomHelper from '../render/renderEngines/dom/DomHelper.js';
 import render from '../render/render.js';
-import globals from '../globals/globals.js';
+import Globals from '../Globals.js';
 import AnimationLoop from '../render/AnimationLoop.js';
 import Config from '../config/Config.js';
 
@@ -85,7 +85,7 @@ export default class Menu {
   }
 
   public listenForEvents(): Menu {
-    const levelHelper = globals.helpers.levelHelper;
+    const levelHelper = Globals.levelHelper;
     const playButtons = this.wrapper.querySelectorAll('.play-btn');
     playButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -98,7 +98,7 @@ export default class Menu {
         const renderEngineHelper = (btn.getAttribute('data-mode') === '3d' 
           ? new ThreeHelper(document.getElementById('main')) 
           : new DomHelper(document.getElementById('main')));
-        globals.helpers.renderHelper.setEngineHelper(renderEngineHelper);
+        Globals.renderHelper.setEngineHelper(renderEngineHelper);
         
         render(renderEngineHelper, levelHelper.getCurrentLevel());
         this.hasDoneInitialRender = true;

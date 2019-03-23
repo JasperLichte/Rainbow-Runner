@@ -3,7 +3,7 @@ const THREE = window.THREE;
 import RenderEngineHelper from './../RenderEngineHelper.js';
 import colors from './../../colors.js';
 import LevelHelper from './../../../levels/LevelHelper.js';
-import globals from '../../../globals/globals.js';
+import Globals from '../../../Globals.js';
 import RenderObject from '../RenderObject.js';
 
 export default class ThreeHelper extends RenderEngineHelper {
@@ -26,7 +26,7 @@ export default class ThreeHelper extends RenderEngineHelper {
     this.domElement = this.renderer.domElement;
     domParent.appendChild(this.domElement);
 
-    this.cameraCenter = LevelHelper.getLevelCenter(globals.helpers.levelHelper.getCurrentLevel());
+    this.cameraCenter = LevelHelper.getLevelCenter(Globals.levelHelper.getCurrentLevel());
     this.incrementors = {
       camera: {
         x: this.cameraCenter.x,
