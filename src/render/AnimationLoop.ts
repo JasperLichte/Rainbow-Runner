@@ -2,7 +2,6 @@ import Element from '../interfaces/Element.js';
 import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
 import RenderHelper from './RenderHelper.js';
 import globals from '../globals/globals.js';
-import Level from '../logic/Level.js';
 import CurrentLevelPanel from '../ui/CurrentLevelPanel.js';
 
 export default class AnimationLoop {
@@ -18,21 +17,21 @@ export default class AnimationLoop {
 
   public constructor(engineHelper: RenderEngineHelper, level: string[][]) {
     this.engineHelper = engineHelper;
-    this.currentLevelPanel = new CurrentLevelPanel();
-    this.prepare(level);
-    this.movingElements = RenderHelper.getMovingElements(this.engineHelper);
-    this.rotatingElements = RenderHelper.getRotatingElements(this.engineHelper);
+    this.init(level);
   }
 
-  private prepare(level: string[][]) {
+  private init(level: string[][]) {
     this.engineHelper
       .clearScene()
       .buildLevel(level)
       .listenForCameraMovements()
       .handleResize();
 
-    globals.helpers.levelLogic = new Level(level);
+    this.currentLevelPanel = new CurrentLevelPanel();
     this.currentLevelPanel.listenForEvents();
+
+    this.movingElements = RenderHelper.getMovingElements(this.engineHelper);
+    this.rotatingElements = RenderHelper.getRotatingElements(this.engineHelper);
 
     this.setLastUpdated();
   }
