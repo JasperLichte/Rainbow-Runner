@@ -30,7 +30,7 @@ class Config
         ],
         'TaZn' => [
             'name'      => 'Harun Can',
-            'githubUrl' => 'https://github.com/TaZn',
+            'githubUrl' => 'https://github.com/CanHarun',
         ]
     ];
 

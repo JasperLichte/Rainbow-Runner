@@ -18,4 +18,4 @@ After running `npm i`, fire up `npm run build` to start the compilation.
 ## Contributors
 
 - [Jasper Lichte](https://github.com/JasperLichte)
-- [Harun Can](https://github.com/TaZn)
+- [Harun Can](https://github.com/CanHarun)
