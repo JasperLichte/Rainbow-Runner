@@ -1,7 +1,6 @@
 import Element from '../interfaces/Element.js';
 import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
 import RenderHelper from './RenderHelper.js';
-import globals from '../globals/globals.js';
 import CurrentLevelPanel from '../ui/CurrentLevelPanel.js';
 
 export default class AnimationLoop {
