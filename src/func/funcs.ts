@@ -1,6 +1,8 @@
-export const calcGravity = (m: number, g: number): number => (m / 100000) * g;
+export function calcGravity(m: number, g: number): number {
+  return (m / 100000) * g;
+}
 
-export const preventDefaultEvents = (): void => {
+export function preventDefaultEvents(): void {
   const preventDefault = e => e.preventDefault();
 
   const eventsToPreventDefaultOn = Object.freeze([
@@ -22,7 +24,7 @@ export const preventDefaultEvents = (): void => {
   });
 };
 
-export const parseVar = (value: any, type: string): any => {
+export function parseVar(value: any, type: string): any {
   switch (type) {
     case 'str':
     case 'string':
