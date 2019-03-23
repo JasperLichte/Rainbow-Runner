@@ -4,13 +4,14 @@ import Config from '../config/Config.js';
 
 export default class LevelHelper {
 
-  public static readonly SERVER_PATH
-    = Config.get('ABS_ROOT_DIR') + 'server/levels/xmlLevelRequests.php?';
+  private static readonly SERVER_PATH = Config.get('ABS_ROOT_DIR') + 'server/levels/xmlLevelRequests.php?';
   private currentLevelIndex: number = 0;
   private currentLevel;
 
   public constructor() {
-    this.currentLevel = this.getLevel();
+    (async () => { 
+      this.currentLevel = this.getLevel();
+    })();
   }
 
   public static getBlockTypeBySymbol(symbol = ''): string {
@@ -21,18 +22,6 @@ export default class LevelHelper {
       }
     }
     return '';
-  }
-
-  public static positionIsWall(x, y, level): boolean {
-    if (!(LevelHelper.positionIsInLevelBounds(x, y, level))) {
-      return false;
-    }
-
-    return ((LevelHelper.getBlockTypeBySymbol(level[y][x])) === 'wall');
-  }
-
-  public static positionIsInLevelBounds(x, y, level): boolean {
-    return (y < level.length && x < level[0].length);
   }
 
   public getCurrentLevel() {
