@@ -1,4 +1,4 @@
-import { playerControls } from '../../controls/keyboardControls.js';
+import { playerControls } from '../../config/keyboardControls.js';
 import { STEP_SIZES, STEP_SPEEDS } from '../conf/conf.js';
 import Position from '../../interfaces/Position.js';
 import ControllableObject from './ControllableObject.js';
