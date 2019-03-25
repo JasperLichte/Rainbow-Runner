@@ -170,13 +170,16 @@ class TemplatesHelper {
      * @return string
      */
     static function getTitleByPageName($page = '') {
-        if (!defined('APP_NAME')) {
+        if (!is_string($page) || !strlen($page)) {
+            if (strlen(Config::APP_NAME)) {
+                return Config::APP_NAME;
+            }
+            return '';
+        }
+        if (!strlen(Config::APP_NAME)) {
             return $page;
         }
-        if (!!strlen($page)) {
-            return APP_NAME . ' | ' . $page;
-        }
-        return APP_NAME;
+        return Config::APP_NAME . ' | ' . $page;
     }
 
 }
