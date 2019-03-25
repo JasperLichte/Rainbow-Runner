@@ -28,7 +28,7 @@ class Config
             'name'      => 'Jasper Lichte',
             'githubUrl' => 'https://github.com/JasperLichte',
         ],
-        'TaZn' => [
+        'CanHarun' => [
             'name'      => 'Harun Can',
             'githubUrl' => 'https://github.com/CanHarun',
         ]
