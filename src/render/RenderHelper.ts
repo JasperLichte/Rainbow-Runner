@@ -1,6 +1,7 @@
 import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
 import Element from '../interfaces/Element.js';
 import Player from '../logic/objects/Player.js';
+import Wall from '../logic/objects/Wall.js';
 
 export default class RenderHelper {
 
@@ -50,6 +51,19 @@ export default class RenderHelper {
       });
     }
     
+    return arr;
+  }
+
+  public static getWalls(engineHelper: RenderEngineHelper): Element[] {
+    const arr : Element[] = [];
+
+    for (const wall of engineHelper.getWalls()) {
+      arr.push({
+        object: wall,
+        logic: new Wall(wall.getInitialPosition()),
+      });
+    }
+
     return arr;
   }
 
