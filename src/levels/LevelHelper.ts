@@ -10,7 +10,7 @@ export default class LevelHelper {
 
   public constructor() {
     (async () => { 
-      this.currentLevel = this.getLevel();
+      this.currentLevel = await this.getLevel();
     })();
   }
 
