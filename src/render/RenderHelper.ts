@@ -2,6 +2,7 @@ import RenderEngineHelper from './renderEngines/RenderEngineHelper.js';
 import Element from '../interfaces/Element.js';
 import Player from '../logic/objects/Player.js';
 import Wall from '../logic/objects/Wall.js';
+import Enemy from '../logic/objects/Enemy.js';
 
 export default class RenderHelper {
 
@@ -28,8 +29,13 @@ export default class RenderHelper {
 
     elements.push({
       object: engineHelper.getPlayer(),
-      logic: new Player(engineHelper.getPlayer().getInitialPosition())
+      logic: new Player(engineHelper.getPlayer().getInitialPosition()),
     });
+
+    elements.push({
+      object: engineHelper.getEnemy(),
+      logic: new Enemy(engineHelper.getEnemy().getInitialPosition()),
+    })
 
     return elements;
   }

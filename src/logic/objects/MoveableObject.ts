@@ -45,6 +45,7 @@ export default class MoveableObject extends LogicObject {
       if (this.targetX != null) {
         if (this.targetXReached && this.targetXReached()) {
           this.resetXTarget();
+          this.targetXReachedCallback();
         } else {
           if (x < this.targetX) {
             x += this.stepSpeeds.x;
@@ -57,6 +58,7 @@ export default class MoveableObject extends LogicObject {
       if (this.targetY != null) {
         if (this.targetYReached && this.targetYReached()) {
           this.resetYTarget();
+          this.targetYReachedCallback();
         } else {
           if (y < this.targetY) {
             y += this.stepSpeeds.y;
@@ -76,5 +78,9 @@ export default class MoveableObject extends LogicObject {
     private resetYTarget() {
       this.targetY = this.targetYReached = null;
     }
+
+    protected targetXReachedCallback(): void {}
+
+    protected targetYReachedCallback(): void {}
 
 }

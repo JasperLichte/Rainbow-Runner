@@ -62,13 +62,17 @@ export default class AnimationLoop {
 
   private moveElements(): void {
     for (var i = 0, len = this.movingElements.length; i < len; i++) {
-      this.movingElements[i].object.move(this.movingElements[i].logic.getPosition());
+      if (this.movingElements[i].object && this.movingElements[i].logic) {
+        this.movingElements[i].object.move(this.movingElements[i].logic.getPosition());
+      }
     }
   }
 
   private rotateElements(): void {
     for (var i = 0, len = this.rotatingElements.length; i < len; i++) {
-      this.rotatingElements[i].object.rotate();
+      if (this.rotatingElements[i].object) {
+        this.rotatingElements[i].object.rotate();
+      }
     }
   }
 

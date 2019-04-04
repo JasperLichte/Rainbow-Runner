@@ -8,6 +8,7 @@ export default Object.freeze({
   'objects-player': '#0087ff',
   'objects-spikes': '#ad1818',
   'objects-diamond': '#c300ff',
+  'objects-enemy': '#f00',
   // UI-elements
   'ui-menu-background': '#6f738e',
   'ui-menu-wrapper-background': '#222',

@@ -11,6 +11,7 @@ export default class RenderEngineHelper {
   protected coins:    RenderObject[] = [];
   protected diamonds: RenderObject[] = [];
   protected spikes:   RenderObject[] = [];
+  protected enemy:    RenderObject = null;
   protected domParent: HTMLElement;
   protected domElement: HTMLElement;
 
@@ -74,6 +75,10 @@ export default class RenderEngineHelper {
     return this.spikes;
   }
 
+  public getEnemy(): RenderObject {
+    return this.enemy;
+  }
+
   protected getRenderObject(blockType: string): RenderObject {
     return RenderObjectFactory.getObject(this.mode, blockType);
   }
@@ -94,6 +99,9 @@ export default class RenderEngineHelper {
         break;
       case 'spikes':
         this.spikes.push(renderObject);
+        break;
+      case 'enemy':
+        this.enemy = renderObject;
         break;
     }
   }
