@@ -3,7 +3,7 @@ export default Object.freeze({
   'canvas-background': '#111',
   // Objects
   'objects-coin': '#cccc00',
-  'objects-wall-body': '#222',
+  'objects-wall': '#222',
   'objects-wall-border': '#f00',
   'objects-player': '#0087ff',
   'objects-spikes': '#ad1818',

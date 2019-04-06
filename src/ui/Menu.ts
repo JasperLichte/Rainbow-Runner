@@ -1,5 +1,5 @@
 import ThreeHelper from '../render/renderEngines/webgl/ThreeHelper.js';
-import DomHelper from '../render/renderEngines/dom/DomHelper.js';
+import DomEngineHelper from '../render/renderEngines/dom/DomEngineHelper.js';
 import render from '../render/render.js';
 import Globals from '../Globals.js';
 import AnimationLoop from '../render/AnimationLoop.js';
@@ -97,7 +97,7 @@ export default class Menu {
         
         const renderEngineHelper = (btn.getAttribute('data-mode') === '3d' 
           ? new ThreeHelper(document.getElementById('main')) 
-          : new DomHelper(document.getElementById('main')));
+          : new DomEngineHelper(document.getElementById('main')));
         Globals.renderHelper.setEngineHelper(renderEngineHelper);
         
         render(renderEngineHelper, levelHelper.getCurrentLevel());

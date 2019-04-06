@@ -14,8 +14,16 @@ export default class LevelHelper {
     })();
   }
 
+  public static getSymbols() {
+    return Config.get('RENDER_SYMBOLS');
+  }
+
+  public static getBlockTypes(): string[] {
+    return Object.keys(LevelHelper.getSymbols());
+  }
+
   public static getBlockTypeBySymbol(symbol = ''): string {
-    const symbols = Config.get('RENDER_SYMBOLS');
+    const symbols = LevelHelper.getSymbols();
     for (const key in symbols) {
       if (symbols[key] === symbol) {
         return key;

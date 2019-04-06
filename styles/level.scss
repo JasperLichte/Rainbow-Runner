@@ -1,53 +1,41 @@
 main#main {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .dom-engine-wrapper {
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--canvas-background-color);
-    position: relative;
-    
-    .block {
-        position: absolute;
-        display: block;
-    }
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--canvas-background-color);
+  position: relative;
 
-    .player {
-        background-color: var(--objects-player-color);
-    }
+  .block {
+    position: absolute;
+    display: block;
+  }
 
-    .coin {
-        border: 5px solid var(--objects-coin-color);
-        transform: scale(.6);
-        border-radius: 50%;
-    }
+  .coin {
+    background-color: transparent;
+    border: 5px solid var(--objects-coin-color);
+    transform: scale(.6);
+    border-radius: 50%;
+  }
 
-    .spikes {
-        width: 0; 
-        height: 0; 
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;    
-        border-bottom: 15px solid var(--objects-spikes-color);
-        transform: scale(0.7) translate(-5px, 10px);
-    }
+  .spikes {
+    background-color: transparent;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 15px solid var(--objects-spikes-color);
+    transform: scale(0.7) translate(-5px, 10px);
+  }
 
-    .wall {
-        background-color: var(--objects-wall-body-color);
-        border: 1px solid var(--objects-wall-border-color);
-    }
+  .wall {
+    border: 1px solid var(--objects-wall-border-color);
+  }
 
-    .void {
-        background-color: transparent;
-    }
-
-    .diamond{
-        background-color: var(--objects-diamond-color);
-        transform: scale(0.2, 0.4) translateX(-12px);
-    }
-
-    .enemy {
-        background-color: var(--objects-enemy-color);
-    }
+  .diamond {
+    transform: scale(0.2, 0.4) translateX(-12px);
+  }
 }
