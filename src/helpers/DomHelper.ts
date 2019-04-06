@@ -4,6 +4,10 @@ export default class DomHelper {
     return document.getElementsByTagName('head')[0];
   }
 
+  public static html(): HTMLHtmlElement {
+    return document.getElementsByTagName('html')[0];
+  }
+
   public static element(tag: string): ({}) => (string) => HTMLElement {
     const el = document.createElement(tag);
     return (attribs: {}) => {
@@ -24,5 +28,12 @@ export default class DomHelper {
       target.firstChild
     );
   }
+
+  public static setCSSVar(name: string): (string) => void {
+    return (value: string) => {
+      DomHelper.html().style.setProperty(name, value);
+    }
+  }
+
 
 }
