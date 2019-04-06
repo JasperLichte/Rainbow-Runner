@@ -8,8 +8,8 @@ export default class MoveableObject extends LogicObject {
     protected stepSpeeds: Position;
     private targetX: number|null = null;
     private targetY: number|null = null;
-    private targetXReached: () => boolean|null = null;
-    private targetYReached: () => boolean|null = null;
+    private targetXReached: () => boolean = null;
+    private targetYReached: () => boolean = null;
 
     protected constructor(initialPosition: Position, stepSizes: Position, stepSpeeds: Position) {
         super(initialPosition);
