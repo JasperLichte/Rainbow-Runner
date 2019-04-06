@@ -14,20 +14,17 @@ export default class Player extends ControllableObject {
 
   public jump(): Player {
     this.velocity.y = 0;
-    this.targetY = this.position.y + this.stepSizes.y;
-    this.targetYReached = () => this.position.y >= this.targetY;
+    this.setTargetY(this.position.y + this.stepSizes.y);
     return this;    
   }
 
   public moveForward(): Player {
-    this.targetX = this.position.x + this.stepSizes.x;
-    this.targetYReached = () => this.position.x >= this.targetX;
+    this.setTargetX(this.position.x + this.stepSizes.x);
     return this;
   }
 
   public moveBackward(): Player {
-    this.targetX = this.position.x - this.stepSizes.x;
-    this.targetYReached = () => this.position.x <= this.targetX;
+    this.setTargetX(this.position.x - this.stepSizes.x);
     return this;
   }
 

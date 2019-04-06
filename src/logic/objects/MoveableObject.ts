@@ -6,10 +6,10 @@ export default class MoveableObject extends LogicObject {
     protected velocity = {x: 0, y: 0};
     protected stepSizes: Position;
     protected stepSpeeds: Position;
-    protected targetX: number|null = null;
-    protected targetY: number|null = null;
-    protected targetXReached: () => boolean|null = null;
-    protected targetYReached: () => boolean|null = null;
+    private targetX: number|null = null;
+    private targetY: number|null = null;
+    private targetXReached: () => boolean|null = null;
+    private targetYReached: () => boolean|null = null;
 
     protected constructor(initialPosition: Position, stepSizes: Position, stepSpeeds: Position) {
         super(initialPosition);
@@ -39,6 +39,24 @@ export default class MoveableObject extends LogicObject {
           y: this.velocity.y,
         }
       };
+    }
+
+    protected setTargetX(target: number) {
+      this.targetX = target;
+      if (this.position.x > this.targetX) {
+        this.targetXReached = () => this.position.x <= this.targetX;
+      } else if (this.position.x < this.targetX) {
+        this.targetXReached = () => this.position.x >= this.targetX;
+      }
+    }
+
+    protected setTargetY(target: number) {
+      this.targetY = target;
+      if (this.position.y > this.targetY) {
+        this.targetYReached = () => this.position.y <= this.targetY;
+      } else if (this.position.y < this.targetY) {
+        this.targetYReached = () => this.position.y >= this.targetY;
+      }
     }
 
     private moveToTargets(x: number, y: number): [number, number] {
