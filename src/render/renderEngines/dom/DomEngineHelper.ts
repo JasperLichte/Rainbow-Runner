@@ -17,9 +17,7 @@ export default class DomEngineHelper extends RenderEngineHelper {
   }
 
   private buildDomElement(): HTMLElement {
-    const el = document.createElement('div');
-    el.setAttribute('class', 'dom-engine-wrapper');
-    return el;
+    return DomHelper.element('div')({'class': 'dom-engine-wrapper'})('');
   }
 
   public clearScene(): DomEngineHelper {

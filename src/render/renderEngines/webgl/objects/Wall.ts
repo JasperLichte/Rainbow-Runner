@@ -7,7 +7,7 @@ import colors from '../../../colors.js';
 export default class Wall extends Cube {
 
   constructor() {
-    super(colors['objects-wall-body']);
+    super(colors['objects-wall']);
 
     const wireframe = new THREE.LineSegments(
       new THREE.EdgesGeometry(this.object.geometry), 
