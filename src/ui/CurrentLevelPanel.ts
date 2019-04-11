@@ -36,6 +36,7 @@ export default class CurrentLevelPanel {
     switch(type) {
       default:
         return `
+        <progress id="health" value="100" max="100"></progress>
           <div id="fpsCounter">
             <span></span>
           </div>
@@ -71,6 +72,8 @@ export default class CurrentLevelPanel {
       className = 'high';
     }
     this.fpsCounterElement.setAttribute('class', className);
+
+    let health = document.getElementById("health")
   }
 
 }
