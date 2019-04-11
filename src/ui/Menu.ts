@@ -76,7 +76,7 @@ export default class Menu {
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
               <button class="play-btn" data-mode="2d">Play in 2d!</button>
-              <button class="stats-btn" data-mode="stats">Stats</button>
+              <button class="stats-btn">Stats</button>
               <a href="${Config.get('REPO_URL')}">Contribute</a>
           </div>
           <p>By ${contributorsHtml.join(', ')}</p>
@@ -87,6 +87,8 @@ export default class Menu {
 
   public listenForEvents(): Menu {
     const levelHelper = Globals.levelHelper;
+
+    // PLAY BUTTONS
     const playButtons = this.wrapper.querySelectorAll('.play-btn');
     playButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -113,6 +115,10 @@ export default class Menu {
         });
       });
     });
+
+    // STATS BUTTON
+    const statButton = this.wrapper.querySelector('.stats-btn');
+    statButton.addEventListener('click', () => {});
 
     // KEY DOWN
     window.addEventListener('keydown', e => {
