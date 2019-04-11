@@ -76,6 +76,7 @@ export default class Menu {
           <div class="buttons">
               <button class="play-btn" data-mode="3d">Play in 3d!</button>
               <button class="play-btn" data-mode="2d">Play in 2d!</button>
+              <button class="stats-btn" data-mode="stats">Stats</button>
               <a href="${Config.get('REPO_URL')}">Contribute</a>
           </div>
           <p>By ${contributorsHtml.join(', ')}</p>
