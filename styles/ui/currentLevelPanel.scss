@@ -51,15 +51,4 @@
       color: var(--ui-fpsCounter-high-color);
     }
   }
-
-  progress {
-    position: absolute;
-    top: 0;
-    margin-right: 100rem;
-    padding-top: 5rem;
-    background-color: transparent;
-    border-bottom: none;
-    border: .1px solid transparent;
-  
-  }
 }
